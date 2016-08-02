@@ -74,7 +74,7 @@
 					$message = "Your password reset link send to your e-mail address.";
 					$to=$email;
 					$subject="Forget Password";
-					$from = 'test@gmail.com';
+					$from = 'sinha.ashish19@gmail.com';
 					$body='Hi, <br/> <br/>Your Membership ID is '.$Results['registration id'].' <br><br>Click here to reset your password http://localhost.reset.php?encrypt='.$encrypt.'&action=reset   <br/> <br/>--<br><br>Solve your problems.';
 					$headers = "From: " . strip_tags($from) . "\r\n";
 					$headers .= "Reply-To: ". strip_tags($from) . "\r\n";
