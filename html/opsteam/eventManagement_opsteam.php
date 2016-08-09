@@ -5,7 +5,7 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="../../css/patron/events_patron.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/opsteam/eventManagement_opsteam.css" />
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
@@ -20,10 +20,10 @@
     <ul id="nav-mobile" class="side-nav fixed sideNav">
         <br>
         <br>
-        <li class="bold"><a href="about.html" class="waves-effect waves-teal">Profile</a></li>
-        <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">Issues</a></li>
-        <li class="bold"><a href="http://materializecss.com/mobile.html" class="waves-effect waves-teal">Groups</a></li>
-        <li class="bold"><a href="showcase.html" class="waves-effect waves-teal">Events</a></li>
+        <li class="bold"><a href="profile_opsteam.php" class="waves-effect waves-teal">Profile</a></li>
+        <li class="bold"><a href="issueManagement_opsteam.php" class="waves-effect waves-teal">Issues</a></li>
+        <li class="bold"><a href="groupManagement_opsteam.php" class="waves-effect waves-teal">Groups</a></li>
+        <li class="bold"><a href="eventManagement_opsteam.php" class="waves-effect waves-teal">Events</a></li>
     </ul>
 
 
@@ -33,8 +33,8 @@
 
             <div class="nav-wrapper">
                 <div class="col s12">
-                    <a href="#!" class="breadcrumb">Patron</a>
-                    <a href="#!" class="breadcrumb">My Events</a>
+                    <a href="#!" class="breadcrumb">Ops Team</a>
+                    <a href="#!" class="breadcrumb">Event Management</a>
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="sass.html">Home</a></li>
@@ -59,24 +59,34 @@
                             <th data-field="id">Name</th>
                             <th data-field="name">Status</th>
                             <th data-field="price">Date</th>
+                            <th data-field="action"></th>
                         </tr>
                     </thead>
 
-                    <tbody id="tableBody">
+                    <tbody>
                         <tr>
-                            <td>Event 1</td>
+                            <td>Alvin</td>
                             <td>Setup</td>
                             <td>MM/DD/YY</td>
+                            <td>
+                                <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Evet 2</td>
+                            <td>Alan</td>
                             <td>Setup</td>
                             <td>MM/DD/YY</td>
+                            <td>
+                                <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Event 3</td>
+                            <td>Jonathan</td>
                             <td>Closed</td>
                             <td>MM/DD/YY-MM/DD/YY</td>
+                            <td>
+                                <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

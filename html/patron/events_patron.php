@@ -5,8 +5,7 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="../../css/register.css" />
-    <link type="text/css" rel="stylesheet" href="../../css/patron/groups_patron.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/patron/events_patron.css" />
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
@@ -21,10 +20,10 @@
     <ul id="nav-mobile" class="side-nav fixed sideNav">
         <br>
         <br>
-        <li class="bold"><a href="about.html" class="waves-effect waves-teal">Profile</a></li>
-        <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">Issues</a></li>
-        <li class="bold"><a href="http://materializecss.com/mobile.html" class="waves-effect waves-teal">Groups</a></li>
-        <li class="bold"><a href="showcase.html" class="waves-effect waves-teal">Events</a></li>
+        <li class="bold"><a href="profile_patron.php" class="waves-effect waves-teal">Profile</a></li>
+        <li class="bold"><a href="issues_patron.php" class="waves-effect waves-teal">Issues</a></li>
+        <li class="bold"><a href="groups_patron.php" class="waves-effect waves-teal">Groups</a></li>
+        <li class="bold"><a href="events_patron.php" class="waves-effect waves-teal">Events</a></li>
     </ul>
 
 
@@ -35,14 +34,20 @@
             <div class="nav-wrapper">
                 <div class="col s12">
                     <a href="#!" class="breadcrumb">Patron</a>
-                    <a href="#!" class="breadcrumb">My Groups</a>
+                    <a href="#!" class="breadcrumb">My Events</a>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="sass.html">Home</a></li>
+                        <li><a class="waves-effect waves-light btn">Logout</a></li>
+                    </ul>
                 </div>
             </div>
+
 
         </nav>
 
         <div id="page_title">
-            <h4>Groups</h4>
+            <h4>Events</h4>
         </div>
 
         <div class="formContainer card">
@@ -51,27 +56,27 @@
                 <table class="highlight responsive-table">
                     <thead>
                         <tr>
-                            <th data-field="id">Group Name</th>
-                            <th data-field="name">Last Issue</th>
-                            <th data-field="price">Last Event</th>
+                            <th data-field="id">Name</th>
+                            <th data-field="name">Status</th>
+                            <th data-field="price">Date</th>
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody id="tableBody">
                         <tr>
-                            <td>Group 1</td>
-                            <td>Issue 17</td>
-                            <td>Event 23</td>
+                            <td>Event 1</td>
+                            <td>Setup</td>
+                            <td>MM/DD/YY</td>
                         </tr>
                         <tr>
-                            <td>Group 2</td>
-                            <td>Issue 8</td>
-                            <td>Event 12</td>
+                            <td>Evet 2</td>
+                            <td>Setup</td>
+                            <td>MM/DD/YY</td>
                         </tr>
                         <tr>
-                            <td>Group 3</td>
-                            <td>Issue 21</td>
-                            <td>Event 41</td>
+                            <td>Event 3</td>
+                            <td>Closed</td>
+                            <td>MM/DD/YY-MM/DD/YY</td>
                         </tr>
                     </tbody>
                 </table>

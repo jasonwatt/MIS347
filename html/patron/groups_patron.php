@@ -6,7 +6,7 @@
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="../../css/register.css" />
-    <link type="text/css" rel="stylesheet" href="../../css/opsteam/groupManagement_opsteam.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/patron/groups_patron.css" />
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
@@ -21,10 +21,10 @@
     <ul id="nav-mobile" class="side-nav fixed sideNav">
         <br>
         <br>
-        <li class="bold"><a href="about.html" class="waves-effect waves-teal">Profile</a></li>
-        <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">Issues</a></li>
-        <li class="bold"><a href="http://materializecss.com/mobile.html" class="waves-effect waves-teal">Groups</a></li>
-        <li class="bold"><a href="showcase.html" class="waves-effect waves-teal">Events</a></li>
+        <li class="bold"><a href="profile_patron.php" class="waves-effect waves-teal">Profile</a></li>
+        <li class="bold"><a href="issues_patron.php" class="waves-effect waves-teal">Issues</a></li>
+        <li class="bold"><a href="groups_patron.php" class="waves-effect waves-teal">Groups</a></li>
+        <li class="bold"><a href="events_patron.php" class="waves-effect waves-teal">Events</a></li>
     </ul>
 
 
@@ -34,8 +34,8 @@
 
             <div class="nav-wrapper">
                 <div class="col s12">
-                    <a href="#!" class="breadcrumb">Ops Team</a>
-                    <a href="#!" class="breadcrumb">Group Management</a>
+                    <a href="#!" class="breadcrumb">Patron</a>
+                    <a href="#!" class="breadcrumb">My Groups</a>
                 </div>
             </div>
 
@@ -54,7 +54,6 @@
                             <th data-field="id">Group Name</th>
                             <th data-field="name">Last Issue</th>
                             <th data-field="price">Last Event</th>
-                            <th data-field="action"></th>
                         </tr>
                     </thead>
 
@@ -63,25 +62,16 @@
                             <td>Group 1</td>
                             <td>Issue 17</td>
                             <td>Event 23</td>
-                            <td>
-                                <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
-                            </td>
                         </tr>
                         <tr>
                             <td>Group 2</td>
                             <td>Issue 8</td>
                             <td>Event 12</td>
-                            <td>
-                                <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
-                            </td>
                         </tr>
                         <tr>
                             <td>Group 3</td>
                             <td>Issue 21</td>
                             <td>Event 41</td>
-                            <td>
-                                <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
-                            </td>
                         </tr>
                     </tbody>
                 </table>
