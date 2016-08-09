@@ -21,10 +21,10 @@
     <ul id="nav-mobile" class="side-nav fixed sideNav">
         <br>
         <br>
-        <li class="bold"><a href="about.html" class="waves-effect waves-teal">Profile</a></li>
-        <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">Issues</a></li>
-        <li class="bold"><a href="http://materializecss.com/mobile.html" class="waves-effect waves-teal">Groups</a></li>
-        <li class="bold"><a href="showcase.html" class="waves-effect waves-teal">Events</a></li>
+        <li class="bold"><a href="profile_admin.php" class="waves-effect waves-teal">Profile</a></li>
+        <li class="bold"><a href="issueManagement_admin.php" class="waves-effect waves-teal">Issues</a></li>
+        <li class="bold"><a href="groupManagement_admin.php" class="waves-effect waves-teal">Groups</a></li>
+        <li class="bold"><a href="eventManagement_admin.php" class="waves-effect waves-teal">Events</a></li>
     </ul>
 
 
@@ -41,7 +41,7 @@
                         <li><a href="sass.html">Home</a></li>
                         <li><a class="waves-effect waves-light btn">Logout</a></li>
                     </ul>
-            
+
                 </div>
             </div>
 
@@ -69,7 +69,45 @@
                     </thead>
 
                     <tbody>
-                        <tr>
+                        <?php
+
+                        $conn = new mysqli('localhost','ske','ske','skecomplaints');
+                        if(! $conn)
+                        {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+
+
+                            $sql = "SELECT * FROM groups";
+                            $result = $conn->query($sql);
+
+                            // output data of each row
+                            while($row = $result->fetch_assoc()){
+                                //Creates a loop to loop through results
+                                $Group_ID = $row["Group_ID"];
+                                $Group_Name = $row["Group_Name"];
+                                $Event_ID = $row["Event_ID"];
+                                $User_ID = $row["User_ID"];
+
+                                echo '
+                                <tr id="'.$Group_ID.'">
+                                    <form action = "../../php/del.php" method = "post">
+                                        <input type = "hidden" value = "'.$Group_ID.'" />
+                                    </form>
+                                    <td>'.$Group_Name.'</td>
+                                    <td>'.$Event_ID.'</td>
+                                    <td>'.$User_ID.'</td>
+                                    <td>
+                                        <button class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" type = "submit"><i class="material-icons">delete</i></button>
+                                        <a class="btn-floating btn-small waves-effect waves-light red btn_edit"><i class="material-icons">mode_edit</i></a>
+                                    </td>
+                                </tr>
+                                '; // echo end
+
+                            }
+
+                        ?>
+                        <!-- <tr>
                             <td>Group 1</td>
                             <td>Issue 17</td>
                             <td>Event 23</td>
@@ -95,7 +133,7 @@
                                 <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">delete</i></a>
                                 <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
 

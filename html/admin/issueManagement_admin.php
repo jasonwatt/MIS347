@@ -5,7 +5,8 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="../../css/admin/eventManagement_admin.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/register.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/patron_home.css" />
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
@@ -34,7 +35,7 @@
             <div class="nav-wrapper">
                 <div class="col s12">
                     <a href="#!" class="breadcrumb">Admin</a>
-                    <a href="#!" class="breadcrumb">Event Management</a>
+                    <a href="#!" class="breadcrumb">Issue Management</a>
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="sass.html">Home</a></li>
@@ -43,12 +44,7 @@
                 </div>
             </div>
 
-
         </nav>
-
-        <div id="page_title">
-            <h4>Events</h4>
-        </div>
 
         <div id="fab_add">
             <a class="btn-floating btn-large waves-effect waves-light red right" id="fab_add"><i class="material-icons">add</i></a>
@@ -60,41 +56,87 @@
                 <table class="highlight responsive-table">
                     <thead>
                         <tr>
-                            <th data-field="id">Name</th>
-                            <th data-field="name">Status</th>
-                            <th data-field="price">Date</th>
+                            <th data-field="id">Issue Name</th>
+                            <th data-field="name">Last Updated Timestamp</th>
+                            <th data-field="price">Status</th>
                             <th data-field="action"></th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>Alvin</td>
-                            <td>Setup</td>
-                            <td>MM/DD/YY</td>
+                        <?php
+
+                        $conn = new mysqli('localhost','ske','ske','skecomplaints');
+                        if(! $conn)
+                        {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+
+
+                            $sql = "SELECT * FROM issues";
+                            $result = $conn->query($sql);
+
+                            // output data of each row
+                            while($row = $result->fetch_assoc()){
+                                //Creates a loop to loop through results
+                                $Issue_ID = $row["Issue_ID"];
+                                $Last_Update_Timestamp = $row["Last_Update_Timestamp"];
+                                $Status = $row["Status"];
+                                $Summary = $row["Summary"];
+                                $Created_Timestamp = $row["Created_Timestamp"];
+                                $First_Response_Timestamp = $row["First_Response_Timestamp"];
+                                $Completed_Timestamp = $row["Completed_Timestamp"];
+                                $Assign_User = $row["Assign_User"];
+                                $Description = $row["Description"];
+                                $Location = $row["Location"];
+                                $Label = $row["Label"];
+                                $Comment_ID = $row["Comment_ID"];
+
+                                echo '
+                                <tr id="'.$Issue_ID.'">
+                                    <form action = "../../php/del.php" method = "post">
+                                        <input type = "hidden" value = "'.$Issue_ID.'" />
+                                    </form>
+                                    <td>'.$Issue_ID.'</td>
+                                    <td>'.$Last_Update_Timestamp.'</td>
+                                    <td>'.$Status.'</td>
+                                    <td>
+                                        <button class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" type = "submit"><i class="material-icons">delete</i></button>
+                                        <a class="btn-floating btn-small waves-effect waves-light red btn_edit"><i class="material-icons">mode_edit</i></a>
+                                    </td>
+                                </tr>
+                                '; // echo end
+
+                            }
+
+                        ?>
+                        <!-- <tr>
+                            <td>Issue 1</td>
+                            <td>[timestamp]</td>
+                            <td>Status 1</td>
                             <td>
                                 <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">delete</i></a>
                                 <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
                             </td>
                         </tr>
                         <tr>
-                            <td>Alan</td>
-                            <td>Setup</td>
-                            <td>MM/DD/YY</td>
+                            <td>Issue 2</td>
+                            <td>[timestamp]</td>
+                            <td>Status 2</td>
                             <td>
                                 <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">delete</i></a>
                                 <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
                             </td>
                         </tr>
                         <tr>
-                            <td>Jonathan</td>
-                            <td>Closed</td>
-                            <td>MM/DD/YY-MM/DD/YY</td>
+                            <td>Issue 3</td>
+                            <td>[timestamp]</td>
+                            <td>Status 3</td>
                             <td>
                                 <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">delete</i></a>
                                 <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
 
