@@ -77,7 +77,7 @@
                         }
 
 
-                            $sql = "SELECT * FROM groups";
+                            $sql = "SELECT * FROM user";
                             $result = $conn->query($sql);
 
                             // output data of each row

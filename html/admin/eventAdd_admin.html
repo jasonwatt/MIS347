@@ -75,11 +75,11 @@
         </div>
 
         <div class="formContainer card">
-            <form class="col s12 l12 m6" name="eventAdd" action="" onsubmit="return validateForm()" method="post">
+            <form class="col s12 l12 m6" name="eventAdd" action="../../php/eventAdd.php" onsubmit="return validateForm()" method="post">
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="name" type="text" class="validate">
+                        <input id="name" type="text" class="validate" name="Event_Name">
                         <label for="name">Name</label>
                     </div>
                 </div>
@@ -87,29 +87,29 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">today</i>
-                        <input id="start_date" placeholder="Pick a date" type="date" class="datepicker">
+                        <input id="start_date" placeholder="Pick a date" type="date" class="datepicker" name="Start_Date">
                         <label for="start_date">Start Date</label>
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">today</i>
-                        <input id="end_date" placeholder="Pick a date" type="date" class="datepicker">
+                        <input id="end_date" placeholder="Pick a date" type="date" class="datepicker" name="End_Date">
                         <label for="end_date">End Date</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="street" type="text" class="validate">
+                        <input id="street" type="text" class="validate" name="Street">
                         <label for="street">Street</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s4">
-                        <input id="city" type="text" class="validate">
+                        <input id="city" type="text" class="validate" name="City">
                         <label for="city">City</label>
                     </div>
-                    <div class="input-field col s4">
+                    <div class="input-field col s4" name="State">
                         <select id="state">
                             <option value="" disabled selected>State</option>
                             <option value="AL">Alabama</option>
@@ -173,7 +173,7 @@
                         <label>State</label>
                     </div>
                     <div class="input-field col s4">
-                        <input id="zip" type="text" class="validate">
+                        <input id="zip" type="text" class="validate" name="Zip">
                         <label for="zip">Zip</label>
                     </div>
 
@@ -182,13 +182,13 @@
 
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="users" type="text" class="validate">
+                        <input id="users" type="text" class="validate" name="User">
                         <label for="users">Users</label>
                     </div>
 
 
                     <div class="input-field col s6">
-                        <input id="groups" type="text" class="validate">
+                        <input id="groups" type="text" class="validate" name="Group">
                         <label for="groups">Groups</label>
                     </div>
                     <ul class="collection col s6">

@@ -1,7 +1,4 @@
-<html>
-<body>
 <?php
-$id=$_REQUEST["User_ID"];
 define('DB_NAME', 'skecomplaints');
 define('DB_USER', '');
 define('DB_PASSWORD', '');
@@ -21,18 +18,16 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
 		die('Cannot use ' . DB_NAME . ': ' . mysql_error());
 	}
 
-
-	$sql = 'SELECT User_ID, Username, Email FROM user';
+  $Group_Name = test_input($_POST['Group_Name'])
+	$sql = 'SELECT Group_ID FROM groups WHERE Group_Name=$Group_Name';
 	$retval = mysql_query( $sql, $conn );
 
    if(! $retval ) {
       die('Could not get data: ' . mysql_error());
    }
-   $row = mysql_fetch_array($retval, MYSQL_NUM);
-   $val = $row[0];
 
 
-	$sql2 =  "DELETE FROM user WHERE User_ID=$id";
+	$sql2 =  "DELETE FROM groups WHERE Group_ID=$retval";
 	$retval2 = mysql_query($sql2, $conn);
 	echo "DELETED <br>";
 	echo "{$row[0]}";
@@ -41,5 +36,3 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
 	mysql_close($conn);
 
 ?>
-</body>
-</html>

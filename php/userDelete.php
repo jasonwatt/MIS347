@@ -1,7 +1,4 @@
-<html>
-<body>
 <?php
-$id=$_REQUEST["User_ID"];
 define('DB_NAME', 'skecomplaints');
 define('DB_USER', '');
 define('DB_PASSWORD', '');
@@ -21,25 +18,20 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
 		die('Cannot use ' . DB_NAME . ': ' . mysql_error());
 	}
 
-
-	$sql = 'SELECT User_ID, Username, Email FROM user';
+  $User_Name = test_input($_POST['User_Name'])
+	$sql = 'SELECT User_ID FROM users WHERE User_Name=$User_Name';
 	$retval = mysql_query( $sql, $conn );
 
    if(! $retval ) {
       die('Could not get data: ' . mysql_error());
    }
-   $row = mysql_fetch_array($retval, MYSQL_NUM);
-   $val = $row[0];
 
 
-	$sql2 =  "DELETE FROM user WHERE User_ID=$id";
+	$sql2 =  "DELETE FROM users WHERE User_ID=$retval";
 	$retval2 = mysql_query($sql2, $conn);
 	echo "DELETED <br>";
-	echo "{$row[0]}";
 	 mysql_free_result($retval);
 
 	mysql_close($conn);
 
 ?>
-</body>
-</html>

@@ -56,12 +56,12 @@
         </div>
 
         <div class="formContainer card">
-            <form class="col s12 l12 m6">
+            <form class="col s12 l12 m6" action="../../php/groupDelete.php" method="post">
 
                 <table class="highlight responsive-table">
                     <thead>
                         <tr>
-                            <th data-field="id">Group Name</th>
+                            <th data-field="id" name="Group_Name">Group Name</th>
                             <th data-field="name">Last Issue</th>
                             <th data-field="price">Last Event</th>
                             <th data-field="action"></th>
