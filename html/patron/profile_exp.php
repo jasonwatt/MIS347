@@ -1,3 +1,37 @@
+<?php
+define('DB_USER', '');
+define('DB_PASSWORD', '');
+define('DB_HOST', '');
+    $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,'skecomplaints'); // $config['username'], $config['password'],
+   
+        session_start(); 
+  
+
+
+    // Check connection
+       if ($conn->connect_error) {
+           die("Connection failed: " . $conn->connect_error);
+       } 
+    try {
+		
+    $User_ID= $_SESSION["sessionUserID"]; 
+    } catch (Exception $e) {
+      header('Location: ../html/Login.html');
+    }
+
+    $sql = "SELECT User_ID, Username, Profile_Pic, Email, User_Type FROM user WHERE User_ID= ".$User_ID." ";
+    $result = $conn->query($sql);
+    while($row = $result->fetch_assoc()) {            
+    $User_ID= $row["User_ID"];
+    $Username= $row["Username"];
+    $User_Type= $row["User_Type"];
+    $Email= $row["Email"];
+	$Profile_Pic = $row["Profile_Pic"];
+    break;
+	
+  }
+  ?>
+
 <html>
 
 <head>
@@ -53,13 +87,12 @@
             <form class="col s12 l12 m6">
 
                 <div class="card-header">
-                    <img src="../../media/profile_pic.png" />
+                    <img src="data:image/jpeg;base64,<?php echo base64_encode( $Profile_Pic ); ?>" />
                 </div>
                 <div class="card-content">
-                    <h5>User Name</h5>
+                    <h5><?php echo "$Username"; ?></h5>
                     <br />
-                    <h6>User Email</h6>
-                    <h7>Active Status</h7>
+                    <h6><?php echo "$Email"; ?></h6>
                 </div>
 
                 <a class="btn-floating btn-large waves-effect waves-light red right" id="pp_fab"><i class="material-icons">mode_edit</i></a>
