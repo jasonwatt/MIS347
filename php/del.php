@@ -1,44 +1,29 @@
 <html>
 <body>
 <?php
-$id=$_REQUEST["User_ID"];
 define('DB_NAME', 'skecomplaints');
-define('DB_USER', '');
-define('DB_PASSWORD', '');
-define('DB_HOST', '');
+define('DB_USER', 'ske');
+define('DB_PASSWORD', 'ske');
+define('DB_HOST', 'localhost');
 
-$conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
-if(! $conn)
-{
-	die('Could not connect');
-}
+$conn = new mysqli('localhost','ske','ske','skecomplaints'); // $config['username'], $config['password'],
 
-$db_selected = mysql_select_db(DB_NAME, $conn);
+      // Check connection
+      if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+      }
 
+	$issueID = ($_POST['userid']);
 
-	if(! $db_selected)
-	{
-		die('Cannot use ' . DB_NAME . ': ' . mysql_error());
-	}
+      $sql = "DELETE FROM user WHERE User_ID = '".$issueID."' ";  //1 for admin, 2 for ops, 3 for patron
 
+      if($conn->query($sql)){
+         echo "deleted";
+      }
+      else
+        echo " Error: ";
 
-	$sql = 'SELECT User_ID, Username, Email FROM user';
-	$retval = mysql_query( $sql, $conn );
-
-   if(! $retval ) {
-      die('Could not get data: ' . mysql_error());
-   }
-   $row = mysql_fetch_array($retval, MYSQL_NUM);
-   $val = $row[0];
-
-
-	$sql2 =  "DELETE FROM user WHERE User_ID=$id";
-	$retval2 = mysql_query($sql2, $conn);
-	echo "DELETED <br>";
-	echo "{$row[0]}";
-	 mysql_free_result($retval);
-
-	mysql_close($conn);
+      $conn->close();
 
 ?>
 </body>

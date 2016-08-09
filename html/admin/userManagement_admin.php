@@ -96,14 +96,14 @@
 
                                 echo '
                                 <tr id="'.$User_ID.'">
-                                    <form action = "../../php/del.php" method = "post">
-                                        <input type = "hidden" value = "'.$User_ID.'" />
+                                    <form  id="deluser" action = "../../php/del.php" method = "post">
+                                        <input name="userid" type = "hidden" value = "'.$User_ID.'" />
                                     </form>
                                     <td>'.$User_Name.'</td>
                                     <td>'.$Last_Active.'</td>
                                     <td>'.$Group_ID.'</td>
                                     <td>
-                                        <button class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" type = "submit"><i class="material-icons">delete</i></button>
+                                        <a class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" href="#deleteIssuerModal"><i class="material-icons">delete</i></a>
                                         <a class="btn-floating btn-small waves-effect waves-light red btn_edit"><i class="material-icons">mode_edit</i></a>
                                     </td>
                                 </tr>
@@ -147,9 +147,27 @@
 
         <!-- DELETE TILL HERE -->
     </div>
+
+    <div id="deleteIssuerModal" class="modal deleteModal">
+       <div class="modal-content">
+         <h4>Delete User</h4>
+       </div>
+       <div class="modal-footer">
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id = "deleteIssueConfirmButton">Confirm</a>
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat cancelButton">Cancel</a>
+       </div>
+     </div>
+
     <script>
         $(document).ready(function() {
             $('select').material_select();
+            $('.modal-trigger').leanModal();
+        });
+    </script>
+
+    <script>
+        $("#deleteIssueConfirmButton").click(function(){
+            $("#deluser").submit();
         });
     </script>
 </body>
