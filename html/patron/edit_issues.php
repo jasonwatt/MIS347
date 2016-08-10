@@ -3,22 +3,13 @@ define('DB_USER', '');
 define('DB_PASSWORD', '');
 define('DB_HOST', '');
     $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,'skecomplaints'); // $config['username'], $config['password'],
-   
-        session_start(); 
-  
-
-
     // Check connection
        if ($conn->connect_error) {
            die("Connection failed: " . $conn->connect_error);
        } 
-    try {
-		
-    $Issues_ID = 5; 
-    } catch (Exception $e) {
-      header('Location: ../html/Login.html');
-    }
-
+    
+	$Issues_ID = ($_POST['userid']);
+    
     $sql = "SELECT Summary, Status FROM issues WHERE Issues_ID= ".$Issues_ID." ";
     $result = $conn->query($sql);
     while($row = $result->fetch_assoc()) {            
@@ -83,17 +74,18 @@ define('DB_HOST', '');
 
 <!-- DELETE THIS FOR ADMIN DASHBOARD -->
   <div class="formContainer card">
-    <form class="col s12 l12 m6" action="new.php" method="post">
+    <form class="col s12 l12 m6" action="edit_issues2.php" method="post">
+	<input type="hidden" name="Issues_ID" value = "'.$Issues_ID.'">
       <div class="row">
         <div class="input-field col s12 l12 m6">
-          <input id="issueTitle" type="text" class="validate" name="issueT">
-          <label for="issueTitle" data-error="wrong" data-success="right">LOL</label>
+          <input id="issueTitle" type="text" class="validate" name="issueT" value="<?php echo "$Summary"?>">
+          <label for="issueTitle" data-error="wrong" data-success="right">Issue Summary</label>
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s12 l12 m6">
-          <input id="issueDetail" type="text" class="validate" name="issueD">
+          <input id="issueDetail" type="text" class="validate" name="issueD" value="<?php echo "$Status"?>">
           <label for="issueDetail" data-error="wrong" data-success="right">Issue Details</label>
         </div>
       </div>
