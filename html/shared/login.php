@@ -36,9 +36,10 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
 	while($row = mysql_fetch_assoc($result)) {	       
 	if($row["Password"] === $passwordSalt && $row["Username"]===$Username){ //user Exists
 		$userID= $row["User_ID"];
+		session_start();
 		$_SESSION["sessionUserID"] = $userID;
 		echo "User Exists";
-		header("Location: http://localhost:1234/AmDrex/html/patron/profile_patron.html");
+		header("Location: ../patron/profile_exp.php");
 		break;
 	}
 
@@ -46,7 +47,7 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
 		$message = "wrong answer";
 		echo "<script type='text/javascript'>alert('$message');</script>";
 		//Toasts for the future or any not logged in message
-		 header("Location: http://localhost:1234/AmDrex/html/shared/login.html");
+		 header("Location: login.html");
 
 		//echo "Please enter correct username or password";
 	}   

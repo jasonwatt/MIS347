@@ -43,7 +43,7 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
        if(mysql_query($sql,$conn) === TRUE){
          echo "Value Inserted successfully";
          //Indicate that the person has been registered
-         header("Location: http://localhost:1234/AmDrex/html/shared/login.html");
+         header("Location: login.html");
 		
        }
        else
