@@ -1,7 +1,7 @@
 <?php
        session_start();
        // Create connection
-       $conn = new mysqli('localhost','ske','ske','skecomplaints'); // $config['username'], $config['password'],
+       $conn = new mysqli('localhost','','','skecomplaints'); // $config['username'], $config['password'],
 
        // Check connection
        if ($conn->connect_error) {
@@ -27,13 +27,10 @@
        $Groups = test_input($_POST['groups']);
        $Timestamp = $_SERVER['REQUEST_TIME'];
 
-       echo 'rcv:'.$User_Name;
-       echo 'got:'.$_POST['uname'];
-
       //  $sqlUserFetch = "SELECT userID FROM users WHERE name";
 
 
-         $sql = "INSERT INTO user (Profile_Pic, User_Name, Email, Status, Event_ID, Group_ID, Last_Active)
+         $sql = "INSERT INTO user (Profile_Pic, User_Name, Email, Status, Events, Groups, Last_Active)
        VALUES('$Picture', '$User_Name', '$Email','$Status','$Events','$Groups', '$Timestamp')";
 
        if($conn->query($sql) === TRUE){
