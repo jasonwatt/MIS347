@@ -112,6 +112,8 @@ CREATE TABLE `user` (
   `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
   `Status` enum('Active','Suspended') NOT NULL DEFAULT 'Active',
+  `Groups` varchar(255) DEFAULT NULL,
+  `Events` varchar(255) DEFAULT NULL,
   `Group_ID` int(11) DEFAULT NULL,
   `Event_ID` int(11) DEFAULT NULL,
   `Permissions` set('View','Edit','Modify','Create','Delete') NOT NULL DEFAULT 'View',
@@ -124,9 +126,9 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`User_ID`, `Username`, `Profile_Pic`, `Email`, `Password`, `Status`, `Group_ID`, `Event_ID`, `Permissions`, `User_Type`, `Last_Active`, `User_Name`) VALUES
-(42, 'Hello', NULL, 'Yooo', 'yo', 'Active', NULL, NULL, 'View', 'Patron', '0000-00-00', 'YOLO'),
-(125, 'TestUser1', NULL, 'testuser1mail', '3a57dee5416aebc1ca12fa6206cdf090dd3ade88', 'Active', NULL, NULL, 'View', 'Patron', '0000-00-00', '');
+INSERT INTO `user` (`User_ID`, `Username`, `Profile_Pic`, `Email`, `Password`, `Status`, `Groups`, `Events`, `Group_ID`, `Event_ID`, `Permissions`, `User_Type`, `Last_Active`, `User_Name`) VALUES
+(42, 'Hello', NULL, 'Yooo', 'yo', 'Active', NULL, NULL, NULL, NULL, 'View', 'Patron', '0000-00-00', 'YOLO'),
+(125, 'TestUser1', NULL, 'testuser1mail', '3a57dee5416aebc1ca12fa6206cdf090dd3ade88', 'Active', NULL, NULL, NULL, NULL, 'View', 'Patron', '0000-00-00', '');
 
 --
 -- Indexes for dumped tables
@@ -209,7 +211,7 @@ ALTER TABLE `issues`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 --
 -- Constraints for dumped tables
 --
