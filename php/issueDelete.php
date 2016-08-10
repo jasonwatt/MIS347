@@ -15,11 +15,11 @@ define('DB_HOST', '');
 
 	$issueID = ($_POST['userid']);
 
-      $sql = "DELETE FROM user WHERE User_ID = '".$issueID."' ";  //1 for admin, 2 for ops, 3 for patron
-
+      $sql = "DELETE FROM issues WHERE Issues_ID = '".$issueID."' ";  //1 for admin, 2 for ops, 3 for patron
+		echo "$issueID";
+		$result = $conn->query($sql);
       if($conn->query($sql)){
          echo "deleted";
-		 header("Location: ../html/admin/userManagement_admin.php");
       }
       else
         echo " Error: ";
