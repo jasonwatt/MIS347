@@ -39,7 +39,7 @@
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="sass.html">Home</a></li>
-                        <li><a class="waves-effect waves-light btn">Logout</a></li>
+                        <li><a class="waves-effect waves-light btn" href="../../php/logout.php">Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -66,7 +66,10 @@
                     <tbody>
                         <?php
 
-                        $conn = new mysqli('localhost','ske','ske','skecomplaints');
+                        define('DB_USER', '');
+define('DB_PASSWORD', '');
+define('DB_HOST', '');
+    $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,'skecomplaints');
                         if(! $conn)
                         {
                             die("Connection failed: " . $conn->connect_error);
@@ -79,7 +82,7 @@
                             // output data of each row
                             while($row = $result->fetch_assoc()){
                                 //Creates a loop to loop through results
-                                $Issue_ID = $row["Issue_ID"];
+                                $Issue_ID = $row["Issues_ID"];
                                 $Last_Update_Timestamp = $row["Last_Update_Timestamp"];
                                 $Status = $row["Status"];
                                 $Summary = $row["Summary"];
@@ -94,49 +97,27 @@
 
                                 echo '
                                 <tr id="'.$Issue_ID.'">
-                                    <form action = "../../php/del.php" method = "post">
-                                        <input type = "hidden" value = "'.$Issue_ID.'" />
+                                   <form  id="issueDelete" action = "../../php/issueDelete.php" method = "post">
+                                        <input name="userid" type = "hidden" value = "'.$Issue_ID.'" />
+                                    </form>
+									<form  id="edit_issues" action = "../patron/edit_issues.php" method = "post">
+                                        <input name="userid" type = "hidden" value = "'.$Issue_ID.'" />
                                     </form>
                                     <td>'.$Issue_ID.'</td>
                                     <td>'.$Last_Update_Timestamp.'</td>
                                     <td>'.$Status.'</td>
                                     <td>
-                                        <button class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" type = "submit"><i class="material-icons">delete</i></button>
-                                        <a class="btn-floating btn-small waves-effect waves-light red btn_edit"><i class="material-icons">mode_edit</i></a>
+                                        <button class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" href="#deleteIssueModal"><i class="material-icons">delete</i></button>
+                                        <button class="btn-floating modal-trigger btn-small waves-effect waves-light red btn_edit" href="#editIssueModal"><i class="material-icons">mode_edit</i></a>
                                     </td>
+
                                 </tr>
                                 '; // echo end
 
                             }
 
                         ?>
-                        <!-- <tr>
-                            <td>Issue 1</td>
-                            <td>[timestamp]</td>
-                            <td>Status 1</td>
-                            <td>
-                                <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">delete</i></a>
-                                <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Issue 2</td>
-                            <td>[timestamp]</td>
-                            <td>Status 2</td>
-                            <td>
-                                <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">delete</i></a>
-                                <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Issue 3</td>
-                            <td>[timestamp]</td>
-                            <td>Status 3</td>
-                            <td>
-                                <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">delete</i></a>
-                                <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
-                            </td>
-                        </tr> -->
+                       
                     </tbody>
                 </table>
 
@@ -145,9 +126,38 @@
 
         <!-- DELETE TILL HERE -->
     </div>
+	<div id="deleteIssueModal" class="modal deleteModal">
+       <div class="modal-content">
+         <h4>Delete User</h4>
+       </div>
+       <div class="modal-footer">
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id = "deleteIssueConfirmButton">Confirm</a>
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat cancelButton">Cancel</a>
+       </div>
+     </div>
+	<div id="editIssueModal" class="modal editModal">
+       <div class="modal-content">
+         <h4>Edit User</h4>
+       </div>
+       <div class="modal-footer">
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id = "editIssueConfirmButton">Confirm</a>
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat cancelButton">Cancel</a>
+       </div>
+     </div>
     <script>
         $(document).ready(function() {
             $('select').material_select();
+			$('.modal-trigger').leanModal();
+        });
+    </script>
+	<script>
+        $("#deleteIssueConfirmButton").click(function(){
+            $("#issueDelete").submit();
+        });
+    </script>
+	<script>
+        $("#editIssueConfirmButton").click(function(){
+            $("#edit_issues").submit();
         });
     </script>
 </body>

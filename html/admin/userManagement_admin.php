@@ -70,7 +70,11 @@
                     <tbody>
                         <?php
 
-                        $conn = new mysqli('localhost','ske','ske','skecomplaints');
+                        define('DB_NAME', 'skecomplaints');
+define('DB_USER', '');
+define('DB_PASSWORD', '');
+define('DB_HOST', '');
+    $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,'skecomplaints'); 
                         if(! $conn)
                         {
                             die("Connection failed: " . $conn->connect_error);
