@@ -1,8 +1,8 @@
 <?php
 define('DB_NAME', 'skecomplaints');
-define('DB_USER', 'ske');
-define('DB_PASSWORD', 'ske');
-define('DB_HOST', 'localhost');
+define('DB_USER', '');
+define('DB_PASSWORD', '');
+define('DB_HOST', '');
 
 $conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
 if(! $conn)
@@ -25,7 +25,7 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
 
 if (mysql_query($sql,$conn) === TRUE) {
     echo "\n Record edited successfully";
-	header("Location: ../admin/issueManagement_admin.php");
+	header("Location: ../html/admin/issueManagement_admin.php");
 } else {
     echo "Error: " . $sql . "<br>" . mysql_error($conn);
 	header("Location: edit_issues.php");
@@ -33,5 +33,5 @@ if (mysql_query($sql,$conn) === TRUE) {
 
 mysql_close($conn);
 
-
+	
 ?>

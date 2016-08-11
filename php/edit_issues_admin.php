@@ -1,7 +1,7 @@
 <?php
-define('DB_USER', 'ske');
-define('DB_PASSWORD', 'ske');
-define('DB_HOST', 'localhost');
+define('DB_USER', '');
+define('DB_PASSWORD', '');
+define('DB_HOST', '');
     $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,'skecomplaints'); // $config['username'], $config['password'],
     // Check connection
        if ($conn->connect_error) {
@@ -26,18 +26,20 @@ define('DB_HOST', 'localhost');
   <!--Import Google Icon Font-->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css"  media="screen,projection"/>
-  <link type = "text/css" rel = "stylesheet" href = "../../css/register.css"/>
-  <link type = "text/css" rel = "stylesheet" href = "../../css/patron_home.css"/>
-  <link type = "text/css" rel = "stylesheet" href = "../../css/patron/dashboar-d_patron.css"/>
+  <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+  <link type = "text/css" rel = "stylesheet" href = "../css/register.css"/>
+<<<<<<< HEAD
+  <link type = "text/css" rel = "stylesheet" href = "../css/patron_home.css"/>
+=======
+  <link type = "text/css" rel = "stylesheet" href = "../css/patron/dashboard_patron.css"/>
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body class = "grey lighten-4">
   <!--Import jQuery before materialize.js-->
-  <script type="text/javascript" src="../../js/jquery-2.1.4.min.js"></script>
-  <script type="text/javascript" src="../../js/materialize.min.js"></script>
+  <script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="../js/materialize.min.js"></script>
 
 
 
@@ -73,7 +75,7 @@ define('DB_HOST', 'localhost');
 
 <!-- DELETE THIS FOR ADMIN DASHBOARD -->
   <div class="formContainer card">
-    <form class="col s12 l12 m6" action="edit_issues2.php" method="post">
+    <form class="col s12 l12 m6" action="edit_issues2_admin.php" method="post">
 	<input type="hidden" name="Issues_ID" value = "'.$Issues_ID.'">
       <div class="row">
         <div class="input-field col s12 l12 m6">
