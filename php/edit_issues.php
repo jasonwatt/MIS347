@@ -28,10 +28,8 @@ define('DB_HOST', 'localhost');
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css"  media="screen,projection"/>
   <link type = "text/css" rel = "stylesheet" href = "../../css/register.css"/>
-<<<<<<< HEAD
   <link type = "text/css" rel = "stylesheet" href = "../../css/patron_home.css"/>
-=======
-  <link type = "text/css" rel = "stylesheet" href = "../../css/patron/dashboard_patron.css"/>
+  <link type = "text/css" rel = "stylesheet" href = "../../css/patron/dashboar-d_patron.css"/>
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
