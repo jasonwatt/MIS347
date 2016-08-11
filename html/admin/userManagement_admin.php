@@ -71,10 +71,10 @@
                         <?php
 
                         define('DB_NAME', 'skecomplaints');
-define('DB_USER', '');
-define('DB_PASSWORD', '');
-define('DB_HOST', '');
-    $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,'skecomplaints');
+						define('DB_USER', '');
+						define('DB_PASSWORD', '');
+						define('DB_HOST', '');
+						$conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,'skecomplaints');
                         if(! $conn)
                         {
                             die("Connection failed: " . $conn->connect_error);
@@ -103,12 +103,15 @@ define('DB_HOST', '');
                                     <form  id="deluser" action = "../../php/del.php" method = "post">
                                         <input name="userid" type = "hidden" value = "'.$User_ID.'" />
                                     </form>
+									<form  id="edituser" action = "../../php/userEdit.php" method = "post">
+                                        <input name="userid" type = "hidden" value = "'.$User_ID.'" />
+                                    </form>
                                     <td>'.$User_Name.'</td>
                                     <td>'.$Last_Active.'</td>
                                     <td>'.$Group_ID.'</td>
                                     <td>
                                         <a class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" href="#deleteIssuerModal"><i class="material-icons">delete</i></a>
-                                        <a class="btn-floating btn-small waves-effect waves-light red btn_edit"><i class="material-icons">mode_edit</i></a>
+                                        <a class="btn-floating modal-trigger btn-small waves-effect waves-light red btn_edit" href="#editIssuerModal"><i class="material-icons">mode_edit</i></a>
                                     </td>
                                 </tr>
                                 '; // echo end
@@ -116,33 +119,7 @@ define('DB_HOST', '');
                             }
 
                         ?>
-                        <!-- <tr>
-                            <td>Hector</td>
-                            <td>MM/DD/YY</td>
-                            <td>Group 1,..3 more</td>
-                            <td>
-                                <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">delete</i></a>
-                                <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Alexander</td>
-                            <td>MM/DD/YY</td>
-                            <td>Group 2</td>
-                            <td>
-                                <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">delete</i></a>
-                                <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Oliver</td>
-                            <td>MM/DD/YY</td>
-                            <td>Group 15,..7 more</td>
-                            <td>
-                                <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">delete</i></a>
-                                <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
-                            </td>
-                        </tr> -->
+                       
                     </tbody>
                 </table>
 
@@ -161,6 +138,15 @@ define('DB_HOST', '');
          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat cancelButton">Cancel</a>
        </div>
      </div>
+	 <div id="editIssuerModal" class="modal editModal">
+       <div class="modal-content">
+         <h4>Edit User</h4>
+       </div>
+       <div class="modal-footer">
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id = "editIssueConfirmButton">Confirm</a>
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat cancelButton">Cancel</a>
+       </div>
+     </div>
 
     <script>
         $(document).ready(function() {
@@ -172,6 +158,12 @@ define('DB_HOST', '');
     <script>
         $("#deleteIssueConfirmButton").click(function(){
             $("#deluser").submit();
+        });
+    </script>
+	
+	<script>
+        $("#editIssueConfirmButton").click(function(){
+            $("#edituser").submit();
         });
     </script>
 </body>
