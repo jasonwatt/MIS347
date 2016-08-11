@@ -22,10 +22,10 @@
     <ul id="nav-mobile" class="side-nav fixed sideNav">
         <br>
         <br>
-        <li class="bold"><a href="profile_admin.php" class="waves-effect waves-teal">Profile</a></li>
-        <li class="bold"><a href="issueManagement_admin.php" class="waves-effect waves-teal">Issues</a></li>
-        <li class="bold"><a href="groupManagement_admin.php" class="waves-effect waves-teal">Groups</a></li>
-        <li class="bold"><a href="eventManagement_admin.php" class="waves-effect waves-teal">Events</a></li>
+        <li class="bold"><a href="http://localhost/MIS347/html/admin/profile_admin.php" class="waves-effect waves-teal">Profile</a></li>
+        <li class="bold"><a href="http://localhost/MIS347/html/admin/issueManagement_admin.php" class="waves-effect waves-teal">Issues</a></li>
+        <li class="bold"><a href="http://localhost/MIS347/html/admin/groupManagement_admin.php" class="waves-effect waves-teal">Groups</a></li>
+        <li class="bold"><a href="http://localhost/MIS347/html/admin/eventManagement_admin.php" class="waves-effect waves-teal">Events</a></li>
     </ul>
 
 
@@ -36,14 +36,14 @@
                 <a href="#!" class="dashboardHeader brand-logo">Patron Profile</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="sass.html">Home</a></li>
+                    <li><a href="dashboard_admin.html">Home</a></li>
                     <li><a class="waves-effect waves-light btn">Logout</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                    <li class="bold"><a href="profile_admin.php" class="waves-effect waves-teal">Profile</a></li>
-                    <li class="bold"><a href="issueManagement_admin.php" class="waves-effect waves-teal">Issues</a></li>
-                    <li class="bold"><a href="groupManagement_admin.php" class="waves-effect waves-teal">Groups</a></li>
-                    <li class="bold"><a href="eventManagement_admin.php" class="waves-effect waves-teal">Events</a></li>
+                    <li class="bold"><a href="http://localhost/MIS347/html/admin/profile_admin.php" class="waves-effect waves-teal">Profile</a></li>
+                    <li class="bold"><a href="http://localhost/MIS347/html/admin/issueManagement_admin.php" class="waves-effect waves-teal">Issues</a></li>
+                    <li class="bold"><a href="http://localhost/MIS347/html/admin/groupManagement_admin.php" class="waves-effect waves-teal">Groups</a></li>
+                    <li class="bold"><a href="http://localhost/MIS347/html/admin/eventManagement_admin.php" class="waves-effect waves-teal">Events</a></li>
                     <li><a class="waves-effect waves-light btn">Logout</a></li>
                 </ul>
             </div>
