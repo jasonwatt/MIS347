@@ -24,21 +24,24 @@ define('DB_NAME', 'skecomplaints');
        echo "Connected successfully";
 
        //get post field
-        $Event_Name = test_input($_POST['Event_Name']);       
+       $Event_Name = test_input($_POST['Event_Name']);
+       $Locations = test_input($_POST['Locations']);
+       $Address = test_input($_POST['Address']);
        $Street = test_input($_POST['Street']);
-       $Groups = test_input($_POST['Group']);
+       $Events = test_input($_POST['events']);
+       $Groups = test_input($_POST['groups']);
        $Start_Date = test_input($_POST['Start_Date']);
        $End_Date = test_input($_POST['End_Date']);
        $City = test_input($_POST['City']);
        $Zip = test_input($_POST['Zip']);
-       $State = test_input($_POST['states']);
+       $State = test_input($_POST['State']);
 
 
+      //  $sqlUserFetch = "SELECT userID FROM users WHERE name";
 
        $session = $_SESSION['sessionUserID'];
-          $Address=$State.$City.$Street.$Zip;
-         $sql = "INSERT INTO events (Event_Name, Start_Date, End_Date,Address)
-       VALUES('$Event_Name', '$Start_Date', '$End_Date','$Address')";
+         $sql = "INSERT INTO events (Event_Name, Start_Date, End_Date, Address, Locations)
+       VALUES('$Event_Name', '$Start_Date', '$End_Date','$Address','$Locations')";
 
        if(mysql_query($sql,$conn) === TRUE){
          echo "Value Inserted successfully";

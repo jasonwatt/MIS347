@@ -1,7 +1,7 @@
 <?php
        session_start();
        // Create connection
-       $conn = new mysqli('localhost','ske','ske','skecomplaints'); // $config['username'], $config['password'],
+       $conn = new mysqli('localhost','','','skecomplaints'); // $config['username'], $config['password'],
 
        // Check connection
        if ($conn->connect_error) {
@@ -13,10 +13,8 @@
 
        //get post field
        $Event_Name = test_input($_POST['Event_Name']);
-       $Locations = test_input($_POST['Locations']);
-       $Address = test_input($_POST['Address']);
        $Street = test_input($_POST['Street']);
-       $Events = test_input($_POST['events']);
+       $Users = test_input($_POST['users']);
        $Groups = test_input($_POST['groups']);
        $Start_Date = test_input($_POST['Start_Date']);
        $End_Date = test_input($_POST['End_Date']);
