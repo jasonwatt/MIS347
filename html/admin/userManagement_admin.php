@@ -71,9 +71,9 @@
                         <?php
 
                         define('DB_NAME', 'skecomplaints');
-						define('DB_USER', '');
-						define('DB_PASSWORD', '');
-						define('DB_HOST', '');
+						define('DB_USER', 'ske');
+						define('DB_PASSWORD', 'ske');
+						define('DB_HOST', 'localhost');
 						$conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,'skecomplaints');
                         if(! $conn)
                         {
@@ -119,7 +119,7 @@
                             }
 
                         ?>
-                       
+
                     </tbody>
                 </table>
 
@@ -160,7 +160,7 @@
             $("#deluser").submit();
         });
     </script>
-	
+
 	<script>
         $("#editIssueConfirmButton").click(function(){
             $("#edituser").submit();

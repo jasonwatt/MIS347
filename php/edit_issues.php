@@ -1,3 +1,26 @@
+<?php
+define('DB_USER', 'ske');
+define('DB_PASSWORD', 'ske');
+define('DB_HOST', 'localhost');
+    $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,'skecomplaints'); // $config['username'], $config['password'],
+    // Check connection
+       if ($conn->connect_error) {
+           die("Connection failed: " . $conn->connect_error);
+       }
+
+	$Issues_ID = ($_POST['userid']);
+	session_start();
+	$_SESSION['IssueID'] = $Issues_ID;
+    $sql = "SELECT Summary, Status FROM issues WHERE Issues_ID= ".$Issues_ID." ";
+    $result = $conn->query($sql);
+    while($row = $result->fetch_assoc()) {
+    $Summary= $row["Summary"];
+    $Status= $row["Status"];
+    break;
+
+  }
+  ?>
+
 <html>
 <head>
   <!--Import Google Icon Font-->
@@ -5,10 +28,8 @@
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css"  media="screen,projection"/>
   <link type = "text/css" rel = "stylesheet" href = "../../css/register.css"/>
-<<<<<<< HEAD
   <link type = "text/css" rel = "stylesheet" href = "../../css/patron_home.css"/>
-=======
-  <link type = "text/css" rel = "stylesheet" href = "../../css/patron/dashboard_patron.css"/>
+  <link type = "text/css" rel = "stylesheet" href = "../../css/patron/dashboar-d_patron.css"/>
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -23,10 +44,10 @@
   <ul id="nav-mobile" class="side-nav fixed sideNav">
     <br>
     <br>
-    <li class="bold"><a href="http://localhost/MIS347/html/patron/profile_exp.php" class="waves-effect waves-teal">Profile</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/patron/issues_patron.php" class="waves-effect waves-teal">Issues</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/patron/groups_patron.php" class="waves-effect waves-teal">Groups</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/patron/events_patron.php" class="waves-effect waves-teal">Events</a></li>
+    <li class="bold"><a href="http://localhost/MIS347/html/patron/profile_patron.php" class="waves-effect waves-teal">Profile</a></li>
+    <li class="bold"><a href="http://localhost/MIS347/html/patron/issues_patron.php" class="waves-effect waves-teal">Issues</a></li>
+    <li class="bold"><a href="http://localhost/MIS347/html/patron/groups_patron.php" class="waves-effect waves-teal">Groups</a></li>
+    <li class="bold"><a href="http://localhost/MIS347/html/patron/events_patron.php" class="waves-effect waves-teal">Events</a></li>
   </ul>
 
 
@@ -41,10 +62,10 @@
         <li><a class="waves-effect waves-light btn">Logout</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li class="bold"><a href="http://localhost/MIS347/html/patron/profile_exp.php" class="waves-effect waves-teal">Profile</a></li>
-            <li class="bold"><a href="http://localhost/MIS347/html/patron/issues_patron.php" class="waves-effect waves-teal">Issues</a></li>
-            <li class="bold"><a href="http://localhost/MIS347/html/patron/groups_patron.php" class="waves-effect waves-teal">Groups</a></li>
-            <li class="bold"><a href="http://localhost/MIS347/html/patron/events_patron.php" class="waves-effect waves-teal">Events</a></li>
+        <li><a href="http://localhost/MIS347/html/patron/profile_patron.php">Profile</a></li>
+        <li><a href="http://localhost/MIS347/html/patron/groups_patron.php">Groups</a></li>
+        <li><a href="http://localhost/MIS347/html/patron/events_patron.php">Events</a></li>
+        <li><a href="http://localhost/MIS347/html/patron/issues_patron.php">Issues</a></li>
         <li><a class="waves-effect waves-light btn">Logout</a></li>
       </ul>
     </div>
@@ -52,17 +73,18 @@
 
 <!-- DELETE THIS FOR ADMIN DASHBOARD -->
   <div class="formContainer card">
-    <form class="col s12 l12 m6" action="../../php/issueSubmit.php" method="post">
+    <form class="col s12 l12 m6" action="edit_issues2.php" method="post">
+	<input type="hidden" name="Issues_ID" value = "'.$Issues_ID.'">
       <div class="row">
         <div class="input-field col s12 l12 m6">
-          <input id="issueTitle" type="text" class="validate" name="issueT">
-          <label for="issueTitle" data-error="wrong" data-success="right">Issue Title</label>
+          <input id="issueTitle" type="text" class="validate" name="issueT" value="<?php echo "$Summary"?>">
+          <label for="issueTitle" data-error="wrong" data-success="right">Issue Summary</label>
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s12 l12 m6">
-          <input id="issueDetail" type="text" class="validate" name="issueD">
+          <input id="issueDetail" type="text" class="validate" name="issueD" value="<?php echo "$Status"?>">
           <label for="issueDetail" data-error="wrong" data-success="right">Issue Details</label>
         </div>
       </div>
