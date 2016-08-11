@@ -6,17 +6,17 @@ define('DB_HOST', '');
     // Check connection
        if ($conn->connect_error) {
            die("Connection failed: " . $conn->connect_error);
-       } 
-    
+       }
+
 	$Issues_ID = ($_POST['userid']);
-    
+
     $sql = "SELECT Summary, Status FROM issues WHERE Issues_ID= ".$Issues_ID." ";
     $result = $conn->query($sql);
-    while($row = $result->fetch_assoc()) {            
+    while($row = $result->fetch_assoc()) {
     $Summary= $row["Summary"];
     $Status= $row["Status"];
     break;
-	
+
   }
   ?>
 
@@ -45,10 +45,10 @@ define('DB_HOST', '');
   <ul id="nav-mobile" class="side-nav fixed sideNav">
     <br>
     <br>
-    <li class="bold"><a href="about.html" class="waves-effect waves-teal">Profile</a></li>
-    <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">Issues</a></li>
-    <li class="bold"><a href="http://materializecss.com/mobile.html" class="waves-effect waves-teal">Groups</a></li>
-    <li class="bold"><a href="showcase.html" class="waves-effect waves-teal">Events</a></li>
+    <li class="bold"><a href="http://localhost/MIS347/html/patron/profile_patron.php" class="waves-effect waves-teal">Profile</a></li>
+    <li class="bold"><a href="http://localhost/MIS347/html/patron/issues_patron.php" class="waves-effect waves-teal">Issues</a></li>
+    <li class="bold"><a href="http://localhost/MIS347/html/patron/groups_patron.php" class="waves-effect waves-teal">Groups</a></li>
+    <li class="bold"><a href="http://localhost/MIS347/html/patron/events_patron.php" class="waves-effect waves-teal">Events</a></li>
   </ul>
 
 
@@ -59,14 +59,14 @@ define('DB_HOST', '');
       <a href="#!" class="dashboardHeader brand-logo">Patron Dashboard</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="sass.html">Home</a></li>
+        <li><a href="dashboard_patron.html">Home</a></li>
         <li><a class="waves-effect waves-light btn">Logout</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="sass.html">Profile</a></li>
-        <li><a href="badges.html">Groups</a></li>
-        <li><a href="collapsible.html">Events</a></li>
-        <li><a href="mobile.html">Issues</a></li>
+        <li><a href="http://localhost/MIS347/html/patron/profile_patron.php">Profile</a></li>
+        <li><a href="http://localhost/MIS347/html/patron/groups_patron.php">Groups</a></li>
+        <li><a href="http://localhost/MIS347/html/patron/events_patron.php">Events</a></li>
+        <li><a href="http://localhost/MIS347/html/patron/issues_patron.php">Issues</a></li>
         <li><a class="waves-effect waves-light btn">Logout</a></li>
       </ul>
     </div>

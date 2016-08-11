@@ -21,10 +21,10 @@
     <ul id="nav-mobile" class="side-nav fixed sideNav">
         <br>
         <br>
-        <li class="bold"><a href="profile_admin.php" class="waves-effect waves-teal">Profile</a></li>
-        <li class="bold"><a href="issueManagement_admin.php" class="waves-effect waves-teal">Issues</a></li>
-        <li class="bold"><a href="groupManagement_admin.php" class="waves-effect waves-teal">Groups</a></li>
-        <li class="bold"><a href="eventManagement_admin.php" class="waves-effect waves-teal">Events</a></li>
+        <li class="bold"><a href="http://localhost/MIS347/html/admin/profile_admin.php" class="waves-effect waves-teal">Profile</a></li>
+        <li class="bold"><a href="http://localhost/MIS347/html/admin/issueManagement_admin.php" class="waves-effect waves-teal">Issues</a></li>
+        <li class="bold"><a href="http://localhost/MIS347/html/admin/groupManagement_admin.php" class="waves-effect waves-teal">Groups</a></li>
+        <li class="bold"><a href="http://localhost/MIS347/html/admin/eventManagement_admin.php" class="waves-effect waves-teal">Events</a></li>
     </ul>
 
 
@@ -38,16 +38,16 @@
                     <a href="#!" class="breadcrumb">Issue Description</a>
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="sass.html">Home</a></li>
+                        <li><a href="dashboard_admin.html">Home</a></li>
                         <li><a class="waves-effect waves-light btn">Logout</a></li>
                     </ul>
                 </div>
 
                 <ul class="side-nav" id="mobile-demo">
-                    <li class="bold"><a href="profile_admin.php" class="waves-effect waves-teal">Profile</a></li>
-                    <li class="bold"><a href="issueManagement_admin.php" class="waves-effect waves-teal">Issues</a></li>
-                    <li class="bold"><a href="groupManagement_admin.php" class="waves-effect waves-teal">Groups</a></li>
-                    <li class="bold"><a href="eventManagement_admin.php" class="waves-effect waves-teal">Events</a></li>
+                    <li class="bold"><a href="http://localhost/MIS347/html/admin/profile_admin.php" class="waves-effect waves-teal">Profile</a></li>
+                    <li class="bold"><a href="http://localhost/MIS347/html/admin/issueManagement_admin.php" class="waves-effect waves-teal">Issues</a></li>
+                    <li class="bold"><a href="http://localhost/MIS347/html/admin/groupManagement_admin.php" class="waves-effect waves-teal">Groups</a></li>
+                    <li class="bold"><a href="http://localhost/MIS347/html/admin/eventManagement_admin.php" class="waves-effect waves-teal">Events</a></li>
                     <li><a class="waves-effect waves-light btn">Logout</a></li>
                 </ul>
             </div>
@@ -104,16 +104,11 @@
                 </div>
 
                 <div id="issueSummary">
-                     <div class="row">
-   	 <form class="col s12">
-      <div class="row">
-        <div class="input-field col s12">
-          <textarea id="textarea1" class="materialize-textarea"></textarea>
-          <label for="textarea1">Issue Summary</label>
-        </div>
-      </div>
-    </form>
-  </div>
+                    <h5>Summary</h5>
+                    <summary>
+                        Issue Summary is to inserted here. This should contain a brief overview about the subject and key details about the issue that the admin adds on top of the submitted issue.
+                    </summary>
+
                     <div class="row">
                         <div class="col s6">
                             <b>Status : </b><font color="green">Status 1</font>
@@ -156,26 +151,18 @@
                 </div>
 
                 <div id="issueDescription">
-                     <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s12">
-          <textarea id="textarea2" class="materialize-textarea"></textarea>
-          <label for="textarea2">Description</label>
-        </div>
-      </div>
-    </form>
-  </div>
+                    <h5>Description</h5>
+                    <p>
+                        Issue Description is to inserted here. This should contain detailed information about the issue and all details that the admin adds on top of the submitted issue.
+                    </p>
 
                 </div>
 
                 <div id="chipsLabel">
-                    <h5>Issue Label</h5>
-                <div class="chip"><i class="close material-icons">close</i>
-<font color="white">Issue Label</font>
-  </div>
-                
-                    
+                    <h5>Label</h5>
+                    <div class="chip teal">
+                        <font color="white">Issue Label</font>
+                    </div>
                 </div>
 
                 <div id="chipsLocation">
@@ -201,21 +188,7 @@
             $('select').material_select();
 
             $('.chips').material_chip();
-  $('.chips-initial').material_chip({
-    data: [{
-      tag: 'Issue Label',
-    }],
-  });
-  $('.chips-placeholder').material_chip({
-    placeholder: 'Enter a Issue Label',
-    secondaryPlaceholder: '+Issue',
-  });
         });
- var chip = {
-    tag: 'chip content',
-    image: '', //optional
-    id: 1, //optional
-  };
     </script>
 </body>
 

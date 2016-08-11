@@ -1,12 +1,24 @@
 <?php
        session_start();
        // Create connection
-       $conn = new mysqli('localhost','ske','ske','skecomplaints'); // $config['username'], $config['password'],
-
+       define('DB_USER', 'ske');
+	define('DB_PASSWORD', 'ske');
+define('DB_HOST', '');
+define('DB_NAME', 'skecomplaints');
+    $conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);	// $config['username'], $config['password'], // $config['username'], $config['password'],
+	 if(! $conn)
+{
+	die('Could not connect');
+}
+	
        // Check connection
-       if ($conn->connect_error) {
-           die("Connection failed: " . $conn->connect_error);
-       }
+       $db_selected = mysql_select_db(DB_NAME, $conn);
+
+
+	if(! $db_selected)
+	{
+		die('Cannot use ' . DB_NAME . ': ' . mysql_error());
+	}
 
 
        echo "Connected successfully";
@@ -31,14 +43,14 @@
          $sql = "INSERT INTO events (Event_Name, Start_Date, End_Date, Address, Locations)
        VALUES('$Event_Name', '$Start_Date', '$End_Date','$Address','$Locations')";
 
-       if($conn->query($sql) === TRUE){
+       if(mysql_query($sql,$conn) === TRUE){
          echo "Value Inserted successfully";
          //Indicate that the person has been registered
          header('Location: userAdd_admin.php');
        }
        else
          echo " Error: " . $sql . "<br>" . $conn->error;
-       $conn->close();
+       mysql_close($conn);
 
 
        //To prevent sqlInjectio4n
