@@ -16,10 +16,11 @@ define('DB_HOST', 'localhost');
 	$issueID = ($_POST['userid']);
 
       $sql = "DELETE FROM issues WHERE Issues_ID = '".$issueID."' ";  //1 for admin, 2 for ops, 3 for patron
-		echo "$issueID";
+		
 		$result = $conn->query($sql);
       if($conn->query($sql)){
          echo "deleted";
+		 header("Location: ../html/admin/issueManagement_admin.php");
       }
       else
         echo " Error: ";
