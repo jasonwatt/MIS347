@@ -1,8 +1,8 @@
 <?php
-	define('DB_NAME', 'skecomplaints');
-define('DB_USER', '');
-define('DB_PASSWORD', '');
-define('DB_HOST', '');
+      define('DB_NAME', 'skecomplaints');
+define('DB_USER', 'ske');
+define('DB_PASSWORD', 'ske');
+define('DB_HOST', 'localhost');
 
 $conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
 if(! $conn)
@@ -24,7 +24,7 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
 	$sql = "SELECT User_ID ,Username, Password FROM user;";
 
 	$result = mysql_query($sql,$conn);
-	
+
 	$Username = test_input($_POST['Username']);
     $password = test_input($_POST['Password']);
 
@@ -33,7 +33,7 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
 		$salt = $Username + $password;
 		$passwordSalt = sha1($password.$salt);
 
-	while($row = mysql_fetch_assoc($result)) {	       
+	while($row = mysql_fetch_assoc($result)) {
 	if($row["Password"] === $passwordSalt && $row["Username"]===$Username){ //user Exists
 		$userID= $row["User_ID"];
 		session_start();
@@ -50,7 +50,7 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
 		 header("Location: login.html");
 
 		//echo "Please enter correct username or password";
-	}   
+	}
 	}
 
 
@@ -60,7 +60,7 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
 	}
 
 
-	
+
 
    //To prevent sqlInjection
    function test_input($data) {
