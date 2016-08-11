@@ -1,16 +1,17 @@
 <?php
-       session_start();
-       // Create connection
-       define('DB_USER', 'ske');
-	define('DB_PASSWORD', 'ske');
-define('DB_HOST', '');
+session_start();
+// Create connection
 define('DB_NAME', 'skecomplaints');
+define('DB_USER', 'ske');
+define('DB_PASSWORD', 'ske');
+define('DB_HOST', 'localhost');
+
     $conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);	// $config['username'], $config['password'], // $config['username'], $config['password'],
 	 if(! $conn)
 {
 	die('Could not connect');
 }
-	
+
        // Check connection
        $db_selected = mysql_select_db(DB_NAME, $conn);
 

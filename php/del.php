@@ -2,10 +2,10 @@
 <body>
 <?php
 define('DB_NAME', 'skecomplaints');
-define('DB_USER', '');
-define('DB_PASSWORD', '');
-define('DB_HOST', '');
-    $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,'skecomplaints'); 
+define('DB_USER', 'ske');
+define('DB_PASSWORD', 'ske');
+define('DB_HOST', 'localhost');
+    $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,'skecomplaints');
 
 
       // Check connection
@@ -13,9 +13,9 @@ define('DB_HOST', '');
           die("Connection failed: " . $conn->connect_error);
       }
 
-	$issueID = ($_POST['userid']);
+	$userID = ($_POST['userid']);
 
-      $sql = "DELETE FROM user WHERE User_ID = '".$issueID."' ";  //1 for admin, 2 for ops, 3 for patron
+      $sql = "DELETE FROM user WHERE User_ID = '".$userID."' ";  //1 for admin, 2 for ops, 3 for patron
 
       if($conn->query($sql)){
          echo "deleted";

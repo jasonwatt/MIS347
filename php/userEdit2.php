@@ -1,16 +1,16 @@
 <?php
        session_start();
        // Create connection
-       $conn = new mysqli('localhost','','','skecomplaints'); // $config['username'], $config['password'],
+       $conn = new mysqli('localhost','ske','ske','skecomplaints'); // $config['username'], $config['password'],
 
        // Check connection
        if ($conn->connect_error) {
            die("Connection failed: " . $conn->connect_error);
        }
-		
+
 		$User_ID = $_SESSION['UserID'];
-		
-		
+
+
        function test_input($data) {
         $data = trim($data);
         $data = stripslashes($data);

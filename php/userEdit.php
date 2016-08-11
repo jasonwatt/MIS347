@@ -1,8 +1,10 @@
 <?php
-define('DB_USER', '');
-define('DB_PASSWORD', '');
-define('DB_HOST', '');
-    $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,'skecomplaints'); // $config['username'], $config['password'],
+define('DB_NAME', 'skecomplaints');
+define('DB_USER', 'ske');
+define('DB_PASSWORD', 'ske');
+define('DB_HOST', 'localhost');
+
+    $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME); // $config['username'], $config['password'],
     // Check connection
        if ($conn->connect_error) {
            die("Connection failed: " . $conn->connect_error);
@@ -24,7 +26,7 @@ define('DB_HOST', '');
 
   }
 ?>
-  
+
 <html>
 
 <head>
