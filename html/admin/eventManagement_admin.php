@@ -1,16 +1,3 @@
-<?php
-    session_start();
-    $_SESSION['del_event_id'] = "";
-    $_SESSION['edit_event_id'] = "";
-
-    if (isset($_POST['change']))
-    {
-        $del_event_id = $_POST['btn_delete'];
-        $edit_event_id = $_POST['btn_edit'];
-    }
-
-?>
-
 <html>
 
 <head>
@@ -94,7 +81,7 @@
                     <tbody>
                         <?php
 
-                            $conn = new mysqli('localhost','ske','ske','skecomplaints');
+                            $conn = new mysqli('','','','skecomplaints');
                             if(! $conn)
                             {
                                 die("Connection failed: " . $conn->connect_error);
@@ -117,17 +104,22 @@
                                 $Status = $row["Status"];
 
                                 echo '
+								<tr id="'.$Event_ID.'">
+									<form id = "edituser" action = "../../php/eventEdit.php" method = "post">
+										<input name = "eventid" type = "hidden" value = "'.$Event_ID.'" />
+									</form>
                                 <tr id="'.$Event_ID.'">
-                                    <form action = "../../php/del.php" method = "post">
-                                        <input type = "hidden" value = "'.$Event_ID.'" />
+                                    <form id = "deluser" action = "../../php/eventDelete.php" method = "post">
+                                        <input name = "eventid" type = "hidden" value = "'.$Event_ID.'" />
                                     </form>
                                     <td>'.$Event_ID.'</td>
                                     <td>'.$Status.'</td>
                                     <td>'.$Start_Date.'</td>
                                     <td>
-                                        <button class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" type = "submit"><i class="material-icons">delete</i></button>
-                                        <a class="btn-floating btn-small waves-effect waves-light red btn_edit"><i class="material-icons">mode_edit</i></a>
+                                         <a class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" href="#deleteIssuerModal"><i class="material-icons">delete</i></a>
+                                        <a class="btn-floating modal-trigger btn-small waves-effect waves-light red btn_edit" href="#editIssuerModal"><i class="material-icons">mode_edit</i></a>
                                     </td>
+								</tr>
                                 </tr>
                                 '; // echo end
 
@@ -135,41 +127,52 @@
 
                         ?>
 
-                        <!-- <tr>
-                            <td>Alvin</td>
-                            <td>Setup</td>
-                            <td>MM/DD/YY</td>
-                            <td>
-                                <a class="btn-floating btn-small waves-effect waves-light blue btn_delete"><i class="material-icons">delete</i></a>
-                                <a class="btn-floating btn-small waves-effect waves-light red btn_edit"><i class="material-icons">mode_edit</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Alan</td>
-                            <td>Setup</td>
-                            <td>MM/DD/YY</td>
-                            <td>
-                                <a class="btn-floating btn-small waves-effect waves-light blue btn_delete"><i class="material-icons">delete</i></a>
-                                <a class="btn-floating btn-small waves-effect waves-light red btn_edit"><i class="material-icons">mode_edit</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jonathan</td>
-                            <td>Closed</td>
-                            <td>MM/DD/YY-MM/DD/YY</td>
-                            <td>
-                                <a class="btn-floating btn-small waves-effect waves-light blue btn_delete"><i class="material-icons">delete</i></a>
-                                <a class="btn-floating btn-small waves-effect waves-light red btn_edit"><i class="material-icons">mode_edit</i></a>
-                            </td>
-                        </tr> -->
                     </tbody>
                 </table>
 
             </form>
         </div>
-
         <!-- DELETE TILL HERE -->
     </div>
+	
+	<div id="deleteIssuerModal" class="modal deleteModal">
+       <div class="modal-content">
+         <h4>Delete User</h4>
+       </div>
+       <div class="modal-footer">
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id = "deleteIssueConfirmButton">Confirm</a>
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat cancelButton">Cancel</a>
+       </div>
+     </div>
+	 <div id="editIssuerModal" class="modal editModal">
+       <div class="modal-content">
+         <h4>Edit User</h4>
+       </div>
+       <div class="modal-footer">
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id = "editIssueConfirmButton">Confirm</a>
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat cancelButton">Cancel</a>
+       </div>
+     </div>
+	
+	<script>
+        $(document).ready(function() {
+            $('select').material_select();
+            $('.modal-trigger').leanModal();
+        });
+    </script>
+	 
+	<script>
+        $("#deleteIssueConfirmButton").click(function(){
+            $("#deluser").submit();
+        });
+    </script>
+
+	<script>
+        $("#editIssueConfirmButton").click(function(){
+            $("#edituser").submit();
+        });
+    </script>
+	
     <script>
         $(document).ready(function() {
             $('select').material_select();
