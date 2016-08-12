@@ -25,7 +25,7 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
 
 if (mysql_query($sql,$conn) === TRUE) {
     echo "\n Record edited successfully";
-	header("Location: ../admin/issueManagement_admin.php");
+	header("Location: ../html/admin/issueManagement_admin.php");
 } else {
     echo "Error: " . $sql . "<br>" . mysql_error($conn);
 	header("Location: edit_issues.php");
