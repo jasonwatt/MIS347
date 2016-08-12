@@ -56,29 +56,29 @@
         </div>
 
         <div class="formContainer card">
-            <form class="col s12 l12 m6" name="groupAdd" action="" onsubmit="return validateForm()" method="post">
+            <form class="col s12 l12 m6" name="groupAdd" action="../../php/groupAdd.php" onsubmit="return validateForm()" method="post">
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="name" type="text" class="validate">
+                        <input id="Group_Name" name="Group_Name" type="text" class="validate">
                         <label for="name">Name</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="event" type="text" class="validate">
+                        <input id="Event_ID" name="Event_ID" type="text" class="validate">
                         <label for="event">Event</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="users" type="text" class="validate">
+                        <input id="users" name="users" type="text" class="validate">
                         <label for="users">Users</label>
                     </div>
 
 
-                    <form action="#">
+                    <!-- <form action="#">
                         <table>
                             <thead>
                                 <tr>
@@ -113,7 +113,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </form>
+                    </form> -->
                     <button class="btn waves-effect waves-light" type="submit" name="action">Save
                         <i class="material-icons right">mode_edit</i>
                     </button>
@@ -137,13 +137,13 @@
         <script>
             function validateForm() {
 
-                var name = document.forms["groupAdd"]["name"].value;
+                var name = document.forms["groupAdd"]["Group_Name"].value;
                 if (name == null || name == "") {
                     alert("Name must be filled out");
                     return false;
                 }
 
-                var event = document.forms["groupAdd"]["event"].value;
+                var event = document.forms["groupAdd"]["Event_ID"].value;
                 if (event == null || event == "") {
                     alert("Event must be filled out");
                     return false;

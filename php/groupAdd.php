@@ -15,13 +15,13 @@
        $Group_Name = test_input($_POST['Group_Name']);
 
        $Events = test_input($_POST['Event_ID']);
-       $Groups = test_input($_POST['Group_ID']);
+       $Users = test_input($_POST['users']);
 
       //  $sqlUserFetch = "SELECT userID FROM users WHERE name";
 
        $session = $_SESSION['sessionUserID'];
          $sql = "INSERT INTO groups (Group_Name,Event_ID,User_ID)
-       VALUES('$Group_Name', '$Events', '$Groups')";
+       VALUES('$Group_Name', '$Events', '$Users')";
 
        if($conn->query($sql) === TRUE){
          echo "Value Inserted successfully";
