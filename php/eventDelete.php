@@ -24,7 +24,7 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
 	if(mysql_query($sql2, $conn) == TRUE)
 	{
 		echo "DELETED <br>";
-		header("Location: ../html/admin/eventManagement_admin.php")
+		header("Location: ../html/admin/eventManagement_admin.php");
 	}
 	else
 	{

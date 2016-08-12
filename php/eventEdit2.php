@@ -1,5 +1,4 @@
 <?php
-session_start();
 // Create connection
 define('DB_NAME', 'skecomplaints');
 define('DB_USER', '');
@@ -14,7 +13,8 @@ define('DB_HOST', '');
 
 
        echo "Connected successfully";
-
+		session_start();
+		$Event_ID = $_SESSION["eventid"];
        //get post field
        $Event_Name = test_input($_POST['Event_Name']);
        $Locations = test_input($_POST['Locations']);
@@ -30,15 +30,11 @@ define('DB_HOST', '');
        $State = test_input($_POST['State']);
        $Address = ''.$Street.' '.$City.' '.$State.' '.$Zip;
 
-      //  $sqlUserFetch = "SELECT userID FROM users WHERE name";
-
-    //    $session = $_SESSION['sessionUserID'];
-         $sql = "INSERT INTO events (Event_Name, Start_Date, End_Date, Address, Locations)
-       VALUES('$Event_Name', '$Start_Date', '$End_Date','$Address','$Locations')";
+    $sql = "UPDATE events SET Event_Name = '$Event_Name', Start_Date = '$Start_Date', End_Date = '$End_Date', Locations = '$Locations' WHERE Event_ID = $Event_ID ";
 
        if($conn->query($sql) === TRUE){
-           echo "Value Inserted successfully";
-		   header("Location: ../html/admin/dashboard_admin.html");
+           echo "Value updated successfully";
+		   header("Location: ../html/admin/eventManagement_admin.php");
            //Indicate that the person has been registered
          }
          else

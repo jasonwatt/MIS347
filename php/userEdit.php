@@ -1,8 +1,8 @@
 <?php
 define('DB_NAME', 'skecomplaints');
-define('DB_USER', 'ske');
-define('DB_PASSWORD', 'ske');
-define('DB_HOST', 'localhost');
+define('DB_USER', '');
+define('DB_PASSWORD', '');
+define('DB_HOST', '');
 
     $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME); // $config['username'], $config['password'],
     // Check connection
@@ -10,7 +10,7 @@ define('DB_HOST', 'localhost');
            die("Connection failed: " . $conn->connect_error);
        }
 
-	$User_ID = ($_POST['userid']);
+	$User_ID = ($_POST['Euserid']);
 	session_start();
 	$_SESSION['UserID'] = $User_ID;
     $sql = "SELECT User_Name, Email, Status, Events, Groups FROM user WHERE User_ID = '".$User_ID."' ";
