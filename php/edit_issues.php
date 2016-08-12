@@ -8,7 +8,7 @@ define('DB_HOST', 'localhost');
            die("Connection failed: " . $conn->connect_error);
        }
 
-	$Issues_ID = ($_POST['userid']);
+	$Issues_ID = ($_POST['Eissueid']);
 	session_start();
 	$_SESSION['IssueID'] = $Issues_ID;
     $sql = "SELECT Summary, Status FROM issues WHERE Issues_ID= ".$Issues_ID." ";

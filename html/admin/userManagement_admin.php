@@ -71,9 +71,9 @@
                         <?php
 
                         define('DB_NAME', 'skecomplaints');
-						define('DB_USER', 'ske');
-						define('DB_PASSWORD', 'ske');
-						define('DB_HOST', 'localhost');
+						define('DB_USER', '');
+						define('DB_PASSWORD', '');
+						define('DB_HOST', '');
 						$conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,'skecomplaints');
                         if(! $conn)
                         {
@@ -100,10 +100,11 @@
 
                                 echo '
                                 <tr id="'.$User_ID.'">
-                                    <form  id="deluser" action = "../../php/del.php" method = "post">
+									<form  id="edituser" action = "../../php/userEdit.php" method = "post">
                                         <input name="userid" type = "hidden" value = "'.$User_ID.'" />
                                     </form>
-									<form  id="edituser" action = "../../php/userEdit.php" method = "post">
+								<tr id="'.$User_ID.'">
+                                    <form  id="deluser" action = "../../php/del.php" method = "post">
                                         <input name="userid" type = "hidden" value = "'.$User_ID.'" />
                                     </form>
                                     <td>'.$User_Name.'</td>
@@ -113,6 +114,7 @@
                                         <a class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" href="#deleteIssuerModal"><i class="material-icons">delete</i></a>
                                         <a class="btn-floating modal-trigger btn-small waves-effect waves-light red btn_edit" href="#editIssuerModal"><i class="material-icons">mode_edit</i></a>
                                     </td>
+								</tr>
                                 </tr>
                                 '; // echo end
 

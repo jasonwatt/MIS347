@@ -66,9 +66,9 @@
                     <tbody>
                         <?php
 
-                        define('DB_USER', 'ske');
-						define('DB_PASSWORD', 'ske');
-						define('DB_HOST', 'localhost');
+                        define('DB_USER', '');
+						define('DB_PASSWORD', '');
+						define('DB_HOST', '');
 						$conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,'skecomplaints');
                         if(! $conn)
                         {
@@ -96,12 +96,13 @@
                                 $Comment_ID = $row["Comment_ID"];
 
                                 echo '
-                                <tr id="'.$Issue_ID.'">
-                                   <form  id="issueDelete" action = "../../php/issueDelete.php" method = "post">
-                                        <input name="userid" type = "hidden" value = "'.$Issue_ID.'" />
-                                    </form>
+								<tr id="E'.$Issue_ID.'">
 									<form  id="edit_issues" action = "../../php/edit_issues.php" method = "post">
-                                        <input name="userid" type = "hidden" value = "'.$Issue_ID.'" />
+                                        <input name="Eissueid" type = "hidden" value = "'.$Issue_ID.'" />
+                                    </form>
+                                <tr id="D'.$Issue_ID.'">
+                                   <form  id="issueDelete" action = "../../php/issueDelete.php" method = "post">
+                                        <input name="Dissueid" type = "hidden" value = "'.$Issue_ID.'" />
                                     </form>
                                     <td>'.$Issue_ID.'</td>
                                     <td>'.$Last_Update_Timestamp.'</td>
@@ -110,7 +111,7 @@
                                         <button class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" href="#deleteIssueModal"><i class="material-icons">delete</i></button>
                                         <button class="btn-floating modal-trigger btn-small waves-effect waves-light red btn_edit" href="#editIssueModal"><i class="material-icons">mode_edit</i></a>
                                     </td>
-
+								</tr>
                                 </tr>
                                 '; // echo end
 

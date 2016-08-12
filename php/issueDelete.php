@@ -13,13 +13,14 @@ define('DB_HOST', 'localhost');
           die("Connection failed: " . $conn->connect_error);
       }
 
-	$issueID = ($_POST['userid']);
+	$issueID = ($_POST['Dissueid']);
 
       $sql = "DELETE FROM issues WHERE Issues_ID = '".$issueID."' ";  //1 for admin, 2 for ops, 3 for patron
-		echo "$issueID";
+
 		$result = $conn->query($sql);
       if($conn->query($sql)){
          echo "deleted";
+		 header("Location: ../html/admin/issueManagement_admin.php");
       }
       else
         echo " Error: ";
