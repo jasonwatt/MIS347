@@ -1,7 +1,7 @@
 <?php
-      
+
        // Create connection
-       $conn = new mysqli('localhost','','','skecomplaints'); // $config['username'], $config['password'],
+       $conn = new mysqli('localhost','ske','ske','skecomplaints'); // $config['username'], $config['password'],
 
        // Check connection
        if ($conn->connect_error) {
@@ -19,7 +19,7 @@
 
       //  $sqlUserFetch = "SELECT userID FROM users WHERE name";
 
-      
+
          $sql = "INSERT INTO groups (Group_Name,Events,Users)
        VALUES('$Group_Name', '$Events', '$Users')";
 

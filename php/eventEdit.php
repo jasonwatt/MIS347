@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli('','','','skecomplaints');
+$conn = new mysqli('localhost','ske','ske','skecomplaints');
 if(! $conn)
 {
 	die("Connection failed: " . $conn->connect_error);

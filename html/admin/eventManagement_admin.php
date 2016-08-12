@@ -81,7 +81,7 @@
                     <tbody>
                         <?php
 
-                            $conn = new mysqli('','','','skecomplaints');
+                            $conn = new mysqli('localhost','ske','ske','skecomplaints');
                             if(! $conn)
                             {
                                 die("Connection failed: " . $conn->connect_error);
@@ -134,7 +134,7 @@
         </div>
         <!-- DELETE TILL HERE -->
     </div>
-	
+
 	<div id="deleteIssuerModal" class="modal deleteModal">
        <div class="modal-content">
          <h4>Delete User</h4>
@@ -153,14 +153,14 @@
          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat cancelButton">Cancel</a>
        </div>
      </div>
-	
+
 	<script>
         $(document).ready(function() {
             $('select').material_select();
             $('.modal-trigger').leanModal();
         });
     </script>
-	 
+
 	<script>
         $("#deleteIssueConfirmButton").click(function(){
             $("#eventDelete").submit();
@@ -172,7 +172,7 @@
             $("#eventEdit").submit();
         });
     </script>
-	
+
     <script>
         $(document).ready(function() {
             $('select').material_select();
