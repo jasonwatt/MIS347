@@ -104,19 +104,19 @@
                                 $Status = $row["Status"];
 
                                 echo '
-								<tr id="'.$Event_ID.'">
-									<form id = "edituser" action = "../../php/eventEdit.php" method = "post">
-										<input name = "eventid" type = "hidden" value = "'.$Event_ID.'" />
-									</form>
                                 <tr id="'.$Event_ID.'">
-                                    <form id = "deluser" action = "../../php/eventDelete.php" method = "post">
+                                    <form id = "eventDelete" action = "../../php/eventDelete.php" method = "post">
                                         <input name = "eventid" type = "hidden" value = "'.$Event_ID.'" />
                                     </form>
+								<tr id="'.$Event_ID.'">
+									<form id = "eventEdit" action = "../../php/eventEdit.php" method = "post">
+										<input name = "eventid" type = "hidden" value = "'.$Event_ID.'" />
+									</form>
                                     <td>'.$Event_ID.'</td>
                                     <td>'.$Status.'</td>
                                     <td>'.$Start_Date.'</td>
                                     <td>
-                                         <a class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" href="#deleteIssuerModal"><i class="material-icons">delete</i></a>
+                                        <a class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" href="#deleteIssuerModal"><i class="material-icons">delete</i></a>
                                         <a class="btn-floating modal-trigger btn-small waves-effect waves-light red btn_edit" href="#editIssuerModal"><i class="material-icons">mode_edit</i></a>
                                     </td>
 								</tr>
@@ -163,13 +163,13 @@
 	 
 	<script>
         $("#deleteIssueConfirmButton").click(function(){
-            $("#deluser").submit();
+            $("#eventDelete").submit();
         });
     </script>
 
 	<script>
         $("#editIssueConfirmButton").click(function(){
-            $("#edituser").submit();
+            $("#eventEdit").submit();
         });
     </script>
 	

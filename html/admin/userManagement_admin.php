@@ -99,20 +99,20 @@
                                 $Last_Active = $row["Last_Active"];
 
                                 echo '
-                                <tr id="'.$User_ID.'">
-									<form  id="edituser" action = "../../php/userEdit.php" method = "post">
-                                        <input name="userid" type = "hidden" value = "'.$User_ID.'" />
+								<tr id="D'.$User_ID.'">
+                                    <form  id="del" action = "../../php/del.php" method = "post">
+                                        <input name="Duserid" type = "hidden" value = "'.$User_ID.'" />
                                     </form>
-								<tr id="'.$User_ID.'">
-                                    <form  id="deluser" action = "../../php/del.php" method = "post">
-                                        <input name="userid" type = "hidden" value = "'.$User_ID.'" />
+								<tr id="E'.$User_ID.'">
+									<form  id="userEdit" action = "../../php/userEdit.php" method = "post">
+                                        <input name="Euserid" type = "hidden" value = "'.$User_ID.'" />
                                     </form>
                                     <td>'.$User_Name.'</td>
                                     <td>'.$Last_Active.'</td>
                                     <td>'.$Group_ID.'</td>
                                     <td>
-                                        <a class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" href="#deleteIssuerModal"><i class="material-icons">delete</i></a>
-                                        <a class="btn-floating modal-trigger btn-small waves-effect waves-light red btn_edit" href="#editIssuerModal"><i class="material-icons">mode_edit</i></a>
+                                        <button class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" href="#deleteIssuesModal"><i class="material-icons">delete</i></button>
+                                        <button class="btn-floating modal-trigger btn-small waves-effect waves-light red btn_edit" href="#editIssuesModal"><i class="material-icons">mode_edit</i></a>
                                     </td>
 								</tr>
                                 </tr>
@@ -131,7 +131,7 @@
         <!-- DELETE TILL HERE -->
     </div>
 
-    <div id="deleteIssuerModal" class="modal deleteModal">
+    <div id="deleteIssuesModal" class="modal deleteModal">
        <div class="modal-content">
          <h4>Delete User</h4>
        </div>
@@ -140,7 +140,7 @@
          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat cancelButton">Cancel</a>
        </div>
      </div>
-	 <div id="editIssuerModal" class="modal editModal">
+	 <div id="editIssuesModal" class="modal editModal">
        <div class="modal-content">
          <h4>Edit User</h4>
        </div>
@@ -159,13 +159,13 @@
 
     <script>
         $("#deleteIssueConfirmButton").click(function(){
-            $("#deluser").submit();
+            $("#del").submit();
         });
     </script>
 
 	<script>
         $("#editIssueConfirmButton").click(function(){
-            $("#edituser").submit();
+            $("#userEdit").submit();
         });
     </script>
 </body>
