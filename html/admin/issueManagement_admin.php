@@ -100,7 +100,7 @@
                                    <form  id="issueDelete" action = "../../php/issueDelete.php" method = "post">
                                         <input name="userid" type = "hidden" value = "'.$Issue_ID.'" />
                                     </form>
-									<form  id="edit_issues" action = "../patron/edit_issues.php" method = "post">
+									<form  id="edit_issues" action = "../../php/edit_issues.php" method = "post">
                                         <input name="userid" type = "hidden" value = "'.$Issue_ID.'" />
                                     </form>
                                     <td>'.$Issue_ID.'</td>

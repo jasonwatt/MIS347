@@ -27,31 +27,32 @@ define('DB_HOST', 'localhost');
        //get post field
        $Event_Name = test_input($_POST['Event_Name']);
        $Locations = test_input($_POST['Locations']);
-       $Address = test_input($_POST['Address']);
        $Street = test_input($_POST['Street']);
-       $Events = test_input($_POST['events']);
+       $Users = test_input($_POST['users']);
        $Groups = test_input($_POST['groups']);
        $Start_Date = test_input($_POST['Start_Date']);
+       $Start_Date = date("Y-m-d",strtotime($Start_Date));
        $End_Date = test_input($_POST['End_Date']);
+       $End_Date = date("Y-m-d",strtotime($End_Date));
        $City = test_input($_POST['City']);
        $Zip = test_input($_POST['Zip']);
        $State = test_input($_POST['State']);
-
+       $Address = ''.$Street.' '.$City.' '.$State.' '.$Zip;
 
       //  $sqlUserFetch = "SELECT userID FROM users WHERE name";
 
-       $session = $_SESSION['sessionUserID'];
+    //    $session = $_SESSION['sessionUserID'];
          $sql = "INSERT INTO events (Event_Name, Start_Date, End_Date, Address, Locations)
        VALUES('$Event_Name', '$Start_Date', '$End_Date','$Address','$Locations')";
 
-       if(mysql_query($sql,$conn) === TRUE){
-         echo "Value Inserted successfully";
-         //Indicate that the person has been registered
-         header('Location: userAdd_admin.php');
-       }
-       else
-         echo " Error: " . $sql . "<br>" . $conn->error;
-       mysql_close($conn);
+       if($conn->query($sql) === TRUE){
+           echo "Value Inserted successfully";
+           //Indicate that the person has been registered
+         }
+         else
+           echo " Error: " . $sql . "<br>" . $conn->error;
+         $conn->close();
+
 
 
        //To prevent sqlInjectio4n
