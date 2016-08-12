@@ -6,20 +6,11 @@ define('DB_USER', 'ske');
 define('DB_PASSWORD', 'ske');
 define('DB_HOST', 'localhost');
 
-    $conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);	// $config['username'], $config['password'], // $config['username'], $config['password'],
-	 if(! $conn)
-{
-	die('Could not connect');
-}
-
-       // Check connection
-       $db_selected = mysql_select_db(DB_NAME, $conn);
-
-
-	if(! $db_selected)
-	{
-		die('Cannot use ' . DB_NAME . ': ' . mysql_error());
-	}
+     $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,'skecomplaints');	// $config['username'], $config['password'], // $config['username'], $config['password'],
+	 // Check connection
+       if ($conn->connect_error) {
+           die("Connection failed: " . $conn->connect_error);
+       }
 
 
        echo "Connected successfully";
@@ -47,11 +38,12 @@ define('DB_HOST', 'localhost');
 
        if($conn->query($sql) === TRUE){
            echo "Value Inserted successfully";
+		   header("Location: ../html/admin/dashboard_admin.html");
            //Indicate that the person has been registered
          }
          else
-           echo " Error: " . $sql . "<br>" . $conn->error;
-         $conn->close();
+           echo " Error: " . $sql . "<br>" . $conn->error;;
+           $conn->close();
 
 
 
