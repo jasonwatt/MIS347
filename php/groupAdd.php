@@ -1,7 +1,7 @@
 <?php
-       session_start();
+      
        // Create connection
-       $conn = new mysqli('localhost','ske','ske','skecomplaints'); // $config['username'], $config['password'],
+       $conn = new mysqli('localhost','','','skecomplaints'); // $config['username'], $config['password'],
 
        // Check connection
        if ($conn->connect_error) {
@@ -19,14 +19,14 @@
 
       //  $sqlUserFetch = "SELECT userID FROM users WHERE name";
 
-       $session = $_SESSION['sessionUserID'];
-         $sql = "INSERT INTO groups (Group_Name,Event_ID,User_ID)
+      
+         $sql = "INSERT INTO groups (Group_Name,Events,Users)
        VALUES('$Group_Name', '$Events', '$Users')";
 
        if($conn->query($sql) === TRUE){
          echo "Value Inserted successfully";
          //Indicate that the person has been registered
-         header('Location: userAdd_admin.php');
+         header('Location: ../html/admin/groupManagement_admin.php');
        }
        else
          echo " Error: " . $sql . "<br>" . $conn->error;
