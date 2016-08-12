@@ -71,6 +71,8 @@ INSERT INTO `events` (`Event_ID`, `Event_Name`, `Start_Date`, `End_Date`, `Addre
 CREATE TABLE `groups` (
   `Group_ID` int(11) NOT NULL,
   `Group_Name` varchar(255) NOT NULL,
+  `Users` varchar(255) DEFAULT 'None',
+  `Events` varchar(255) DEFAULT 'None',
   `Event_ID` int(255) NOT NULL,
   `User_ID` int(255) NOT NULL,
   `Group_Permissions` enum('View','Modify','Edit','Delete','Create') NOT NULL DEFAULT 'View'
@@ -80,8 +82,11 @@ CREATE TABLE `groups` (
 -- Dumping data for table `groups`
 --
 
-INSERT INTO `groups` (`Group_ID`, `Group_Name`, `Event_ID`, `User_ID`, `Group_Permissions`) VALUES
-(66, 'hchgj', 63565, 55, 'View');
+INSERT INTO `groups` (`Group_ID`, `Group_Name`, `Users`, `Events`, `Event_ID`, `User_ID`, `Group_Permissions`) VALUES
+(66, 'hchgj', 'None', 'None', 63565, 55, 'View'),
+(68, 'ddd', 'None', 'None', 0, 0, 'View'),
+(69, 'ddd', 'ddd', 'heello', 0, 0, 'View'),
+(70, 'ddd', 'ddd', 'heello', 0, 0, 'View');
 
 -- --------------------------------------------------------
 
@@ -176,9 +181,7 @@ ALTER TABLE `events`
 -- Indexes for table `groups`
 --
 ALTER TABLE `groups`
-  ADD PRIMARY KEY (`Group_ID`),
-  ADD KEY `Event_ID` (`Event_ID`),
-  ADD KEY `User_ID` (`User_ID`);
+  ADD PRIMARY KEY (`Group_ID`);
 
 --
 -- Indexes for table `issues`
@@ -215,7 +218,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `Group_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `Group_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 --
 -- AUTO_INCREMENT for table `issues`
 --
@@ -229,12 +232,6 @@ ALTER TABLE `user`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `groups`
---
-ALTER TABLE `groups`
-  ADD CONSTRAINT `groups_ibfk_2` FOREIGN KEY (`User_ID`) REFERENCES `user` (`User_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user`
