@@ -17,21 +17,20 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
 	{
 		die('Cannot use ' . DB_NAME . ': ' . mysql_error());
 	}
+	
+	$Event_ID = ($_POST['eventid']);
 
-  $Event_Name = test_input($_POST['Event_Name'])
-	$sql = 'SELECT Event_ID FROM events WHERE Event_Name=$Event_Name';
-	$retval = mysql_query( $sql, $conn );
-
-   if(! $retval ) {
-      die('Could not get data: ' . mysql_error());
-   }
-
-
-	$sql2 =  "DELETE FROM events WHERE Event_ID=$retval";
-	$retval2 = mysql_query($sql2, $conn);
-	echo "DELETED <br>";
-	 mysql_free_result($retval);
-
+	$sql2 =  "DELETE FROM events WHERE Event_ID= '".$Event_ID."' ";
+	if(mysql_query($sql2, $conn) == TRUE)
+	{
+		echo "DELETED <br>";
+		header("Location: ../html/admin/eventManagement_admin.php")
+	}
+	else
+	{
+		echo "Error: ". $sql . "<br>" . mysql_error($conn);
+		header("Location: ../html/admin/eventManagement_admin.php");
+	}
 	mysql_close($conn);
 
 ?>
