@@ -90,8 +90,8 @@
                                 $User_ID = $row["User_ID"];
 
                                 echo '
-                                <tr id="'.$Group_ID.'">
-                                <form  id="editGroup" action = "../../php/edit_issues.php" method = "post">
+                                <tr id="E'.$Group_ID.'">
+                                <form  id="groupEdit" action = "../../php/groupEdit.php" method = "post">
                                     <input name="Egroupid" type = "hidden" value = "'.$Group_ID.'" />
                                 </form>
                                 <tr id="D'.$Group_ID.'">
@@ -176,8 +176,8 @@
         });
     </script>
 	<script>
-        $("#editGroup").click(function(){
-            $("#edit_issues").submit();
+        $("#groupEdit").click(function(){
+            $("#groupEdit").submit();
         });
     </script>
 
