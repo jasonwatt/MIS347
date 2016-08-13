@@ -105,8 +105,7 @@
                                     <td>'.$User_Name.'</td>
                                     <td>'.$Last_Active.'</td>
                                     <td>'.$Group_ID.'</td>
-                                    <td>
-                                        <button class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" href="#deleteIssuesModal"><i class="material-icons">delete</i></button>
+                                    <td>                                    
                                         <button class="btn-floating modal-trigger btn-small waves-effect waves-light red btn_edit" href="#editIssuesModal"><i class="material-icons">mode_edit</i></a>
                                     </td>
 								</tr>

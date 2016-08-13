@@ -100,8 +100,7 @@
                                     <td>'.$Event_ID.'</td>
                                     <td>'.$Status.'</td>
                                     <td>'.$Start_Date.'</td>
-                                    <td>
-                                        <a class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" href="#deleteIssuerModal"><i class="material-icons">delete</i></a>
+                                    <td>                                    
                                         <a class="btn-floating modal-trigger btn-small waves-effect waves-light red btn_edit" href="#editIssuerModal"><i class="material-icons">mode_edit</i></a>
                                     </td>
 								</tr>
@@ -119,7 +118,7 @@
 
         <!-- DELETE TILL HERE -->
     </div>
-	
+
 	<div id="deleteIssuerModal" class="modal deleteModal">
        <div class="modal-content">
          <h4>Delete User</h4>
@@ -138,7 +137,7 @@
          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat cancelButton">Cancel</a>
        </div>
      </div>
-	
+
     <script>
         $(document).ready(function() {
             $('select').material_select();
@@ -220,8 +219,8 @@
         });
 
     </script>
-	
-	
+
+
 </body>
 
 </html>

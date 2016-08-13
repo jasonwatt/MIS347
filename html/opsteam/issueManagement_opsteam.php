@@ -103,8 +103,7 @@
                                     <td>'.$Summary.'</td>
                                     <td>'.$Last_Update_Timestamp.'</td>
                                     <td>'.$Status.'</td>
-                                    <td>
-                                        <button class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" href="#deleteIssueModal"><i class="material-icons">delete</i></button>
+                                    <td>                                        
                                         <button class="btn-floating modal-trigger btn-small waves-effect waves-light red btn_edit" href="#editIssueModal"><i class="material-icons">mode_edit</i></a>
                                     </td>
 								</tr>
