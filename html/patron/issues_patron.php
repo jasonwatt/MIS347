@@ -77,6 +77,7 @@
 
 							session_start();
 							$User_ID= $_SESSION["sessionUserID"];
+							$_SESSION['check'] = 1;
                             $sql = "SELECT * FROM issues WHERE ".$User_ID." = issues.Submitting_User";
                             $result = $conn->query($sql);
                             // output data of each row
