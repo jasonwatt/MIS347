@@ -24,7 +24,7 @@
         <li class="bold"><a href="http://localhost/MIS347/html/patron/profile_patron.php" class="waves-effect waves-teal">Profile</a></li>
         <li class="bold"><a href="http://localhost/MIS347/html/patron/issues_patron.php" class="waves-effect waves-teal">Issues</a></li>
         <li class="bold"><a href="http://localhost/MIS347/html/patron/groups_patron.php" class="waves-effect waves-teal">Groups</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/patron/events_patron.php" class="waves-effect waves-teal">Events</a></li>
+        <li class="bold"><a href="events_patron.php" class="waves-effect waves-teal">Events</a></li>
     </ul>
 
 
@@ -65,12 +65,10 @@
                         {
                             die("Connection failed: " . $conn->connect_error);
                         }
-
-
-                            $sql = "SELECT * FROM groups";
-                            $result = $conn->query($sql);
 							session_start();
 							$User_ID= $_SESSION["sessionUserID"];
+                            $sql = "SELECT * FROM groups WHERE User_ID = ".$User_ID." ";
+                            $result = $conn->query($sql);
                             // output data of each row
                             while($row = $result->fetch_assoc()){
                                 //Creates a loop to loop through results

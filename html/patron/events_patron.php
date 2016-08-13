@@ -70,8 +70,9 @@
                             {
                                 die("Connection failed: " . $conn->connect_error);
                             }
-
-                            $sql = "SELECT * FROM events";
+							session_start();
+							$User_ID= $_SESSION["sessionUserID"];
+                            $sql = "SELECT * FROM events WHERE User_ID = ".$User_ID."";
                             $result = $conn->query($sql);
 
                             // output data of each row
