@@ -61,7 +61,7 @@ define('DB_HOST', 'localhost');
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="dashboard_patron.html">Home</a></li>
-        <li><a class="waves-effect waves-light btn">Logout</a></li>
+        <li><a class="waves-effect waves-light btn" href="../../php/logout.php">Logout</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <li><a href="http://localhost/MIS347/html/patron/profile_patron.php">Profile</a></li>

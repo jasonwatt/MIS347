@@ -36,9 +36,9 @@
                     <a href="#!" class="breadcrumb">Patron</a>
                     <a href="#!" class="breadcrumb">My Events</a>
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                    <ul class="right hide-on-med-and-down">
+                    <<ul class="right hide-on-med-and-down">
                         <li><a href="dashboard_patron.html">Home</a></li>
-                        <li><a class="waves-effect waves-light btn">Logout</a></li>
+                        <li><a class="waves-effect waves-light btn" href="../../php/logout.php">Logout</a></li>
                     </ul>
                 </div>
             </div>
