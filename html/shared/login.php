@@ -19,7 +19,7 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
 	}
 
 
-       echo "Connected successfully";
+    echo "Connected successfully";
 
 	$sql = "SELECT User_ID ,Username, Password FROM user;";
 
