@@ -175,12 +175,11 @@
             $("#groupDelete").submit();
         });
     </script>
-	<script>
-        $("#groupEdit").click(function(){
+    <script>
+        $("#editIssueConfirmButton").click(function(){
             $("#groupEdit").submit();
         });
     </script>
-
     <script>
         $(document).ready(function() {
             $('select').material_select();

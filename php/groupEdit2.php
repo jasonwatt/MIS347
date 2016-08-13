@@ -29,11 +29,11 @@
       //  $sqlUserFetch = "SELECT userID FROM users WHERE name";
 
 
-         $sql = "UPDATE groups SET Group_Name = '$Group_Name', Group_ID = '$Group_ID', Event_ID = '$Event_ID', User_ID = '$User_ID' WHERE Group_ID = '".$Group_ID."'";
+         $sql = "UPDATE groups SET Group_Name = '$Group_Name', Event_ID = '$Event_ID', User_ID = '$User_ID' WHERE Group_ID = '".$Group_ID."'";
 
        if($conn->query($sql) === TRUE){
          echo "Value Updated successfully";
-		 header("Location: ../html/admin/userManagement_admin.php");
+		 header("Location: ../html/admin/groupManagement_admin.php");
          //Indicate that the person has been registered
        }
        else
