@@ -1,3 +1,32 @@
+<?php
+define('DB_NAME', 'skecomplaints');
+define('DB_USER', 'ske');
+define('DB_PASSWORD', 'ske');
+define('DB_HOST', 'localhost');
+
+    $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME); // $config['username'], $config['password'],
+    // Check connection
+       if ($conn->connect_error) {
+           die("Connection failed: " . $conn->connect_error);
+       }
+
+	$Group_ID = ($_POST['$Group_ID']);
+	session_start();
+	$_SESSION['UserID'] = $User_ID;
+    $sql = "SELECT Group_ID, Group_Name, Event_ID, User_ID FROM groups WHERE Group_ID = '".$Group_ID."' ";
+    $result = $conn->query($sql);
+    while($row = $result->fetch_assoc()) {
+    $Group_ID= $row["Group_ID"];
+    $Group_Name= $row["Group_Name"];
+	$Event_ID= $row["Event_ID"];
+	$User_ID= $row["User_ID"];
+
+
+	break;
+
+  }
+?>
+
 <html>
 
 <head>
@@ -63,24 +92,22 @@
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="name" type="text" class="validate">
+                        <input id="name" name="Group_Name" type="text" class="validate">
                         <label for="name">Name</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12">
-				<input id="event" type="text" class="validate">
+                				<input id="event" name="Event_ID" type="text" class="validate">
                         <label for="event">Event</label>
                     </div>
                                </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="users" type="text" class="validate">
+                        <input id="users" name="User_ID" type="text" class="validate">
                         <label for="users">Users</label>
                     </div>
-
-
 
                 <button class="btn waves-effect waves-light" type="submit" name="action">Save
                     <i class="material-icons right">mode_edit</i>

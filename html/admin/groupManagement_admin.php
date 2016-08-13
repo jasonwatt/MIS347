@@ -62,7 +62,7 @@
                     <thead>
                         <tr>
                             <th data-field="id" name="Group_Name">Group Name</th>
-                            <th data-field="name">Last Issue</th>
+                            <th data-field="name">Users</th> <!--should be last issue-->
                             <th data-field="price">Last Event</th>
                             <th data-field="action"></th>
                         </tr>
@@ -91,15 +91,19 @@
 
                                 echo '
                                 <tr id="'.$Group_ID.'">
-                                    <form action = "../../php/del.php" method = "post">
-                                        <input type = "hidden" value = "'.$Group_ID.'" />
-                                    </form>
+                                <form  id="editGroup" action = "../../php/edit_issues.php" method = "post">
+                                    <input name="Egroupid" type = "hidden" value = "'.$Group_ID.'" />
+                                </form>
+                                <tr id="D'.$Group_ID.'">
+                               <form  id="groupDelete" action = "../../php/groupDelete.php" method = "post">
+                                    <input name="Dgroupid" type = "hidden" value = "'.$Group_ID.'" />
+                                </form>
                                     <td>'.$Group_Name.'</td>
                                     <td>'.$Event_ID.'</td>
                                     <td>'.$User_ID.'</td>
                                     <td>
-                                        <button class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" type = "submit"><i class="material-icons">delete</i></button>
-                                        <a class="btn-floating btn-small waves-effect waves-light red btn_edit"><i class="material-icons">mode_edit</i></a>
+                                    <button class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" href="#deleteIssueModal"><i class="material-icons">delete</i></button>
+                                    <button class="btn-floating modal-trigger btn-small waves-effect waves-light red btn_edit" href="#editIssueModal"><i class="material-icons">mode_edit</i></a>
                                     </td>
                                 </tr>
                                 '; // echo end
@@ -142,6 +146,41 @@
 
         <!-- DELETE TILL HERE -->
     </div>
+    <div id="deleteIssueModal" class="modal deleteModal">
+       <div class="modal-content">
+         <h4>Delete Group</h4>
+       </div>
+       <div class="modal-footer">
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id = "deleteIssueConfirmButton">Confirm</a>
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat cancelButton">Cancel</a>
+       </div>
+     </div>
+	<div id="editIssueModal" class="modal editModal">
+       <div class="modal-content">
+         <h4>Edit Group</h4>
+       </div>
+       <div class="modal-footer">
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id = "editIssueConfirmButton">Confirm</a>
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat cancelButton">Cancel</a>
+       </div>
+     </div>
+    <script>
+        $(document).ready(function() {
+            $('select').material_select();
+			$('.modal-trigger').leanModal();
+        });
+    </script>
+	<script>
+        $("#deleteIssueConfirmButton").click(function(){
+            $("#groupDelete").submit();
+        });
+    </script>
+	<script>
+        $("#editGroup").click(function(){
+            $("#edit_issues").submit();
+        });
+    </script>
+
     <script>
         $(document).ready(function() {
             $('select').material_select();

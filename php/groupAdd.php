@@ -20,7 +20,7 @@
       //  $sqlUserFetch = "SELECT userID FROM users WHERE name";
 
 
-         $sql = "INSERT INTO groups (Group_Name,Events,Users)
+         $sql = "INSERT INTO groups (Group_Name,Event_ID,User_ID)
        VALUES('$Group_Name', '$Events', '$Users')";
 
        if($conn->query($sql) === TRUE){
