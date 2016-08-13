@@ -129,42 +129,11 @@
 
         <!-- DELETE TILL HERE -->
     </div>
-	<div id="deleteIssueModal" class="modal deleteModal">
-       <div class="modal-content">
-         <h4>Delete Issue</h4>
-       </div>
-       <div class="modal-footer">
-         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id = "deleteIssueConfirmButton">Confirm</a>
-         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat cancelButton">Cancel</a>
-       </div>
-     </div>
-	<div id="editIssueModal" class="modal editModal">
-       <div class="modal-content">
-         <h4>Edit Issue</h4>
-       </div>
-       <div class="modal-footer">
-         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id = "editIssueConfirmButton">Confirm</a>
-         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat cancelButton">Cancel</a>
-       </div>
-     </div>
     <script>
         $(document).ready(function() {
             $('select').material_select();
-			$('.modal-trigger').leanModal();
         });
     </script>
-	<script>
-        $("#deleteIssueConfirmButton").click(function(){
-            $("#issueDelete").submit();
-        });
-    </script>
-	<script>
-        $("#editIssueConfirmButton").click(function(){
-            $("#edit_issues").submit();
-        });
-    </script>
-	
-	
 </body>
 
 </html>
