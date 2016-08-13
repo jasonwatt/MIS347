@@ -59,30 +59,46 @@
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>Group 1</td>
-                            <td>Issue 17</td>
-                            <td>Event 23</td>
-                            <td>
-                                <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Group 2</td>
-                            <td>Issue 8</td>
-                            <td>Event 12</td>
-                            <td>
-                                <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Group 3</td>
-                            <td>Issue 21</td>
-                            <td>Event 41</td>
-                            <td>
-                                <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
-                            </td>
-                        </tr>
+						<?php
+
+                        $conn = new mysqli('localhost','ske','ske','skecomplaints');
+                        if(! $conn)
+                        {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+
+
+                            $sql = "SELECT * FROM groups";
+                            $result = $conn->query($sql);
+
+                            // output data of each row
+                            while($row = $result->fetch_assoc()){
+                                //Creates a loop to loop through results
+                                $Group_ID = $row["Group_ID"];
+                                $Group_Name = $row["Group_Name"];
+                                $Event_ID = $row["Event_ID"];
+                                $User_ID = $row["User_ID"];
+
+                                echo '
+                                <tr id="E'.$Group_ID.'">
+                                <form  id="groupEdit" action = "../../php/groupEdit.php" method = "post">
+                                    <input name="Egroupid" type = "hidden" value = "'.$Group_ID.'" />
+                                </form>
+                                <tr id="D'.$Group_ID.'">
+                               <form  id="groupDelete" action = "../../php/groupDelete.php" method = "post">
+                                    <input name="Dgroupid" type = "hidden" value = "'.$Group_ID.'" />
+                                </form>
+                                    <td>'.$Group_Name.'</td>
+                                    <td>'.$Event_ID.'</td>
+                                    <td>'.$User_ID.'</td>
+                                    <td>
+                                    <button class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" href="#deleteIssueModal"><i class="material-icons">delete</i></button>
+                                    <button class="btn-floating modal-trigger btn-small waves-effect waves-light red btn_edit" href="#editIssueModal"><i class="material-icons">mode_edit</i></a>
+                                    </td>
+                                </tr>
+                                '; // echo end
+                            }
+                        ?>
                     </tbody>
                 </table>
 
@@ -91,6 +107,41 @@
 
         <!-- DELETE TILL HERE -->
     </div>
+    <div id="deleteIssueModal" class="modal deleteModal">
+       <div class="modal-content">
+         <h4>Delete Group</h4>
+       </div>
+       <div class="modal-footer">
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id = "deleteIssueConfirmButton">Confirm</a>
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat cancelButton">Cancel</a>
+       </div>
+     </div>
+	<div id="editIssueModal" class="modal editModal">
+       <div class="modal-content">
+         <h4>Edit Group</h4>
+       </div>
+       <div class="modal-footer">
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id = "editIssueConfirmButton">Confirm</a>
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat cancelButton">Cancel</a>
+       </div>
+     </div>
+    <script>
+        $(document).ready(function() {
+            $('select').material_select();
+			$('.modal-trigger').leanModal();
+        });
+    </script>
+	<script>
+        $("#deleteIssueConfirmButton").click(function(){
+            $("#groupDelete").submit();
+        });
+    </script>
+	<script>
+        $("#groupEdit").click(function(){
+            $("#groupEdit").submit();
+        });
+    </script>
+
     <script>
         $(document).ready(function() {
             $('select').material_select();

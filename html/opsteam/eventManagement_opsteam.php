@@ -64,30 +64,53 @@
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>Alvin</td>
-                            <td>Setup</td>
-                            <td>MM/DD/YY</td>
-                            <td>
-                                <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Alan</td>
-                            <td>Setup</td>
-                            <td>MM/DD/YY</td>
-                            <td>
-                                <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jonathan</td>
-                            <td>Closed</td>
-                            <td>MM/DD/YY-MM/DD/YY</td>
-                            <td>
-                                <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
-                            </td>
-                        </tr>
+                        <?php
+
+                            $conn = new mysqli('localhost','ske','ske','skecomplaints');
+                            if(! $conn)
+                            {
+                                die("Connection failed: " . $conn->connect_error);
+                            }
+
+                            $sql = "SELECT * FROM events";
+                            $result = $conn->query($sql);
+
+                            // output data of each row
+                            while($row = $result->fetch_assoc()){
+                                //Creates a loop to loop through results
+                                $Event_ID = $row["Event_ID"];
+                                $Event_Name = $row["Event_Name"];
+                                $Start_Date = $row["Start_Date"];
+                                $End_Date = $row["End_Date"];
+                                $Locations	= $row["Locations"];
+                                $Group_ID = $row["Group_ID"];
+                                $Address_ID = $row["Address_ID"];
+                                $User_ID = $row["User_ID"];
+                                $Status = $row["Status"];
+
+                                echo '
+                                <tr id="'.$Event_ID.'">
+                                    <form id = "eventDelete" action = "../../php/eventDelete.php" method = "post">
+                                        <input name = "eventid" type = "hidden" value = "'.$Event_ID.'" />
+                                    </form>
+								<tr id="'.$Event_ID.'">
+									<form id = "eventEdit" action = "../../php/eventEdit.php" method = "post">
+										<input name = "eventid" type = "hidden" value = "'.$Event_ID.'" />
+									</form>
+                                    <td>'.$Event_ID.'</td>
+                                    <td>'.$Status.'</td>
+                                    <td>'.$Start_Date.'</td>
+                                    <td>
+                                        <a class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" href="#deleteIssuerModal"><i class="material-icons">delete</i></a>
+                                        <a class="btn-floating modal-trigger btn-small waves-effect waves-light red btn_edit" href="#editIssuerModal"><i class="material-icons">mode_edit</i></a>
+                                    </td>
+								</tr>
+                                </tr>
+                                '; // echo end
+
+                            }
+
+                        ?>
                     </tbody>
                 </table>
 
@@ -96,11 +119,109 @@
 
         <!-- DELETE TILL HERE -->
     </div>
+	
+	<div id="deleteIssuerModal" class="modal deleteModal">
+       <div class="modal-content">
+         <h4>Delete User</h4>
+       </div>
+       <div class="modal-footer">
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id = "deleteIssueConfirmButton">Confirm</a>
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat cancelButton">Cancel</a>
+       </div>
+     </div>
+	 <div id="editIssuerModal" class="modal editModal">
+       <div class="modal-content">
+         <h4>Edit User</h4>
+       </div>
+       <div class="modal-footer">
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id = "editIssueConfirmButton">Confirm</a>
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat cancelButton">Cancel</a>
+       </div>
+     </div>
+	
+    <script>
+        $(document).ready(function() {
+            $('select').material_select();
+            $('.modal-trigger').leanModal();
+        });
+    </script>
+
+	<script>
+        $("#deleteIssueConfirmButton").click(function(){
+            $("#eventDelete").submit();
+        });
+    </script>
+
+	<script>
+        $("#editIssueConfirmButton").click(function(){
+            $("#eventEdit").submit();
+        });
+    </script>
+
     <script>
         $(document).ready(function() {
             $('select').material_select();
         });
+
+        // function to set ids of all <tr>, #btn_edit and #btn_delete
+        $(function){
+            $tr = $('tr');
+            for (i=0;i<array.length;i++) {
+                $tr.append($('<tr/>', {
+                    id:    'tr'+i,
+                    html:  array[i]
+                }));
+            }
+
+            $btn_edit = $('.btn_edit');
+            for (i=0;i<array.length;i++) {
+                $btn_edit.append($('<a/>', {
+                    id:    'btn_edit'+i,
+                    html:  array[i]
+                }));
+            }
+
+            $btn_delete = $('.btn_delete');
+            for (i=0;i<array.length;i++) {
+                $btn_delete.append($('<a/>', {
+                    id:    'btn_delete'+i,
+                    html:  array[i]
+                }));
+            }
+        }
+
+        $('.btn_edit').click(function(){
+            // set user id to whatever is clicked and redirect to edit page
+            $idClicked = e.target.id;
+            $.post("eventManagement_admin.php", {change: $(edit_event_id).val()},
+                function (data)
+                {
+                    if exists($_POST['edit_event_id']) {
+                        $edit_event_id = $_POST['$idClicked'];
+
+                        //change value in session variable
+                        //redirect page
+                    }
+                });
+            });
+
+        $('.btn_delete').click(function(){
+            // set user id to whatever is clicked and delete from database
+            $idClicked = e.target.id;
+            $.post("eventManagement_admin.php", {change: $(edit_event_id).val()},
+                function (data)
+                {
+                    if exists($_POST['edit_event_id']) {
+                        $edit_event_id = $_POST['$idClicked'];
+                        //change value in session variable
+                        //row from database
+                    }
+                });
+        });
+
     </script>
+	
+	
 </body>
 
 </html>
