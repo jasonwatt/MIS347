@@ -106,7 +106,7 @@
                                    <form  id="issueDelete" action = "../../php/issueDelete.php" method = "post">
                                         <input name="Dissueid" type = "hidden" value = "'.$Issue_ID.'" />
                                     </form>
-                                    <td><a href="issueDescription_admin.php">'.$Summary.'</a></td>
+                                    <td><a href="issueDescription_patron.php?id='.$Issue_ID.'">'.$Summary.'</a></td>
                                     <td>'.$Last_Update_Timestamp.'</td>
                                     <td>'.$Status.'</td>
                                     <td>
