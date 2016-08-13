@@ -1,3 +1,21 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Aug 13, 2016 at 04:51 PM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 5.6.23
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
 -- Database: `skecomplaints`
 --
@@ -52,7 +70,7 @@ CREATE TABLE `events` (
   `Group_ID` int(255) NOT NULL,
   `Address_ID` int(11) NOT NULL,
   `User_ID` int(255) NOT NULL,
-  `Status` enum('Setup','Pre_Event','Open','Post_Event','Closed') NOT NULL
+  `Status` enum('Setup','Pre_Event','Open','Post_Event','Closed') NOT NULL DEFAULT 'Setup'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -60,7 +78,7 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`Event_ID`, `Event_Name`, `Start_Date`, `End_Date`, `Address`, `Locations`, `Group_ID`, `Address_ID`, `User_ID`, `Status`) VALUES
-(0, 'dddd', '2016-08-07', '2016-08-22', 'ddd ddd AK ddd', 'dddd', 0, 0, 0, 'Setup');
+(0, 'dddddd', '2016-08-14', '2016-08-22', 'dddddd hgyug AL ugvuvu', 'newonw', 0, 0, 0, 'Setup');
 
 -- --------------------------------------------------------
 
@@ -100,6 +118,7 @@ CREATE TABLE `issues` (
   `Created_Timestamp` datetime DEFAULT NULL,
   `Last_Update_Timestamp` datetime DEFAULT NULL,
   `First_Response_Timestamp` datetime DEFAULT NULL,
+  `Submitting_User` int(11) NOT NULL,
   `First_Response_User` varchar(255) DEFAULT NULL,
   `Completed_Timestamp` datetime DEFAULT NULL,
   `Assign_User` varchar(255) DEFAULT NULL,
@@ -114,12 +133,18 @@ CREATE TABLE `issues` (
 -- Dumping data for table `issues`
 --
 
-INSERT INTO `issues` (`Issues_ID`, `Summary`, `Created_Timestamp`, `Last_Update_Timestamp`, `First_Response_Timestamp`, `First_Response_User`, `Completed_Timestamp`, `Assign_User`, `Description`, `Location`, `Label`, `Status`, `Comment_ID`) VALUES
-(11, 'hello', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'New', 0),
-(12, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0),
-(13, 'dd', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0),
-(14, 'ddsddcs', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0),
-(15, 'sssss', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0);
+INSERT INTO `issues` (`Issues_ID`, `Summary`, `Created_Timestamp`, `Last_Update_Timestamp`, `First_Response_Timestamp`, `Submitting_User`, `First_Response_User`, `Completed_Timestamp`, `Assign_User`, `Description`, `Location`, `Label`, `Status`, `Comment_ID`) VALUES
+(11, 'hello', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'New', 0),
+(13, 'dd', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0),
+(14, 'ddsddcs', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0),
+(15, 'sssss', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0),
+(565, 'hertthrthrethrthrth', NULL, NULL, NULL, 56, NULL, NULL, NULL, NULL, NULL, NULL, 'New', 662),
+(5445, 'heelo thos is a new issue for a=evrytone to see and edit and delete as they may plase', '2016-08-12 09:27:28', '2016-08-16 12:25:24', '2016-08-12 17:25:28', 3151, 'jbfvhb', '2016-08-17 09:24:24', 'zvasvsa', 'damn this descripton is going to be a long oneso fasten your seatne;t amd get ready for the ride of your lifetime ', 'sdfsf', 'fgergerg', 'Assigned', 2626),
+(5451, 'efwefwefw', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0),
+(5452, 'fwefwefkhdsbhsvdsdhvshbvksdsbdvk', '2016-08-19 00:00:25', '2016-08-16 00:00:00', '2016-08-17 00:00:00', 56, 'dvfdfvdfv', '2016-08-05 00:00:00', 'vvvvvvvvvvvvvv', 'hello this is my new decemebet and i would like to be that way', 'dfsfref', 'ewfwefwefe', 'Assigned', 0),
+(5453, 'trtyrth', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0),
+(5454, 'dddddd', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0),
+(5455, 'umuiu', NULL, NULL, NULL, 56, NULL, NULL, NULL, NULL, NULL, NULL, '', 0);
 
 -- --------------------------------------------------------
 
@@ -149,7 +174,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`User_ID`, `Username`, `Profile_Pic`, `Email`, `Password`, `Status`, `Groups`, `Events`, `Group_ID`, `Event_ID`, `Permissions`, `User_Type`, `Last_Active`, `User_Name`) VALUES
-(55, 'testuser9', NULL, 'testuser9gmail', 'hello', 'Active', 'old firend', 'new friend', NULL, NULL, 'View', 'Patron', '', 'test user 9');
+(55, 'testuser9', NULL, 'testuser9gmail', 'hello', 'Active', 'old firend', 'new friend', NULL, NULL, 'View', 'Patron', '', 'test user 9'),
+(56, 'test user 3', NULL, 'testuser3gmail', '3a57dee5416aebc1ca12fa6206cdf090dd3ade88', 'Active', NULL, NULL, NULL, NULL, 'View', 'Patron', '', '');
 
 --
 -- Indexes for dumped tables
@@ -223,12 +249,12 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT for table `issues`
 --
 ALTER TABLE `issues`
-  MODIFY `Issues_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `Issues_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5456;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 --
 -- Constraints for dumped tables
 --
