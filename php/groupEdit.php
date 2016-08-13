@@ -12,6 +12,7 @@ define('DB_HOST', 'localhost');
 
 	$Group_ID = ($_POST['Egroupid']);
 	session_start();
+  $_SESSION['GroupID'] = $Group_ID;
     $sql = "SELECT Group_ID, Group_Name, Event_ID, User_ID FROM groups WHERE Group_ID = '".$Group_ID."' ";
     $result = $conn->query($sql);
     while($row = $result->fetch_assoc()) {

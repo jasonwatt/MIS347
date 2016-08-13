@@ -8,7 +8,8 @@
            die("Connection failed: " . $conn->connect_error);
        }
 
-		$Group_ID = $_SESSION['Group_ID'];
+		$Group_ID = ($_SESSION['GroupID']);
+            echo $Group_ID;
 
 
        function test_input($data) {
