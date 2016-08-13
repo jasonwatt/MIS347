@@ -17,19 +17,21 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
 	{
 		die('Cannot use ' . DB_NAME . ': ' . mysql_error());
 	}
-
+	
+	session_start();
+	$User_ID= $_SESSION["sessionUserID"];
 
 	$issueTitle = $_POST["issueT"];
 	$issueDetail = $_POST["issueD"];
-	$sql = "INSERT INTO issues (Summary, Status )
-	VALUES ('$issueTitle','$issueDetail')";
+	$sql = "INSERT INTO issues (Summary, Status, Submitting_User)
+	VALUES ('$issueTitle','$issueDetail','$User_ID')";
 
 if (mysql_query($sql,$conn) === TRUE) {
     echo "\n New record created successfully";
 } else {
     echo "Error: " . $sql . "<br>" . mysql_error($conn);
 }
-
+header("Location: ../html/patron/issues_patron.php");
 mysql_close($conn);
 
 

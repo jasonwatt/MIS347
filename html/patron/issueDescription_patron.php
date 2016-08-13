@@ -53,10 +53,10 @@ define('DB_HOST', 'localhost');
     <ul id="nav-mobile" class="side-nav fixed sideNav">
         <br>
         <br>
-        <li class="bold"><a href="profile_admin.php" class="waves-effect waves-teal">Profile</a></li>
-        <li class="bold"><a href="issueManagement_admin.php" class="waves-effect waves-teal">Issues</a></li>
-        <li class="bold"><a href="groupManagement_admin.php" class="waves-effect waves-teal">Groups</a></li>
-        <li class="bold"><a href="eventManagement_admin.php" class="waves-effect waves-teal">Events</a></li>
+        <li class="bold"><a href="profile_exp.php" class="waves-effect waves-teal">Profile</a></li>
+        <li class="bold"><a href="issues_patron.php" class="waves-effect waves-teal">Issues</a></li>
+        <li class="bold"><a href="groups_patron.php" class="waves-effect waves-teal">Groups</a></li>
+        <li class="bold"><a href="events_patrons.php" class="waves-effect waves-teal">Events</a></li>
     </ul>
 
 
@@ -65,7 +65,7 @@ define('DB_HOST', 'localhost');
         <nav class="indigo darken-2 topNavBar">
             <div class="nav-wrapper">
                 <div class="col s12">
-                    <a href="#!" class="breadcrumb">Admin</a>
+                    <a href="#!" class="breadcrumb">Patron</a>
                     <a href="#!" class="breadcrumb">Issue Management</a>
                     <a href="#!" class="breadcrumb">Issue Description</a>
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -76,10 +76,10 @@ define('DB_HOST', 'localhost');
                 </div>
 
                 <ul class="side-nav" id="mobile-demo">
-                    <li class="bold"><a href="profile_admin.php" class="waves-effect waves-teal">Profile</a></li>
-                    <li class="bold"><a href="issueManagement_admin.php" class="waves-effect waves-teal">Issues</a></li>
-                    <li class="bold"><a href="groupManagement_admin.php" class="waves-effect waves-teal">Groups</a></li>
-                    <li class="bold"><a href="eventManagement_admin.php" class="waves-effect waves-teal">Events</a></li>
+                    <li class="bold"><a href="profile_exp.php" class="waves-effect waves-teal">Profile</a></li>
+                    <li class="bold"><a href="issues_patron.php" class="waves-effect waves-teal">Issues</a></li>
+                    <li class="bold"><a href="groups_patron.php" class="waves-effect waves-teal">Groups</a></li>
+                    <li class="bold"><a href="events_patrons.php" class="waves-effect waves-teal">Events</a></li>
                     <li><a class="waves-effect waves-light btn">Logout</a></li>
                 </ul>
             </div>

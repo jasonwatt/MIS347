@@ -20,10 +20,13 @@ define('DB_HOST', 'localhost');
 		$result = $conn->query($sql);
       if($conn->query($sql)){
          echo "deleted";
-		 header("Location: ../html/admin/issueManagement_admin.php");
       }
       else
         echo " Error: ";
+	if($check == 1)
+		header("Location: ../html/patron/issues_patron.php");
+	else
+		header("Location: ../html/admin/issueManagement_admin.php");
 
       $conn->close();
 

@@ -8,7 +8,8 @@ define('DB_HOST', 'localhost');
            die("Connection failed: " . $conn->connect_error);
        }
 	session_start();
-	$_SESSION['check']= 0;
+	$_SESSION['check']= 1;
+	$User_ID= $_SESSION["sessionUserID"];
 ?>
 
 <html>
@@ -46,7 +47,7 @@ define('DB_HOST', 'localhost');
         <nav class="indigo darken-2 topNavBar">
             <div class="nav-wrapper">
                 <div class="col s12">
-                    <a href="#!" class="breadcrumb">Admin</a>
+                    <a href="#!" class="breadcrumb">Patron</a>
                     <a href="#!" class="breadcrumb">Issue Management</a>
                     <a href="#!" class="breadcrumb">Issue Submission</a>
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -69,7 +70,7 @@ define('DB_HOST', 'localhost');
         <!-- DELETE THIS FOR ADMIN DASHBOARD -->
         <div class="formContainer card">
 
-            <form class="col s12 l12 m6" name="issueSubmit" action="../../php/issueAdd.php" onsubmit="return validateForm()" method="post">
+            <form class="col s12 l12 m6" name="issueSubmit" action="../../php/issueSubmit.php" onsubmit="return validateForm()" method="post">
 
                 <div class="row">
                     <div class="input-field col s12 l12 m6">
