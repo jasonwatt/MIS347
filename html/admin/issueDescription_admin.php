@@ -9,7 +9,7 @@ define('DB_HOST', 'localhost');
        }
 	
 	session_start();
-	$Issues_ID = $_SESSION['issueid'];
+	$Issues_ID = $_GET["id"];
     $sql = "SELECT Created_Timestamp, Last_Update_Timestamp, First_Response_Timestamp, Completed_Timestamp, Summary, Status, 
 	First_Response_User, Completed_Timestamp, Description, Label, Location 
 	FROM issues WHERE Issues_ID= ".$Issues_ID." ";
