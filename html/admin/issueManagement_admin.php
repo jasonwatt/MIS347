@@ -78,7 +78,7 @@
 
                             $sql = "SELECT * FROM issues";
                             $result = $conn->query($sql);
-
+							session_start();
                             // output data of each row
                             while($row = $result->fetch_assoc()){
                                 //Creates a loop to loop through results
@@ -94,9 +94,10 @@
                                 $Location = $row["Location"];
                                 $Label = $row["Label"];
                                 $Comment_ID = $row["Comment_ID"];
+								$_SESSION['issueid'] = $Issue_ID;
 
                                 echo '
-								<tr id="E'.$Issue_ID.'">
+								<tr id="E'.$Issue_ID.'" href="issueDescription_admin.html">
 									<form  id="edit_issues" action = "../../php/edit_issues.php" method = "post">
                                         <input name="Eissueid" type = "hidden" value = "'.$Issue_ID.'" />
                                     </form>
@@ -104,7 +105,7 @@
                                    <form  id="issueDelete" action = "../../php/issueDelete.php" method = "post">
                                         <input name="Dissueid" type = "hidden" value = "'.$Issue_ID.'" />
                                     </form>
-                                    <td>'.$Summary.'</td>
+                                    <td><a href="issueDescription_admin.php">'.$Summary.'</a></td>
                                     <td>'.$Last_Update_Timestamp.'</td>
                                     <td>'.$Status.'</td>
                                     <td>
@@ -161,6 +162,8 @@
             $("#edit_issues").submit();
         });
     </script>
+	
+	
 </body>
 
 </html>
