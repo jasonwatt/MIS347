@@ -1,3 +1,28 @@
+<?php
+define('DB_USER', 'ske');
+define('DB_PASSWORD', 'ske');
+define('DB_HOST', '');
+define('DB_NAME', 'skecomplaints');
+    $conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);	// $config['username'], $config['password'],
+   
+    if(! $conn)
+{
+	die('Could not connect');
+}
+
+$db_selected = mysql_select_db(DB_NAME, $conn);
+
+
+	if(! $db_selected)
+	{
+		die('Cannot use ' . DB_NAME . ': ' . mysql_error());
+	}
+	
+session_start();
+$User_ID= $_SESSION["sessionUserID"];
+
+?>
+
 <html>
 
 <head>
@@ -21,7 +46,7 @@
     <ul id="nav-mobile" class="side-nav fixed sideNav">
         <br>
         <br>
-        <li class="bold"><a href="http://localhost/MIS347/html/patron/profile_patron.php" class="waves-effect waves-teal">Profile</a></li>
+        <li class="bold"><a href="http://localhost/MIS347/html/patron/profile_exp.php" class="waves-effect waves-teal">Profile</a></li>
         <li class="bold"><a href="http://localhost/MIS347/html/patron/issues_patron.php" class="waves-effect waves-teal">Issues</a></li>
         <li class="bold"><a href="http://localhost/MIS347/html/patron/groups_patron.php" class="waves-effect waves-teal">Groups</a></li>
         <li class="bold"><a href="http://localhost/MIS347/html/patron/events_patron.php" class="waves-effect waves-teal">Events</a></li>
@@ -36,20 +61,20 @@
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="dashboard_patron.html">Home</a></li>
-                    <li><a class="waves-effect waves-light btn">Logout</a></li>
+                    <li><a class="waves-effect waves-light btn" href= "../../php/logout.php">Logout</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                    <li class="bold"><a href="http://localhost/MIS347/html/patron/profile_patron.php" class="waves-effect waves-teal">Profile</a></li>
+                    <li class="bold"><a href="http://localhost/MIS347/html/patron/profile_exp.php" class="waves-effect waves-teal">Profile</a></li>
                 <li class="bold"><a href="http://localhost/MIS347/html/patron/issues_patron.php" class="waves-effect waves-teal">Issues</a></li>
                 <li class="bold"><a href="http://localhost/MIS347/html/patron/groups_patron.php" class="waves-effect waves-teal">Groups</a></li>
                 <li class="bold"><a href="http://localhost/MIS347/html/patron/events_patron.php" class="waves-effect waves-teal">Events</a></li>
-                    <li><a class="waves-effect waves-light btn">Logout</a></li>
+                    <li><button class="waves-effect waves-light btn" href= "../../php/logout.php">Logout</button></li>
                 </ul>
             </div>
         </nav>
 
         <div class="formContainer card">
-            <a class="btn-floating btn-large waves-effect waves-light red right fab_add"><i class="material-icons">add</i></a>
+            <a class="btn-floating btn-large waves-effect waves-light red right fab_add" href="dashboard_patron.html"><i class="material-icons">add</i></a>
             <form class="col s12 l12 m6">
                 <ul class="collection">
                     <li class="collection-item avatar">

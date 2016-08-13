@@ -18,16 +18,13 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
 		die('Cannot use ' . DB_NAME . ': ' . mysql_error());
 	}
 
-        session_start(); 
-  
-
-
-    // Check connection
-       
-    try {
-		
-    $User_ID= $_SESSION["sessionUserID"]; 
-    } catch (Exception $e) {
+    session_start(); 
+    
+	// Check connection   
+    try {	
+		$User_ID= $_SESSION["sessionUserID"]; 
+    } 
+	catch (Exception $e) {
       header('Location: ../html/Login.html');
     }
 
