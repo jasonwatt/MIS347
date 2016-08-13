@@ -11,6 +11,7 @@ define('DB_HOST', 'localhost');
 	$Issues_ID = ($_POST['Eissueid']);
 	session_start();
 	$_SESSION['IssueID'] = $Issues_ID;
+	$check = $_SESSION['check'];
     $sql = "SELECT Summary, Status FROM issues WHERE Issues_ID= ".$Issues_ID." ";
     $result = $conn->query($sql);
     while($row = $result->fetch_assoc()) {
