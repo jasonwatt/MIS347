@@ -79,6 +79,7 @@
                             $sql = "SELECT * FROM issues";
                             $result = $conn->query($sql);
 							session_start();
+							$_SESSION['check'] = 0;
                             // output data of each row
                             while($row = $result->fetch_assoc()){
                                 //Creates a loop to loop through results
