@@ -1,13 +1,12 @@
 <?php
-include('dbconnection.php');
-if(isset($_POST['keysearch'])
-{
-    $search = $_POST['keysearch']);
-    $data = mysql_query("SELECT * FROM users WHERE User_Name like '%$search%' order by id LIMIT 5");
-    while($row = mysql_fetch_array($data))
+    $key=$_GET['key'];
+    $array = array();
+    $con=mysql_connect("localhost","root","");
+    $db=mysql_select_db("database name",$con);
+    $query=mysql_query("select * from table_name where <coloumn_name> LIKE '%{$key}%'");
+    while($row=mysql_fetch_assoc($query))
     {
-        $username   = $row['User_Name'];
-        echo "<div class='show'><img src='' id='search' /><span class="name"><?php echo $username; ?></span></div>"
+      $array[] = $row['title'];
     }
-}
+    echo json_encode($array);
 ?>

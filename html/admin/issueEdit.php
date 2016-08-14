@@ -94,10 +94,10 @@ define('DB_HOST', 'localhost');
         <div class="input-field col s12 l12 m6">
           <select>
             <option value="" disabled selected>Select a label</option>
-            <option value="1" >Option 1</option>
-            <option value="2" >Option 2</option>
-            <option value="3" >Option 3</option>
-          </select>
+            <option value="1">Maintainance</option>
+                          <option value="2">Fire</option>
+                          <option value="3">Spill</option>
+                          <option value="3">Medical</option>
           <label>Issue Label</label>
         </div>
       </div>
