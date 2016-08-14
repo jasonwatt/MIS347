@@ -96,7 +96,7 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
             <form class="col s12 l12 m6">
 
                 <div class="card-header">
-                    <img src="data:image/jpeg;base64,<?php echo base64_encode( $Profile_Pic ); ?>" />
+                    <img src="../one_life.jpg" alt="profile pic" style="width:200px;height:200px;">
                 </div>
                 <div class="card-content">
                     <h5><?php echo "$Username"; ?></h5>
