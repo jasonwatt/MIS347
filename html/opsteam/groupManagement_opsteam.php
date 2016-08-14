@@ -23,6 +23,7 @@
         <br>
         <li class="bold"><a href="http://localhost/MIS347/html/opsteam/profile_opsteam.php" class="waves-effect waves-teal">Profile</a></li>
         <li class="bold"><a href="http://localhost/MIS347/html/opsteam/issueManagement_opsteam.php" class="waves-effect waves-teal">Issues</a></li>
+        <li class="bold"><a href="http://localhost/MIS347/html/opsteam/userManagement_opsteam.php" class="waves-effect waves-teal">Users</a></li>
         <li class="bold"><a href="http://localhost/MIS347/html/opsteam/groupManagement_opsteam.php" class="waves-effect waves-teal">Groups</a></li>
         <li class="bold"><a href="http://localhost/MIS347/html/opsteam/eventManagement_opsteam.php" class="waves-effect waves-teal">Events</a></li>
     </ul>
