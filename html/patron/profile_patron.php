@@ -35,10 +35,10 @@
             <div class="nav-wrapper">
                 <a href="#!" class="dashboardHeader brand-logo">Patron Profile</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="dashboard_patron.html">Home</a></li>
-                    <li><a href="logout.php">Logout</a></li>
-                </ul>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="dashboard_admin.html">Home</a></li>
+                        <li><a class="waves-effect waves-light btn">Logout</a></li>
+                    </ul>          
                 <ul class="side-nav" id="mobile-demo">
                     <li class="bold"><a href="http://localhost/MIS347/html/patron/profile_patron.php" class="waves-effect waves-teal">Profile</a></li>
                     <li class="bold"><a href="http://localhost/MIS347/html/patron/issues_patron.php" class="waves-effect waves-teal">Issues</a></li>

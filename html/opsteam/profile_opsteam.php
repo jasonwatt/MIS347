@@ -35,10 +35,10 @@
             <div class="nav-wrapper">
                 <a href="#!" class="dashboardHeader brand-logo">Patron Profile</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="dashboard_opsteam.html">Home</a></li>
-                    <li><a class="waves-effect waves-light btn">Logout</a></li>
-                </ul>
+                   <ul class="right hide-on-med-and-down">
+                        <li><a href="dashboard_opsteam.html">Home</a></li>
+                        <li><a class="waves-effect waves-light btn" href="../../php/logout.php">Logout</a></li>
+                    </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li class="bold"><a href="http://localhost/MIS347/html/opsteam/profile_opsteam.php" class="waves-effect waves-teal">Profile</a></li>
                     <li class="bold"><a href="http://localhost/MIS347/html/opsteam/issueManagement_opsteam.php" class="waves-effect waves-teal">Issues</a></li>
