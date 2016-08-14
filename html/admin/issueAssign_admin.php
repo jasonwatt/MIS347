@@ -75,12 +75,12 @@ define('DB_HOST', 'localhost');
         <!-- DELETE THIS FOR ADMIN DASHBOARD -->
         <div class="formContainer card">
 
-            <form class="col s12 l12 m6" name="issueSubmit" action="../../php/issueAdd.php" onsubmit="return validateForm()" method="post">
+            <form class="col s12 l12 m6" name="issueSubmit" action="../../php/issueAssign.php" onsubmit="return validateForm()" method="post">
 
                 <div class="row">
                     <div class="input-field col s12 l12 m6">
 
-                        <select id="label">
+                        <select id="label" name="user">
                             <label>Issue Handler</label>
                             <option value="" disabled selected>Assign a user</option>
 
