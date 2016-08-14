@@ -269,21 +269,14 @@ img#search{width:50px; height:40px; float:left; margin-right:6px;}
                 </div>
 
                 <div class="row">
-                    <ul class="collection col s6">
-                        <li class="collection-item">Alvin</li>
-                        <li class="collection-item">Alvin</li>
-                        <li class="collection-item">Alvin</li>
-                        <li class="collection-item">Alvin</li>
-                    </ul>
+									<a id="adduser" class="waves-effect waves-light left btn">Add User</a>
+									<a id="addgroup" class="waves-effect waves-light right btn">Add Group</a>
+								</div>
 
-                    <ul class="collection col s6">
-                        <li class="collection-item">Alvin</li>
-                        <li class="collection-item">Alvin</li>
-                        <li class="collection-item">Alvin</li>
-                        <li class="collection-item">Alvin</li>
-                    </ul>
+								<div class="row">
 
-                </div>
+
+								</div>
 
                 <div class="row">
                     <input name="Locations" placeholder="+Location" />
@@ -295,15 +288,6 @@ img#search{width:50px; height:40px; float:left; margin-right:6px;}
                 </button>
 
             </form>
-
-						<!-- xxxxxx -->
-						<div class="content">
-						<input type="text" class="search" id="searchid" placeholder="Search for people" />
-						<br />
-						<div id="result">
-							hi my name is
-						</div>
-					</div>
 
         </div>
 
@@ -336,6 +320,24 @@ img#search{width:50px; height:40px; float:left; margin-right:6px;}
                     return false;
                 }
             });
+
+						var counter = 0;
+
+						$('#adduser').click(function () {
+							var newSelectBoxDiv = $(document.createElement('div')).attr("id", 'SelectBoxDiv'+counter);
+							newSelectBoxDiv.after().html('<label>Select User'+counter+': </label>'+
+								'<select class="customUserSelect" id="selectUser'+counter'">';
+								<?php
+									$connection = mysql_connect('localhost','ske','ske') or die(mysql_error());
+									$database = mysql_select_db('skecomplaints') or die(mysql_error());
+             			$select=mysql_query("select * from user");
+             			while($row=mysql_fetch_array($select))
+             			{
+              			echo "<option value=".$row['User_ID'].">".$row['User_Name']."</option>";
+             			}
+           			?>
+								+'</select>')
+      			}
 
 
         });
@@ -398,44 +400,6 @@ img#search{width:50px; height:40px; float:left; margin-right:6px;}
             }
         }
     </script>
-
-    <!-- xxxxx -->
-    <script type="text/javascript">
-		$(function() {
-			$(".search").keyup(function() {
-				var searchid = $(this).val();
-				var dataString = 'search=' + searchid;
-				if (searchid != '') {
-					$.ajax({
-						type: "POST",
-						url: "search_event.php",
-						data: dataString,
-						cache: false,
-						success: function(html) {
-							$("#result").html(html).show();
-						}
-					});
-				}
-				return false;
-			});
-
-			jQuery("#result").live("click", function(e) {
-				var $clicked = $(e.target);
-				var $name = $clicked.find('.name').html();
-				var decoded = $("<div/>").html($name).text();
-				$('#searchid').val(decoded);
-			});
-			jQuery(document).live("click", function(e) {
-				var $clicked = $(e.target);
-				if (!$clicked.hasClass("search")) {
-					jQuery("#result").fadeOut();
-				}
-			});
-			$('#searchid').click(function() {
-				jQuery("#result").fadeIn();
-			});
-		});
-	</script>
 
 </body>
 
