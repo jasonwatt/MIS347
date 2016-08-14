@@ -1,5 +1,5 @@
 <?php
-      define('DB_NAME', 'skecomplaints');
+define('DB_NAME', 'skecomplaints');
 define('DB_USER', 'ske');
 define('DB_PASSWORD', 'ske');
 define('DB_HOST', 'localhost');
@@ -21,7 +21,7 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
 
     echo "Connected successfully";
 
-	$sql = "SELECT User_ID ,Username, Password FROM user;";
+	$sql = "SELECT User_ID ,Username, Password, User_Type FROM user;";
 
 	$result = mysql_query($sql,$conn);
 
@@ -36,10 +36,16 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
 	while($row = mysql_fetch_assoc($result)) {
 	if($row["Password"] === $passwordSalt && $row["Username"]===$Username){ //user Exists
 		$userID= $row["User_ID"];
+		$account = $row["User_Type"];
 		session_start();
 		$_SESSION["sessionUserID"] = $userID;
 		echo "User Exists";
-		header("Location: ../patron/profile_exp.php");
+		if($account == "Patron")
+			header("Location: ../patron/profile_exp.php");
+		else if($account == "Admin")
+			header("Location: ../admin/dashboard_admin.php");
+		else
+			header("Location: ../opsteam/dashboard_opsteam.php");
 		break;
 	}
 

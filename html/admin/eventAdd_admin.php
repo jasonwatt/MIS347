@@ -29,6 +29,51 @@
     }
 </style>
 
+    <!-- xxxxx -->
+    <style type="text/css">
+		body {
+			font-family: Tahoma, Geneva, sans-serif;
+			font-size: 18px;
+		}
+
+		.content {
+			width: 900px;
+			margin: 0 auto;
+		}
+
+		#searchid {
+			width: 500px;
+			border: solid 1px #000;
+			padding: 10px;
+			font-size: 14px;
+		}
+
+		#result {
+			position: absolute;
+			width: 500px;
+			padding: 10px;
+			display: none;
+			margin-top: -1px;
+			border-top: 0px;
+			overflow: hidden;
+			border: 1px #CCC solid;
+			background-color: white;
+		}
+
+		.show {
+			padding: 10px;
+			border-bottom: 1px #999 dashed;
+			font-size: 15px;
+			height: 50px;
+		}
+
+		.show:hover {
+			background: #4c66a4;
+			color: #FFF;
+			cursor: pointer;
+		}
+	</style>
+
 <style type="text/css">
 .panel-default{padding: 15px;}
 .form-group{margin-top: 15px;}
@@ -46,7 +91,7 @@
     position:absolute;
     width:500px;
     padding:10px;
-    display:none;
+    /*display:none;*/
     margin-top:-1px;
     border-top:0px;
     overflow:hidden;
@@ -224,25 +269,19 @@ img#search{width:50px; height:40px; float:left; margin-right:6px;}
                 </div>
 
                 <div class="row">
-                    <ul class="collection col s6">
-                        <li class="collection-item">Alvin</li>
-                        <li class="collection-item">Alvin</li>
-                        <li class="collection-item">Alvin</li>
-                        <li class="collection-item">Alvin</li>
-                    </ul>
+									<a id="adduser" class="waves-effect waves-light left btn">Add User</a>
+									<a id="addgroup" class="waves-effect waves-light right btn">Add Group</a>
+								</div>
 
-                    <ul class="collection col s6">
-                        <li class="collection-item">Alvin</li>
-                        <li class="collection-item">Alvin</li>
-                        <li class="collection-item">Alvin</li>
-                        <li class="collection-item">Alvin</li>
-                    </ul>
+								<div class="row">
 
-                </div>
+
+								</div>
 
                 <div class="row">
                     <input name="Locations" placeholder="+Location" />
-                </div>            
+                </div>
+
 
                 <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                     <i class="material-icons right">send</i>
@@ -281,6 +320,24 @@ img#search{width:50px; height:40px; float:left; margin-right:6px;}
                     return false;
                 }
             });
+
+						var counter = 0;
+
+						$('#adduser').click(function () {
+							var newSelectBoxDiv = $(document.createElement('div')).attr("id", 'SelectBoxDiv'+counter);
+							newSelectBoxDiv.after().html('<label>Select User'+counter+': </label>'+
+								'<select class="customUserSelect" id="selectUser'+counter'">';
+								<?php
+									$connection = mysql_connect('localhost','ske','ske') or die(mysql_error());
+									$database = mysql_select_db('skecomplaints') or die(mysql_error());
+             			$select=mysql_query("select * from user");
+             			while($row=mysql_fetch_array($select))
+             			{
+              			echo "<option value=".$row['User_ID'].">".$row['User_Name']."</option>";
+             			}
+           			?>
+								+'</select>')
+      			}
 
 
         });
@@ -343,7 +400,6 @@ img#search{width:50px; height:40px; float:left; margin-right:6px;}
             }
         }
     </script>
-
 
 </body>
 

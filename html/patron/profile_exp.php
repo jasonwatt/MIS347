@@ -27,7 +27,7 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
 	catch (Exception $e) {
       header('Location: ../html/Login.html');
     }
-
+	$_SESSION['patron'] = 1;
     $sql = "SELECT User_ID, Username, Profile_Pic, Email, User_Type FROM user WHERE User_ID= ".$User_ID." ";
     $result = mysql_query($sql,$conn);
     while($row = mysql_fetch_assoc($result)) {            
@@ -80,7 +80,7 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                  <ul class="right hide-on-med-and-down">
                         <li><a href="dashboard_admin.html">Home</a></li>
-                        <li><a class="waves-effect waves-light btn">Logout</a></li>
+                        <li><a class="waves-effect waves-light btn" href="../../php/logout.php">Logout</a></li>
                     </ul>
                     <ul class="side-nav" id="mobile-demo">
                     <li><a href="#">Profile</a></li>
@@ -96,7 +96,7 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
             <form class="col s12 l12 m6">
 
                 <div class="card-header">
-                    <img src="data:image/jpeg;base64,<?php echo base64_encode( $Profile_Pic ); ?>" />
+                    <img src="../one_life.jpg" alt="profile pic" style="width:200px;height:200px;">
                 </div>
                 <div class="card-content">
                     <h5><?php echo "$Username"; ?></h5>
@@ -104,7 +104,7 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
                     <h6><?php echo "$Email"; ?></h6>
                 </div>
 
-                <a class="btn-floating btn-large waves-effect waves-light red right" id="pp_fab" href="../shared/edit_profile.html"><i class="material-icons">mode_edit</i></a>
+                <a class="btn-floating btn-large waves-effect waves-light red right" id="pp_fab" href=<?php echo "../../php/userEdit.php?id=$User_ID" ?>><i class="material-icons">mode_edit</i></a>
 
             </form>
         </div>

@@ -9,9 +9,12 @@ define('DB_HOST', 'localhost');
        if ($conn->connect_error) {
            die("Connection failed: " . $conn->connect_error);
        }
-
-	$User_ID = ($_POST['Euserid']);
 	session_start();
+	if($_SESSION['patron'] == 1)
+		$User_ID = $_GET["id"];
+	else
+		$User_ID = $_POST['Euserid'];
+
 	$_SESSION['UserID'] = $User_ID;
     $sql = "SELECT User_Name, Email, Status, Events, Groups FROM user WHERE User_ID = '".$User_ID."' ";
     $result = $conn->query($sql);
@@ -21,7 +24,6 @@ define('DB_HOST', 'localhost');
 	$Status= $row["Status"];
 	$Events= $row["Events"];
 	$Groups= $row["Groups"];
-
 	break;
 
   }

@@ -13,7 +13,7 @@ define('DB_HOST', 'localhost');
           die("Connection failed: " . $conn->connect_error);
       }
 
-	$userID = ($_POST['userid']);
+	$userID = ($_POST['Duserid']);
 
       $sql = "DELETE FROM user WHERE User_ID = '".$userID."' ";  //1 for admin, 2 for ops, 3 for patron
 
@@ -22,7 +22,7 @@ define('DB_HOST', 'localhost');
 		 header("Location: ../html/admin/userManagement_admin.php");
       }
       else
-        echo " Error: ";
+        echo " Error: ". sql . $conn->error()."<br>";
 
       $conn->close();
 

@@ -1,3 +1,43 @@
+<?php
+define('DB_USER', 'ske');
+define('DB_PASSWORD', 'ske');
+define('DB_HOST', '');
+define('DB_NAME', 'skecomplaints');
+    $conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);	// $config['username'], $config['password'],
+   
+    if(! $conn)
+{
+	die('Could not connect');
+}
+
+$db_selected = mysql_select_db(DB_NAME, $conn);
+
+
+	if(! $db_selected)
+	{
+		die('Cannot use ' . DB_NAME . ': ' . mysql_error());
+	}
+
+    session_start(); 
+    
+	// Check connection   
+    try {	
+		$User_ID= $_SESSION["sessionUserID"]; 
+    } 
+	catch (Exception $e) {
+      header('Location: ../html/Login.html');
+    }
+
+    $sql = "SELECT Username, Email, User_Name FROM user WHERE User_ID= ".$User_ID." ";
+    $result = mysql_query($sql,$conn);
+    while($row = mysql_fetch_assoc($result)) {            
+    $Username= $row["Username"];
+    $User_Name= $row["User_Name"];
+    break;
+	
+  }
+?>
+
 <html>
 
 <head>
@@ -20,11 +60,10 @@
     <ul id="nav-mobile" class="side-nav fixed sideNav">
         <br>
         <br>
-        <li class="bold"><a href="http://localhost/MIS347/html/opsteam/profile_opsteam.php" class="waves-effect waves-teal">Profile</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/opsteam/issueManagement_opsteam.php" class="waves-effect waves-teal">Issues</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/opsteam/userManagement_opsteam.php" class="waves-effect waves-teal">Users</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/opsteam/groupManagement_opsteam.php" class="waves-effect waves-teal">Groups</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/opsteam/eventManagement_opsteam.php" class="waves-effect waves-teal">Events</a></li>
+        <li class="bold"><a href="http://localhost/MIS347/html/admin/profile_admin.php" class="waves-effect waves-teal">Profile</a></li>
+        <li class="bold"><a href="http://localhost/MIS347/html/admin/issueManagement_admin.php" class="waves-effect waves-teal">Issues</a></li>
+        <li class="bold"><a href="http://localhost/MIS347/html/admin/groupManagement_admin.php" class="waves-effect waves-teal">Groups</a></li>
+        <li class="bold"><a href="http://localhost/MIS347/html/admin/eventManagement_admin.php" class="waves-effect waves-teal">Events</a></li>
     </ul>
 
 
@@ -32,30 +71,30 @@
     <div class="mainContainer">
         <nav class="indigo darken-2 topNavBar">
             <div class="nav-wrapper">
-                <a href="#!" class="dashboardHeader brand-logo">OpsTeam Dashboard</a>
+                <a href="#!" class="dashboardHeader brand-logo">Admin Dashboard</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="dashboard_opsteam.html">Home</a></li>
-                    <li><a class="waves-effect waves-light btn" href="../../php/logout.php">Logout</a></li>
+                    <li><a href="dashboard_admin.html">Home</a></li>
+                    <li><a class="waves-effect waves-light btn">Logout</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                    <li class="bold"><a href="profile_opsteam.php" class="waves-effect waves-teal">Profile</a></li>
-                    <li class="bold"><a href="http://localhost/MIS347/html/opsteam/issueManagement_opsteam.php" class="waves-effect waves-teal">Issues</a></li>
-                    <li class="bold"><a href="http://localhost/MIS347/html/opsteam/groupManagement_opsteam.php" class="waves-effect waves-teal">Groups</a></li>
-                    <li class="bold"><a href="http://localhost/MIS347/html/opsteam/eventManagement_opsteam.php" class="waves-effect waves-teal">Events</a></li>
+                    <li class="bold"><a href="profile_admin.php" class="waves-effect waves-teal">Profile</a></li>
+                    <li class="bold"><a href="http://localhost/MIS347/html/admin/issueManagement_admin.php" class="waves-effect waves-teal">Issues</a></li>
+                    <li class="bold"><a href="http://localhost/MIS347/html/admin/groupManagement_admin.php" class="waves-effect waves-teal">Groups</a></li>
+                    <li class="bold"><a href="http://localhost/MIS347/html/admin/eventManagement_admin.php" class="waves-effect waves-teal">Events</a></li>
                     <li><a class="waves-effect waves-light btn">Logout</a></li>
                 </ul>
             </div>
         </nav>
 
-        <!-- DELETE THIS FOR opsteam DASHBOARD -->
+        <!-- DELETE THIS FOR ADMIN DASHBOARD -->
 
         <div class="cardContainer">
             <div class="row">
                 <div class="col l8 m8 s12">
                     <div class="card-panel teal lighten-2">
-                        <span class="white-text">Choose the opsteamistrative duty you would like to fulfil next.
-                            opsteamistrative Duties Include - Event Management, Group Management, Issue Management and User Management.
+                        <span class="white-text">Choose the administrative duty you would like to fulfil next.
+                            Administrative Duties Include - Event Management, Group Management, Issue Management and User Management.
                             Any Changes made by you will be reflected in the database shared by everyone.
                         </span>
                     </div>
@@ -72,9 +111,9 @@
                             <div class="col s10">
                                 <p>
                                     <ul>
-                                        <li>Name</li>
-                                        <li>Username</li>
-                                        <li>opsteamistrator</li>
+                                        <li><?php echo "$User_Name"; ?></li>
+                                        <li><?php echo "$Username"; ?></li>
+                                        <li>Administrator</li>
                                     </ul>
                                 </p>
                             </div>
@@ -110,7 +149,7 @@
                             <p>Issue management description. Issue management description. Issue management description.</p>
                         </div>
                         <div class="card-action">
-                            <a href="http://localhost/MIS347/html/opsteam/issueManagement_opsteam.php">Make Changes</a>
+                            <a href="http://localhost/MIS347/html/admin/issueManagement_admin.php">Make Changes</a>
                         </div>
                     </div>
 
@@ -123,7 +162,7 @@
                             <p>Event management description. Event management description. Event management description.</p>
                         </div>
                         <div class="card-action">
-                            <a href="http://localhost/MIS347/html/opsteam/eventManagement_opsteam.php">Make Changes</a>
+                            <a href="http://localhost/MIS347/html/admin/eventManagement_admin.php">Make Changes</a>
                         </div>
                     </div>
 
@@ -136,7 +175,7 @@
                             <p>User management description. User management description. User management description.</p>
                         </div>
                         <div class="card-action">
-                            <a href="http://localhost/MIS347/html/opsteam/userManagement_opsteam.php">Make Changes</a>
+                            <a href="http://localhost/MIS347/html/admin/userManagement_admin.php">Make Changes</a>
                         </div>
                     </div>
 
@@ -149,7 +188,7 @@
                             <p>Group management description. Group management description. Group management description.</p>
                         </div>
                         <div class="card-action">
-                            <a href="http://http://localhost/MIS347/html/opsteam/groupManagement_opsteam.php">Make Changes</a>
+                            <a href="http://localhost/MIS347/html/admin/groupManagement_admin.php">Make Changes</a>
                         </div>
                     </div>
                 </div>

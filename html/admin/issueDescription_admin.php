@@ -7,11 +7,11 @@ define('DB_HOST', 'localhost');
        if ($conn->connect_error) {
            die("Connection failed: " . $conn->connect_error);
        }
-	
+
 	session_start();
 	$Issues_ID = $_GET["id"];
-    $sql = "SELECT Created_Timestamp, Last_Update_Timestamp, First_Response_Timestamp, Completed_Timestamp, Summary, Status, 
-	First_Response_User, Completed_Timestamp, Description, Label, Location 
+    $sql = "SELECT Created_Timestamp, Last_Update_Timestamp, First_Response_Timestamp, Completed_Timestamp, Summary, Status,
+	First_Response_User, Completed_Timestamp, Description, Label, Location
 	FROM issues WHERE Issues_ID= ".$Issues_ID." ";
     $result = $conn->query($sql);
     while($row = $result->fetch_assoc()) {
@@ -85,13 +85,15 @@ define('DB_HOST', 'localhost');
             </div>
         </nav>
 
-        <!-- DELETE THIS FOR ADMIN DASHBOARD -->
-        <a class="btn-floating btn-large waves-effect waves-light lime right" id="fab1"><i class="material-icons">assignment_ind</i></a>
-        <a class="btn-floating btn-large waves-effect waves-light pink right" id="fab2"><i class="material-icons">mode_edit</i></a>
-        <a class="btn-floating btn-large waves-effect waves-light cyan right" id="fab3"><i class="material-icons">delete</i></a>
 
+        <a class="btn-floating btn-large waves-effect waves-light lime right" id="fab1"><i class="material-icons">assignment_ind</i></a>
 
         <div class="formContainer card">
+
+          <form  id="issueAssignf" action = "issueAssign_admin.php" method = "post">
+              <input name="issueid" type = "hidden" value = <?php echo $Issues_ID; ?> />
+          </form>
+
             <form class="col s12 l12 m6">
 
                 <h4 id="issueTitle">Issue Name</h4>
@@ -206,8 +208,8 @@ define('DB_HOST', 'localhost');
                 <div class="chip cyan"><i class="close material-icons">close</i>
 <font color="white"><?php echo "$Label"; ?></font>
   </div>
-                
-                    
+
+
                 </div>
 
                 <div id="chipsLocation">
@@ -252,6 +254,12 @@ define('DB_HOST', 'localhost');
     id: 1, //optional
   };
     </script>
+
+    <script>
+          $("#fab1").click(function(){
+              $("#issueAssignf").submit();
+          });
+      </script>
 </body>
 
 </html>
