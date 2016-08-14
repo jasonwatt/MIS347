@@ -104,7 +104,7 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
                     <h6><?php echo "$Email"; ?></h6>
                 </div>
 
-                <a class="btn-floating btn-large waves-effect waves-light red right" id="pp_fab" href="../shared/edit_profile.html"><i class="material-icons">mode_edit</i></a>
+                <a class="btn-floating btn-large waves-effect waves-light red right" id="pp_fab" href="../../php/userEdit.php"><i class="material-icons">mode_edit</i></a>
 
             </form>
         </div>
