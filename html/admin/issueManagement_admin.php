@@ -48,7 +48,7 @@
         </nav>
 
         <div id="fab_add">
-            <a class="btn-floating btn-large waves-effect waves-light red right" id="fab_add" href="issueSubmit_admin.html"><i class="material-icons">add</i></a>
+            <a class="btn-floating btn-large waves-effect waves-light red right" id="fab_add" href="issueSubmit_admin.php"><i class="material-icons">add</i></a>
         </div>
 
         <div class="formContainer card">
