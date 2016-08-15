@@ -79,7 +79,7 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
                 <a href="#!" class="dashboardHeader brand-logo">Patron Profile</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                  <ul class="right hide-on-med-and-down">
-                        <li><a href="dashboard_admin.html">Home</a></li>
+                        <li><a href="dashboard_patron.html">Home</a></li>
                         <li><a class="waves-effect waves-light btn" href="../../php/logout.php">Logout</a></li>
                     </ul>
                     <ul class="side-nav" id="mobile-demo">
