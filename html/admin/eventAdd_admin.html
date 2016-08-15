@@ -268,10 +268,10 @@ img#search{width:50px; height:40px; float:left; margin-right:6px;}
                     </div>
                 </div>
 
-                <div class="row">
+                <!-- <div class="row">
 									<a id="adduser" class="waves-effect waves-light left btn">Add User</a>
 									<a id="addgroup" class="waves-effect waves-light right btn">Add Group</a>
-								</div>
+								</div> -->
 
 								<div class="row">
 
@@ -327,15 +327,15 @@ img#search{width:50px; height:40px; float:left; margin-right:6px;}
 							var newSelectBoxDiv = $(document.createElement('div')).attr("id", 'SelectBoxDiv'+counter);
 							newSelectBoxDiv.after().html('<label>Select User'+counter+': </label>'+
 								'<select class="customUserSelect" id="selectUser'+counter'">';
-								<?php
-									$connection = mysql_connect('localhost','ske','ske') or die(mysql_error());
-									$database = mysql_select_db('skecomplaints') or die(mysql_error());
-             			$select=mysql_query("select * from user");
-             			while($row=mysql_fetch_array($select))
-             			{
-              			echo "<option value=".$row['User_ID'].">".$row['User_Name']."</option>";
-             			}
-           			?>
+								// <?php
+								// 	$connection = mysql_connect('localhost','ske','ske') or die(mysql_error());
+								// 	$database = mysql_select_db('skecomplaints') or die(mysql_error());
+             	// 		$select=mysql_query("select * from user");
+             	// 		while($row=mysql_fetch_array($select))
+             	// 		{
+              	// 		echo "<option value=".$row['User_ID'].">".$row['User_Name']."</option>";
+             	// 		}
+           		// 	?>
 								+'</select>')
       			}
 
