@@ -36,7 +36,7 @@
 
        if($conn->query($sql) === TRUE){
          echo "Value Inserted successfully";
-		 header("Location: ../html/admin/userManagement_admin.php")
+		 header("Location: ../html/admin/userManagement_admin.php");
          //Indicate that the person has been registered
        }
        else

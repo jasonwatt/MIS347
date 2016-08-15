@@ -21,18 +21,16 @@
     <ul id="nav-mobile" class="side-nav fixed sideNav">
         <br>
         <br>
-        <li class="bold"><a href="http://localhost/MIS347/html/patron/profile_patron.php" class="waves-effect waves-teal">Profile</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/patron/issues_patron.php" class="waves-effect waves-teal">Issues</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/patron/groups_patron.php" class="waves-effect waves-teal">Groups</a></li>
+        <li class="bold"><a href="profile_exp.php" class="waves-effect waves-teal">Profile</a></li>
+        <li class="bold"><a href="issues_patron.php" class="waves-effect waves-teal">Issues</a></li>
+        <li class="bold"><a href="groups_patron.php" class="waves-effect waves-teal">Groups</a></li>
         <li class="bold"><a href="events_patron.php" class="waves-effect waves-teal">Events</a></li>
     </ul>
 
 
-
     <div class="mainContainer">
-        <nav class="indigo darken-2 topNavBar">
-
-            <div class="nav-wrapper">
+        <nav class="indigo darken-2 topNavBar>        
+           <div class="nav-wrapper">
                 <div class="col s12">
                     <a href="#!" class="breadcrumb">Patron</a>
                     <a href="#!" class="breadcrumb">My Groups</a>

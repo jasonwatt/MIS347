@@ -56,7 +56,7 @@ define('DB_HOST', 'localhost');
         <li class="bold"><a href="profile_exp.php" class="waves-effect waves-teal">Profile</a></li>
         <li class="bold"><a href="issues_patron.php" class="waves-effect waves-teal">Issues</a></li>
         <li class="bold"><a href="groups_patron.php" class="waves-effect waves-teal">Groups</a></li>
-        <li class="bold"><a href="events_patrons.php" class="waves-effect waves-teal">Events</a></li>
+        <li class="bold"><a href="events_patron.php" class="waves-effect waves-teal">Events</a></li>
     </ul>
 
 

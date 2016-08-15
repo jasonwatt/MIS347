@@ -21,10 +21,10 @@
     <ul id="nav-mobile" class="side-nav fixed sideNav">
         <br>
         <br>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/profile_admin.php" class="waves-effect waves-teal">Profile</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/issueManagement_admin.php" class="waves-effect waves-teal">Issues</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/groupManagement_admin.php" class="waves-effect waves-teal">Groups</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/eventManagement_admin.php" class="waves-effect waves-teal">Events</a></li>
+        <li class="bold"><a href="profile_exp.php" class="waves-effect waves-teal">Profile</a></li>
+        <li class="bold"><a href="issues_patron.php" class="waves-effect waves-teal">Issues</a></li>
+        <li class="bold"><a href="groups_patron.php" class="waves-effect waves-teal">Groups</a></li>
+        <li class="bold"><a href="events_patron.php" class="waves-effect waves-teal">Events</a></li>
     </ul>
 
 
