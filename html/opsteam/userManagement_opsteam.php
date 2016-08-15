@@ -1,3 +1,4 @@
+
 <html>
 
 <head>
@@ -102,10 +103,10 @@
 									<form  id="userEdit" action = "../../php/userEdit.php" method = "post">
                                         <input name="Euserid" type = "hidden" value = "'.$User_ID.'" />
                                     </form>
-                                    <td>'.$User_Name.'</td>
+                                    <td>'.$Username.'</td>
                                     <td>'.$Last_Active.'</td>
                                     <td>'.$Group_ID.'</td>
-                                    <td>                                    
+                                    <td>
                                         <button class="btn-floating modal-trigger btn-small waves-effect waves-light red btn_edit" href="#editIssuesModal"><i class="material-icons">mode_edit</i></a>
                                     </td>
 								</tr>

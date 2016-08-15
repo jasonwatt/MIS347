@@ -108,7 +108,7 @@
 									<form  id="userEdit" action = "../../php/userEdit.php" method = "post">
                                         <input name="Euserid" type = "hidden" value = "'.$User_ID.'" />
                                     </form>
-                                    <td>'.$User_Name.'</td>
+                                    <td>'.$Username.'</td>
                                     <td>'.$Last_Active.'</td>
                                     <td>'.$Group_ID.'</td>
                                     <td>
