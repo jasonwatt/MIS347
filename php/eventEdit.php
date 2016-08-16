@@ -209,20 +209,7 @@ $sql = "SELECT Event_Name, Start_Date, End_Date, Address, Locations FROM events 
                     <div class="input-field col s6">
                         <input id="groups" type="text" class="validate" name="groups">
                         <label for="groups">Groups</label>
-                    </div>
-                    <ul class="collection col s6">
-                        <li class="collection-item">Alvin</li>
-                        <li class="collection-item">Alvin</li>
-                        <li class="collection-item">Alvin</li>
-                        <li class="collection-item">Alvin</li>
-                    </ul>
-
-                    <ul class="collection col s6">
-                        <li class="collection-item">Alvin</li>
-                        <li class="collection-item">Alvin</li>
-                        <li class="collection-item">Alvin</li>
-                        <li class="collection-item">Alvin</li>
-                    </ul>
+                    </div>                
 
                 </div>
 

@@ -96,7 +96,7 @@ define('DB_HOST', 'localhost');
 
             <form class="col s12 l12 m6">
 
-                <h4 id="issueTitle">Issue Name</h4>
+                <h4 id="issueTitle"><?php echo "$Issues_ID"; ?></h4>
 
                 <div class="teal z-depth-1">
                     <div class="row" id="tsStripe1">
