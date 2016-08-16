@@ -38,7 +38,7 @@
                     <a href="#!" class="breadcrumb">Event Management</a>
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="dashboard_opsteam.html">Home</a></li>
+                        <li><a href="dashboard_opsteam.php">Home</a></li>
                         <li><a class="waves-effect waves-light btn" href="../../php/logout.php">Logout</a></li>
                     </ul>
                 </div>
@@ -101,7 +101,7 @@
                                     <td>'.$Event_ID.'</td>
                                     <td>'.$Status.'</td>
                                     <td>'.$Start_Date.'</td>
-                                    <td>                                    
+                                    <td>
                                         <a class="btn-floating modal-trigger btn-small waves-effect waves-light red btn_edit" href="#editIssuerModal"><i class="material-icons">mode_edit</i></a>
                                     </td>
 								</tr>

@@ -22,8 +22,9 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
 	$issueTitle = $_POST["issueT"];
 	$issueDetail = $_POST["issueD"];
 	$user = $_POST["user"];
-	$sql = "INSERT INTO issues (Summary, Status, Assign_User) 
-	VALUES ('$issueTitle','$issueDetail', '$user')";
+	$timestamp = date('Y-m-d G:i:s');
+	$sql = "INSERT INTO issues (Summary, Status, Assign_User, Status, Created_Timestamp)
+	VALUES ('$issueTitle','$issueDetail', '$user', 'New', '$timestamp')";
 
 if (mysql_query($sql,$conn) === TRUE) {
     echo "\n New record created successfully";
@@ -37,5 +38,5 @@ else
 
 mysql_close($conn);
 
-	
+
 ?>

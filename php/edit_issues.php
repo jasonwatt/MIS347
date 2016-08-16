@@ -11,7 +11,7 @@ define('DB_HOST', 'localhost');
 	$Issues_ID = ($_POST['Eissueid']);
 	session_start();
 	$_SESSION['IssueID'] = $Issues_ID;
-	$check = $_SESSION['check'];
+	// $check = $_SESSION['check'];
     $sql = "SELECT Summary, Status FROM issues WHERE Issues_ID= ".$Issues_ID." ";
     $result = $conn->query($sql);
     while($row = $result->fetch_assoc()) {
@@ -56,7 +56,7 @@ define('DB_HOST', 'localhost');
 <div class = "mainContainer">
   <nav class="indigo darken-2 topNavBar">
     <div class="nav-wrapper">
-      <a href="#!" class="dashboardHeader brand-logo">Patron Dashboard</a>
+      <a href="#!" class="dashboardHeader brand-logo">Edit Issues</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="dashboard_patron.html">Home</a></li>
@@ -94,9 +94,10 @@ define('DB_HOST', 'localhost');
         <div class="input-field col s12 l12 m6">
           <select>
             <option value="" disabled selected>Select a label</option>
-            <option value="1" >Option 1</option>
-            <option value="2" >Option 2</option>
-            <option value="3" >Option 3</option>
+            <option value="1" >Maintanence</option>
+            <option value="2" >Fire</option>
+            <option value="3" >Spill</option>
+            <option value="3" >Medical</option>
           </select>
           <label>Issue Label</label>
         </div>

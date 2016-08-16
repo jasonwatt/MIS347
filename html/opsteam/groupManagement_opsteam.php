@@ -38,7 +38,7 @@
                     <a href="#!" class="breadcrumb">Ops Team</a>
                     <a href="#!" class="breadcrumb">Group Management</a>
                                         <ul class="right hide-on-med-and-down">
-                        <li><a href="dashboard_opsteam.html">Home</a></li>
+                        <li><a href="dashboard_opsteam.php">Home</a></li>
                         <li><a class="waves-effect waves-light btn" href="../../php/logout.php">Logout</a></li>
                     </ul>
                 </div>
@@ -96,7 +96,7 @@
                                     <td>'.$Group_Name.'</td>
                                     <td>'.$Event_ID.'</td>
                                     <td>'.$User_ID.'</td>
-                                    <td>                                    
+                                    <td>
                                     <button class="btn-floating modal-trigger btn-small waves-effect waves-light red btn_edit" href="#editIssueModal"><i class="material-icons">mode_edit</i></a>
                                     </td>
                                 </tr>

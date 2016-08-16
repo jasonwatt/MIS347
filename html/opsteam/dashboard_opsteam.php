@@ -4,7 +4,7 @@ define('DB_PASSWORD', 'ske');
 define('DB_HOST', '');
 define('DB_NAME', 'skecomplaints');
     $conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);	// $config['username'], $config['password'],
-   
+
     if(! $conn)
 {
 	die('Could not connect');
@@ -18,23 +18,23 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
 		die('Cannot use ' . DB_NAME . ': ' . mysql_error());
 	}
 
-    session_start(); 
-    
-	// Check connection   
-    try {	
-		$User_ID= $_SESSION["sessionUserID"]; 
-    } 
+    session_start();
+
+	// Check connection
+    try {
+		$User_ID= $_SESSION["sessionUserID"];
+    }
 	catch (Exception $e) {
       header('Location: ../html/Login.html');
     }
 
     $sql = "SELECT Username, Email, User_Name FROM user WHERE User_ID= ".$User_ID." ";
     $result = mysql_query($sql,$conn);
-    while($row = mysql_fetch_assoc($result)) {            
+    while($row = mysql_fetch_assoc($result)) {
     $Username= $row["Username"];
     $User_Name= $row["User_Name"];
     break;
-	
+
   }
 ?>
 
@@ -75,7 +75,7 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
                 <a href="#!" class="dashboardHeader brand-logo">OpsTeam Dashboard</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="dashboard_opsteam.html">Home</a></li>
+                    <li><a href="dashboard_opsteam.php">Home</a></li>
                     <li><a class="waves-effect waves-light btn" href="../../php/logout.php">Logout</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">

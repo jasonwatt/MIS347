@@ -4,7 +4,7 @@ define('DB_PASSWORD', 'ske');
 define('DB_HOST', '');
 define('DB_NAME', 'skecomplaints');
     $conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);	// $config['username'], $config['password'],
-   
+
     if(! $conn)
 {
 	die('Could not connect');
@@ -17,7 +17,7 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
 	{
 		die('Cannot use ' . DB_NAME . ': ' . mysql_error());
 	}
-	
+
 session_start();
 $User_ID= $_SESSION["sessionUserID"];
 ?>
@@ -29,9 +29,7 @@ $User_ID= $_SESSION["sessionUserID"];
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css"  media="screen,projection"/>
   <link type = "text/css" rel = "stylesheet" href = "../../css/register.css"/>
-<<<<<<< HEAD
   <link type = "text/css" rel = "stylesheet" href = "../../css/patron_home.css"/>
-=======
   <link type = "text/css" rel = "stylesheet" href = "../../css/patron/dashboard_patron.css"/>
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -95,9 +93,10 @@ $User_ID= $_SESSION["sessionUserID"];
         <div class="input-field col s12 l12 m6">
           <select>
             <option value="" disabled selected>Select a label</option>
-            <option value="1" >Option 1</option>
-            <option value="2" >Option 2</option>
-            <option value="3" >Option 3</option>
+            <option value="1" >Maintanence</option>
+            <option value="2" >Fire</option>
+            <option value="3" >Spill</option>
+            <option value="4" >Medical</option>
           </select>
           <label>Issue Label</label>
         </div>
