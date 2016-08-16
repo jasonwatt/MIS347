@@ -60,6 +60,7 @@
                             <th data-field="id">Issue Name</th>
                             <th data-field="name">Last Updated Timestamp</th>
                             <th data-field="price">Status</th>
+                            <th data-field="user">Assigned User</th>
                             <th data-field="action"></th>
                         </tr>
                     </thead>
@@ -110,6 +111,7 @@
                                     <td><a href="issueDescription_admin.php?id='.$Issue_ID.'">'.$Summary.'</a></td>
                                     <td>'.$Last_Update_Timestamp.'</td>
                                     <td>'.$Status.'</td>
+                                    <td>'.$Assign_User.'</td>
                                     <td>
                                         <button class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" href="#deleteIssueModal"><i class="material-icons">delete</i></button>
                                         <button class="btn-floating modal-trigger btn-small waves-effect waves-light red btn_edit" href="#editIssueModal"><i class="material-icons">mode_edit</i></a>
@@ -164,8 +166,8 @@
             $("#edit_issues").submit();
         });
     </script>
-	
-	
+
+
 </body>
 
 </html>

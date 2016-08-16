@@ -113,7 +113,7 @@
 									<form id = "eventEdit" action = "../../php/eventEdit.php" method = "post">
 										<input name = "eventid" type = "hidden" value = "'.$Event_ID.'" />
 									</form>
-                                    <td>'.$Event_ID.'</td>
+                                    <td>'.$Event_Name.'</td>
                                     <td>'.$Status.'</td>
                                     <td>'.$Start_Date.'</td>
                                     <td>
