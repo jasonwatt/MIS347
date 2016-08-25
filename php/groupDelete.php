@@ -35,25 +35,25 @@ define('DB_HOST', 'localhost');
 //
 // 	mysql_close($conn);
 
-$conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,'skecomplaints');
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, 'skecomplaints');
 
 // Check connection
-	 if ($conn->connect_error) {
-			 die("Connection failed: " . $conn->connect_error);
-	 }
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 $Group_ID = ($_POST['Dgroupid']);
 
-	 $sql = "DELETE FROM groups WHERE Group_ID = '".$Group_ID."' ";  //1 for admin, 2 for ops, 3 for patron
+$sql = "DELETE FROM groups WHERE Group_ID = '" . $Group_ID . "' ";  //1 for admin, 2 for ops, 3 for patron
 
- $result = $conn->query($sql);
-	 if($conn->query($sql)){
-			echo "deleted";
-	header("Location: ../html/admin/groupManagement_admin.php");
-	 }
-	 else
-		 echo " Error: ";
+$result = $conn->query($sql);
+if ($conn->query($sql)) {
+    echo "deleted";
+    header("Location: ../html/admin/groupManagement_admin.php");
+} else {
+    echo " Error: ";
+}
 
-	 $conn->close();
+$conn->close();
 
-?>
+

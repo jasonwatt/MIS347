@@ -5,32 +5,30 @@ define('DB_PASSWORD', 'ske');
 define('DB_HOST', 'localhost');
 
 $conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
-if(! $conn)
-{
-	die('Could not connect');
+if (!$conn) {
+    die('Could not connect');
 }
 
 $db_selected = mysql_select_db(DB_NAME, $conn);
 
 
-	if(! $db_selected)
-	{
-		die('Cannot use ' . DB_NAME . ': ' . mysql_error());
-	}
-	session_start();
-	$Issues_ID = $_SESSION['IssueID'];
-	$user = $_POST['user'];
-	$sql = "UPDATE issues SET Assign_User = '$user' WHERE Issues_ID = $Issues_ID";
+if (!$db_selected) {
+    die('Cannot use ' . DB_NAME . ': ' . mysql_error());
+}
+session_start();
+$Issues_ID = $_SESSION['IssueID'];
+$user = $_POST['user'];
+$sql = "UPDATE issues SET Assign_User = '$user' WHERE Issues_ID = $Issues_ID";
 
-if (mysql_query($sql,$conn) === TRUE) {
+if (mysql_query($sql, $conn) === true) {
     echo "\n Record edited successfully";
-	header("Location: ../html/admin/issueManagement_admin.php");
+    header("Location: ../html/admin/issueManagement_admin.php");
 } else {
     echo "Error: " . $sql . "<br>" . mysql_error($conn);
-	header("Location: edit_issues.php");
+    header("Location: edit_issues.php");
 }
 
 mysql_close($conn);
 
 
-?>
+

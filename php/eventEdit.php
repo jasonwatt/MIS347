@@ -1,21 +1,20 @@
 <?php
-$conn = new mysqli('localhost','ske','ske','skecomplaints');
-if(! $conn)
-{
-	die("Connection failed: " . $conn->connect_error);
+$conn = new mysqli('localhost', 'ske', 'ske', 'skecomplaints');
+if (!$conn) {
+    die("Connection failed: " . $conn->connect_error);
 }
 $Event_ID = ($_POST['eventid']);
 session_start();
 $_SESSION['eventid'] = $Event_ID;
-$sql = "SELECT Event_Name, Start_Date, End_Date, Address, Locations FROM events WHERE Event_ID = ".$Event_ID." ";
- $result = $conn->query($sql);
-    while($row = $result->fetch_assoc()) {
-    $Event_Name= $row["Event_Name"];
-    $Start_Date= $row["Start_Date"];
-	$End_Date= $row["End_Date"];
-	$Locations= $row["Locations"];
+$sql = "SELECT Event_Name, Start_Date, End_Date, Address, Locations FROM events WHERE Event_ID = " . $Event_ID . " ";
+$result = $conn->query($sql);
+while ($row = $result->fetch_assoc()) {
+    $Event_Name = $row["Event_Name"];
+    $Start_Date = $row["Start_Date"];
+    $End_Date = $row["End_Date"];
+    $Locations = $row["Locations"];
     break;
-	}
+}
 ?>
 <html>
 
@@ -23,25 +22,28 @@ $sql = "SELECT Event_Name, Start_Date, End_Date, Address, Locations FROM events 
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="../css/admin/eventAdd_admin.css" />
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../css/admin/eventAdd_admin.css"/>
     <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <style>
     @media screen and (min-width: 993px) {
         .main {
-            width: 80%;
+            width:       80%;
             margin-left: 20%;
         }
+
         .side-nav {
-            width: 20%;
+            width:     20%;
             min-width: 100px;
         }
-        .main> ul {
+
+        .main > ul {
             margin-top: 20px;
         }
+
         .card {
             width: 70%;
         }
@@ -55,16 +57,22 @@ $sql = "SELECT Event_Name, Start_Date, End_Date, Address, Locations FROM events 
     <script type="text/javascript" src="../js/materialize.min.js"></script>
 
 
-
     <ul id="nav-mobile" class="side-nav fixed sideNav">
         <br>
         <br>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/profile_admin.php" class="waves-effect waves-teal">Profile</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/issueManagement_admin.php" class="waves-effect waves-teal">Issues</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/groupManagement_admin.php" class="waves-effect waves-teal">Groups</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/eventManagement_admin.php" class="waves-effect waves-teal">Events</a></li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/admin/profile_admin.php" class="waves-effect waves-teal">Profile</a>
+        </li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/admin/issueManagement_admin.php" class="waves-effect waves-teal">Issues</a>
+        </li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/admin/groupManagement_admin.php" class="waves-effect waves-teal">Groups</a>
+        </li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/admin/eventManagement_admin.php" class="waves-effect waves-teal">Events</a>
+        </li>
     </ul>
-
 
 
     <div class="mainContainer">
@@ -209,12 +217,12 @@ $sql = "SELECT Event_Name, Start_Date, End_Date, Address, Locations FROM events 
                     <div class="input-field col s6">
                         <input id="groups" type="text" class="validate" name="groups">
                         <label for="groups">Groups</label>
-                    </div>                
+                    </div>
 
                 </div>
 
                 <div class="row">
-                    <input name="Locations" placeholder="+Location" value="<?php echo "$Locations"; ?>" />
+                    <input name="Locations" placeholder="+Location" value="<?php echo "$Locations"; ?>"/>
                 </div>
 
                 <button class="btn waves-effect waves-light" type="submit" name="action">Submit
@@ -239,9 +247,11 @@ $sql = "SELECT Event_Name, Start_Date, End_Date, Address, Locations FROM events 
 
             $('.chips').material_chip();
             $('.chips-initial').material_chip({
-                data: [{
-                    tag: 'Whole Address',
-                }],
+                data: [
+                    {
+                        tag: 'Whole Address',
+                    }
+                ],
             });
             $('.chips-placeholder').material_chip({
                 placeholder: 'Enter a tag',

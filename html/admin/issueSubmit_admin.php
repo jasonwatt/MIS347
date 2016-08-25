@@ -2,13 +2,13 @@
 define('DB_USER', 'ske');
 define('DB_PASSWORD', 'ske');
 define('DB_HOST', 'localhost');
-    $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,'skecomplaints'); // $config['username'], $config['password'],
-    // Check connection
-       if ($conn->connect_error) {
-           die("Connection failed: " . $conn->connect_error);
-       }
-	session_start();
-	$_SESSION['check']= 0;
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, 'skecomplaints'); // $config['username'], $config['password'],
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+session_start();
+$_SESSION['check'] = 0;
 ?> -->
 
 <html>
@@ -17,11 +17,11 @@ define('DB_HOST', 'localhost');
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="../../css/register.css" />
-    <link type="text/css" rel="stylesheet" href="../../css/patron_home.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../../css/register.css"/>
+    <link type="text/css" rel="stylesheet" href="../../css/patron_home.css"/>
     <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body class="grey lighten-4">
@@ -30,17 +30,25 @@ define('DB_HOST', 'localhost');
     <script type="text/javascript" src="../../js/materialize.min.js"></script>
 
 
-
     <ul id="nav-mobile" class="side-nav fixed sideNav">
         <br>
         <br>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/profile_admin.php" class="waves-effect waves-teal">Profile</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/issueManagement_admin.php" class="waves-effect waves-teal">Issues</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/userManagement_admin.php" class="waves-effect waves-teal">Users</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/groupManagement_admin.php" class="waves-effect waves-teal">Groups</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/eventManagement_admin.php" class="waves-effect waves-teal">Events</a></li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/admin/profile_admin.php" class="waves-effect waves-teal">Profile</a>
+        </li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/admin/issueManagement_admin.php" class="waves-effect waves-teal">Issues</a>
+        </li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/admin/userManagement_admin.php" class="waves-effect waves-teal">Users</a>
+        </li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/admin/groupManagement_admin.php" class="waves-effect waves-teal">Groups</a>
+        </li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/admin/eventManagement_admin.php" class="waves-effect waves-teal">Events</a>
+        </li>
     </ul>
-
 
 
     <div class="mainContainer">

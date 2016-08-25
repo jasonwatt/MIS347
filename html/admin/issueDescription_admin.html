@@ -4,11 +4,11 @@
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="../../css/register.css" />
-    <link type="text/css" rel="stylesheet" href="../../css/admin_issueDescription.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../../css/register.css"/>
+    <link type="text/css" rel="stylesheet" href="../../css/admin_issueDescription.css"/>
     <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body class="grey lighten-4">
@@ -17,17 +17,17 @@
     <script type="text/javascript" src="../../js/materialize.min.js"></script>
 
 
-
     <ul id="nav-mobile" class="side-nav fixed sideNav">
         <br>
         <br>
         <li class="bold"><a href="profile_admin.php" class="waves-effect waves-teal">Profile</a></li>
         <li class="bold"><a href="issueManagement_admin.php" class="waves-effect waves-teal">Issues</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/userManagement_admin.php" class="waves-effect waves-teal">Users</a></li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/admin/userManagement_admin.php" class="waves-effect waves-teal">Users</a>
+        </li>
         <li class="bold"><a href="groupManagement_admin.php" class="waves-effect waves-teal">Groups</a></li>
         <li class="bold"><a href="eventManagement_admin.php" class="waves-effect waves-teal">Events</a></li>
     </ul>
-
 
 
     <div class="mainContainer">
@@ -105,16 +105,16 @@
                 </div>
 
                 <div id="issueSummary">
-                     <div class="row">
-   	 <form class="col s12">
-      <div class="row">
-        <div class="input-field col s12">
-          <textarea id="textarea1" class="materialize-textarea"></textarea>
-          <label for="textarea1">Issue Summary</label>
-        </div>
-      </div>
-    </form>
-  </div>
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                    <label for="textarea1">Issue Summary</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     <div class="row">
                         <div class="col s6">
                             <b>Status : </b><font color="green">Status 1</font>
@@ -157,26 +157,26 @@
                 </div>
 
                 <div id="issueDescription">
-                     <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s12">
-          <textarea id="textarea2" class="materialize-textarea"></textarea>
-          <label for="textarea2">Description</label>
-        </div>
-      </div>
-    </form>
-  </div>
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea id="textarea2" class="materialize-textarea"></textarea>
+                                    <label for="textarea2">Description</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
 
                 </div>
 
                 <div id="chipsLabel">
                     <h5>Issue Label</h5>
-                <div class="chip cyan"><i class="close material-icons">close</i>
-<font color="white">Issue Label</font>
-  </div>
-                
-                    
+                    <div class="chip cyan"><i class="close material-icons">close</i>
+                        <font color="white">Issue Label</font>
+                    </div>
+
+
                 </div>
 
                 <div id="chipsLocation">
@@ -205,21 +205,23 @@
             $('select').material_select();
 
             $('.chips').material_chip();
-  $('.chips-initial').material_chip({
-    data: [{
-      tag: 'Issue Label',
-    }],
-  });
-  $('.chips-placeholder').material_chip({
-    placeholder: 'Enter a Issue Label',
-    secondaryPlaceholder: '+Issue',
-  });
+            $('.chips-initial').material_chip({
+                data: [
+                    {
+                        tag: 'Issue Label',
+                    }
+                ],
+            });
+            $('.chips-placeholder').material_chip({
+                placeholder: 'Enter a Issue Label',
+                secondaryPlaceholder: '+Issue',
+            });
         });
- var chip = {
-    tag: 'chip content',
-    image: '', //optional
-    id: 1, //optional
-  };
+        var chip = {
+            tag: 'chip content',
+            image: '', //optional
+            id: 1, //optional
+        };
     </script>
 </body>
 

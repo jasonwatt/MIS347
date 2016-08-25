@@ -2,32 +2,32 @@
 define('DB_USER', 'ske');
 define('DB_PASSWORD', 'ske');
 define('DB_HOST', 'localhost');
-    $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,'skecomplaints'); // $config['username'], $config['password'],
-    // Check connection
-       if ($conn->connect_error) {
-           die("Connection failed: " . $conn->connect_error);
-       }
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, 'skecomplaints'); // $config['username'], $config['password'],
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-	session_start();
-	$Issues_ID = $_GET["id"];
-    $sql = "SELECT Created_Timestamp, Last_Update_Timestamp, First_Response_Timestamp, Completed_Timestamp, Summary, Status,
+session_start();
+$Issues_ID = $_GET["id"];
+$sql = "SELECT Created_Timestamp, Last_Update_Timestamp, First_Response_Timestamp, Completed_Timestamp, Summary, Status,
 	First_Response_User, Completed_Timestamp, Description, Label, Location
-	FROM issues WHERE Issues_ID= ".$Issues_ID." ";
-    $result = $conn->query($sql);
-    while($row = $result->fetch_assoc()) {
-    $Summary= $row["Summary"];
-    $Status= $row["Status"];
-	$Created_Timestamp= $row["Created_Timestamp"];
-	$Last_Update_Timestamp= $row["Last_Update_Timestamp"];
-	$First_Response_Timestamp= $row["First_Response_Timestamp"];
-	$Completed_Timestamp= $row["Completed_Timestamp"];
-	$First_Response_User= $row["First_Response_User"];
-	$Completed_Timestamp= $row["Completed_Timestamp"];
-	$Description= $row["Description"];
-	$Label= $row["Label"];
-	$Location= $row["Location"];
+	FROM issues WHERE Issues_ID= " . $Issues_ID . " ";
+$result = $conn->query($sql);
+while ($row = $result->fetch_assoc()) {
+    $Summary = $row["Summary"];
+    $Status = $row["Status"];
+    $Created_Timestamp = $row["Created_Timestamp"];
+    $Last_Update_Timestamp = $row["Last_Update_Timestamp"];
+    $First_Response_Timestamp = $row["First_Response_Timestamp"];
+    $Completed_Timestamp = $row["Completed_Timestamp"];
+    $First_Response_User = $row["First_Response_User"];
+    $Completed_Timestamp = $row["Completed_Timestamp"];
+    $Description = $row["Description"];
+    $Label = $row["Label"];
+    $Location = $row["Location"];
     break;
-  }
+}
 ?>
 
 <html>
@@ -36,18 +36,17 @@ define('DB_HOST', 'localhost');
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="../../css/register.css" />
-    <link type="text/css" rel="stylesheet" href="../../css/admin_issueDescription.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../../css/register.css"/>
+    <link type="text/css" rel="stylesheet" href="../../css/admin_issueDescription.css"/>
     <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body class="grey lighten-4">
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="../../js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="../../js/materialize.min.js"></script>
-
 
 
     <ul id="nav-mobile" class="side-nav fixed sideNav">
@@ -58,7 +57,6 @@ define('DB_HOST', 'localhost');
         <li class="bold"><a href="groupManagement_admin.php" class="waves-effect waves-teal">Groups</a></li>
         <li class="bold"><a href="eventManagement_admin.php" class="waves-effect waves-teal">Events</a></li>
     </ul>
-
 
 
     <div class="mainContainer">
@@ -90,9 +88,9 @@ define('DB_HOST', 'localhost');
 
         <div class="formContainer card">
 
-          <form  id="issueAssignf" action = "issueAssign_admin.php" method = "post">
-              <input name="issueid" type = "hidden" value = <?php echo $Issues_ID; ?> />
-          </form>
+            <form id="issueAssignf" action="issueAssign_admin.php" method="post">
+                <input name="issueid" type="hidden" value= <?php echo $Issues_ID; ?>/>
+            </form>
 
             <form class="col s12 l12 m6">
 
@@ -138,16 +136,16 @@ define('DB_HOST', 'localhost');
                 </div>
 
                 <div id="issueSummary">
-                     <div class="row">
-   	 <form class="col s12">
-      <div class="row">
-        <div class="input-field col s12">
-          <textarea id="textarea1" class="materialize-textarea"><?php echo "$Summary"; ?></textarea>
-          <label for="textarea1">Issue Summary</label>
-        </div>
-      </div>
-    </form>
-  </div>
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea id="textarea1" class="materialize-textarea"><?php echo "$Summary"; ?></textarea>
+                                    <label for="textarea1">Issue Summary</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     <div class="row">
                         <div class="col s6">
                             <b>Status : </b><font color="green"><?php echo "$Status"; ?></font>
@@ -190,24 +188,24 @@ define('DB_HOST', 'localhost');
                 </div>
 
                 <div id="issueDescription">
-                     <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s12">
-          <textarea id="textarea2" class="materialize-textarea"><?php echo "$Description"; ?></textarea>
-          <label for="textarea2">Description</label>
-        </div>
-      </div>
-    </form>
-  </div>
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea id="textarea2" class="materialize-textarea"><?php echo "$Description"; ?></textarea>
+                                    <label for="textarea2">Description</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
 
                 </div>
 
                 <div id="chipsLabel">
                     <h5>Issue Label</h5>
-                <div class="chip cyan"><i class="close material-icons">close</i>
-<font color="white"><?php echo "$Label"; ?></font>
-  </div>
+                    <div class="chip cyan"><i class="close material-icons">close</i>
+                        <font color="white"><?php echo "$Label"; ?></font>
+                    </div>
 
 
                 </div>
@@ -238,28 +236,30 @@ define('DB_HOST', 'localhost');
             $('select').material_select();
 
             $('.chips').material_chip();
-  $('.chips-initial').material_chip({
-    data: [{
-      tag: 'Issue Label',
-    }],
-  });
-  $('.chips-placeholder').material_chip({
-    placeholder: 'Enter a Issue Label',
-    secondaryPlaceholder: '+Issue',
-  });
+            $('.chips-initial').material_chip({
+                data: [
+                    {
+                        tag: 'Issue Label',
+                    }
+                ],
+            });
+            $('.chips-placeholder').material_chip({
+                placeholder: 'Enter a Issue Label',
+                secondaryPlaceholder: '+Issue',
+            });
         });
- var chip = {
-    tag: 'chip content',
-    image: '', //optional
-    id: 1, //optional
-  };
+        var chip = {
+            tag: 'chip content',
+            image: '', //optional
+            id: 1, //optional
+        };
     </script>
 
     <script>
-          $("#fab1").click(function(){
-              $("#issueAssignf").submit();
-          });
-      </script>
+        $("#fab1").click(function() {
+            $("#issueAssignf").submit();
+        });
+    </script>
 </body>
 
 </html>

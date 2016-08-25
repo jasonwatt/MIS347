@@ -4,10 +4,10 @@
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="../css/admin/groupEdit_admin.css" />
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../css/admin/groupEdit_admin.css"/>
     <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <html>
 
@@ -15,10 +15,10 @@
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="../../css/admin/groupEdit_admin.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../../css/admin/groupEdit_admin.css"/>
     <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 
@@ -28,17 +28,25 @@
     <script type="text/javascript" src="../../js/materialize.min.js"></script>
 
 
-
     <ul id="nav-mobile" class="side-nav fixed side-nav">
         <br>
         <br>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/profile_admin.php" class="waves-effect waves-teal">Profile</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/issueManagement_admin.php" class="waves-effect waves-teal">Issues</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/userManagement_admin.php" class="waves-effect waves-teal">Users</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/groupManagement_admin.php" class="waves-effect waves-teal">Groups</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/eventManagement_admin.php" class="waves-effect waves-teal">Events</a></li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/admin/profile_admin.php" class="waves-effect waves-teal">Profile</a>
+        </li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/admin/issueManagement_admin.php" class="waves-effect waves-teal">Issues</a>
+        </li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/admin/userManagement_admin.php" class="waves-effect waves-teal">Users</a>
+        </li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/admin/groupManagement_admin.php" class="waves-effect waves-teal">Groups</a>
+        </li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/admin/eventManagement_admin.php" class="waves-effect waves-teal">Events</a>
+        </li>
     </ul>
-
 
 
     <div class="mainContainer main">
@@ -96,42 +104,42 @@
 
             </form>
 
-            </div>
-
-            <!-- DELETE TILL HERE -->
         </div>
-        <script>
-            $(document).ready(function() {
-                $('select').material_select();
-                $('.chips-placeholder').material_chip({
-                    placeholder: 'Enter a tag',
-                    secondaryPlaceholder: '+Tag',
-                });
+
+        <!-- DELETE TILL HERE -->
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('select').material_select();
+            $('.chips-placeholder').material_chip({
+                placeholder: 'Enter a tag',
+                secondaryPlaceholder: '+Tag',
             });
-        </script>
+        });
+    </script>
 
-        <script>
-            function validateForm() {
+    <script>
+        function validateForm() {
 
-                var name = document.forms["groupEdit"]["Group_Name"].value;
-                if (name == null || name == "") {
-                    alert("Name must be filled out");
-                    return false;
-                }
-
-                var event = document.forms["groupEdit"]["Event_ID"].value;
-                if (event == null || event == "") {
-                    alert("Event must be filled out");
-                    return false;
-                }
-
-                var users = document.forms["groupEdit"]["users"].value;
-                if (users == null || users == "") {
-                    alert("Users must be filled out");
-                        return false;
-                    }
+            var name = document.forms["groupEdit"]["Group_Name"].value;
+            if (name == null || name == "") {
+                alert("Name must be filled out");
+                return false;
             }
-        </script>
+
+            var event = document.forms["groupEdit"]["Event_ID"].value;
+            if (event == null || event == "") {
+                alert("Event must be filled out");
+                return false;
+            }
+
+            var users = document.forms["groupEdit"]["users"].value;
+            if (users == null || users == "") {
+                alert("Users must be filled out");
+                return false;
+            }
+        }
+    </script>
 </body>
 
 </html>

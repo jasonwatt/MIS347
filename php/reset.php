@@ -1,51 +1,43 @@
 <?php
 include('db.php');
 
-if(isset($_GET['action']))
-{          
-    if($_GET['action']=="reset")
-    {
-        $encrypt = mysqli_real_escape_string($conn,$_GET['encrypt']);
-        $query = "SELECT registration id FROM registration where md5(90*13+id)='".$encrypt."'";
-        $result = mysqli_query($conn,$query);
+if (isset($_GET['action'])) {
+    if ($_GET['action'] == "reset") {
+        $encrypt = mysqli_real_escape_string($conn, $_GET['encrypt']);
+        $query = "SELECT registration id FROM registration where md5(90*13+id)='" . $encrypt . "'";
+        $result = mysqli_query($conn, $query);
         $Results = mysqli_fetch_array($result);
-        if(count($Results)>=1)
-        {
+        if (count($Results) >= 1) {
 
-        }
-        else
-        {
+        } else {
             $message = 'Invalid key please try again. <a href="localhost/index.php">Forget Password?</a>';
         }
     }
-}
-elseif(isset($_POST['action']))
-{
+} elseif (isset($_POST['action'])) {
 
-    $encrypt      = mysqli_real_escape_string($conn,$_POST['action']);
-    $query = "SELECT registration id FROM registration where md5(90*13+id)='".$encrypt."'";
+    $encrypt = mysqli_real_escape_string($conn, $_POST['action']);
+    $query = "SELECT registration id FROM registration where md5(90*13+id)='" . $encrypt . "'";
     //echo $query;
-    $result = mysqli_query($conn,$query);
+    $result = mysqli_query($conn, $query);
     $Results = mysqli_fetch_array($result);
-        if (!$Results) {
-            printf("Error: %s\n", mysqli_error($conn));
-            exit();
-        }
-    if(count($Results)>=1)
-    {
-        $query = "update registration set password='".md5($password)."' where email id='".$Results['email id']."'";
-        mysqli_query($conn,$query);
+    if (!$Results) {
+        printf("Error: %s\n", mysqli_error($conn));
+        exit();
+    }
+    if (count($Results) >= 1) {
+        $query = "update registration set password='" . md5(
+                $password
+            ) . "' where email id='" . $Results['email id'] . "'";
+        mysqli_query($conn, $query);
 //        echo $query;
         $message = "Your password changed sucessfully";
-    }
-    else
-    {
+    } else {
         $message = 'Invalid key please try again.';
     }
 }
 
 
-$content ='<script type="text/javascript" src="jquery-1.8.0.min.js"></script> 
+$content = '<script type="text/javascript" src="jquery-1.8.0.min.js"></script> 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <style type="text/css">
@@ -91,7 +83,7 @@ function mypasswordmatch()
   </script>
   <html>
 <body>
- <b>'.$message.'</b>
+ <b>' . $message . '</b>
 <div id="tabs" style="width: 480px;">
   <ul>
     <li><a href="#tabs-1">Reset Password</a></li>
@@ -102,10 +94,9 @@ function mypasswordmatch()
   <form action="reset.php" method="post" id="reset" >
     <p><input id="password" name="password" type="password" placeholder="Enter new password">
     <p><input id="password2" name="password2" type="password" placeholder="Re-type new password">
-    <input name="action" type="hidden" value="'.$encrypt.'" /></p>
+    <input name="action" type="hidden" value="' . $encrypt . '" /></p>
     <p><input type="button" value="Reset Password" onclick="mypasswordmatch();" /></p>
   </form>
   </div>
   </html>
 </div>';
-?>

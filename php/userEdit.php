@@ -4,29 +4,30 @@ define('DB_USER', 'ske');
 define('DB_PASSWORD', 'ske');
 define('DB_HOST', 'localhost');
 
-    $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME); // $config['username'], $config['password'],
-    // Check connection
-       if ($conn->connect_error) {
-           die("Connection failed: " . $conn->connect_error);
-       }
-	session_start();
-	if($_SESSION['patron'] == 1)
-		$User_ID = $_GET["id"];
-	else
-		$User_ID = $_POST['Euserid'];
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); // $config['username'], $config['password'],
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+session_start();
+if ($_SESSION['patron'] == 1) {
+    $User_ID = $_GET["id"];
+} else {
+    $User_ID = $_POST['Euserid'];
+}
 
-	$_SESSION['UserID'] = $User_ID;
-    $sql = "SELECT User_Name, Email, Status, Events, Groups FROM user WHERE User_ID = '".$User_ID."' ";
-    $result = $conn->query($sql);
-    while($row = $result->fetch_assoc()) {
-    $User_Name= $row["User_Name"];
-    $Email= $row["Email"];
-	$Status= $row["Status"];
-	$Events= $row["Events"];
-	$Groups= $row["Groups"];
-	break;
+$_SESSION['UserID'] = $User_ID;
+$sql = "SELECT User_Name, Email, Status, Events, Groups FROM user WHERE User_ID = '" . $User_ID . "' ";
+$result = $conn->query($sql);
+while ($row = $result->fetch_assoc()) {
+    $User_Name = $row["User_Name"];
+    $Email = $row["Email"];
+    $Status = $row["Status"];
+    $Events = $row["Events"];
+    $Groups = $row["Groups"];
+    break;
 
-  }
+}
 ?>
 
 <html>
@@ -35,11 +36,11 @@ define('DB_HOST', 'localhost');
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="../css/register.css" />
-    <link type="text/css" rel="stylesheet" href="../css/admin/userEdit_admin.css" />
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../css/register.css"/>
+    <link type="text/css" rel="stylesheet" href="../css/admin/userEdit_admin.css"/>
     <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body class="grey lighten-4">
@@ -48,16 +49,22 @@ define('DB_HOST', 'localhost');
     <script type="text/javascript" src="../js/materialize.min.js"></script>
 
 
-
     <ul id="nav-mobile" class="side-nav fixed sideNav">
         <br>
         <br>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/profile_admin.php" class="waves-effect waves-teal">Profile</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/issueManagement_admin.php" class="waves-effect waves-teal">Issues</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/groupManagement_admin.php" class="waves-effect waves-teal">Groups</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/admin/eventManagement_admin.php" class="waves-effect waves-teal">Events</a></li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/admin/profile_admin.php" class="waves-effect waves-teal">Profile</a>
+        </li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/admin/issueManagement_admin.php" class="waves-effect waves-teal">Issues</a>
+        </li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/admin/groupManagement_admin.php" class="waves-effect waves-teal">Groups</a>
+        </li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/admin/eventManagement_admin.php" class="waves-effect waves-teal">Events</a>
+        </li>
     </ul>
-
 
 
     <div class="mainContainer">
@@ -92,7 +99,7 @@ define('DB_HOST', 'localhost');
 
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="name" type="text" class="validate" name="uname" value="<?php echo "$User_Name"?>">
+                        <input id="name" type="text" class="validate" name="uname" value="<?php echo "$User_Name" ?>">
                         <label for="name">Name</label>
                     </div>
 
@@ -109,12 +116,12 @@ define('DB_HOST', 'localhost');
 
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="email" type="text" class="validate" name="email" value="<?php echo "$Email"?>">
+                        <input id="email" type="text" class="validate" name="email" value="<?php echo "$Email" ?>">
                         <label for="email">Email</label>
                     </div>
 
                     <div class="input-field col s6">
-                        <select  value="<?php echo "$Status"?>">
+                        <select value="<?php echo "$Status" ?>">
                             <option value="" disabled selected>Status</option>
                             <option value="active">Active</option>
                             <option value="suspended">Suspended</option>
@@ -125,27 +132,27 @@ define('DB_HOST', 'localhost');
 
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="events" type="text" class="validate" name="events"  value="<?php echo "$Events"?>">
+                        <input id="events" type="text" class="validate" name="events" value="<?php echo "$Events" ?>">
                         <label for="users">Events</label>
                     </div>
 
 
                     <div class="input-field col s6">
-                        <input id="groups" type="text" class="validate" name="groups"  value="<?php echo "$Groups"?>">
+                        <input id="groups" type="text" class="validate" name="groups" value="<?php echo "$Groups" ?>">
                         <label for="groups">Groups</label>
                     </div>
 
                 </div>
 
                 <div class="input-field col s12 l12 m6">
-                            <select id="label" name="account">
-                                <option value="" disabled selected>Account Category</option>
-                                <option value="1">Patron</option>
-                                <option value="2">Ops Team</option>
-                                <option value="3">Admin</option>
-                            </select>
-                            <label>User Account</label>
-                        </div>
+                    <select id="label" name="account">
+                        <option value="" disabled selected>Account Category</option>
+                        <option value="1">Patron</option>
+                        <option value="2">Ops Team</option>
+                        <option value="3">Admin</option>
+                    </select>
+                    <label>User Account</label>
+                </div>
 
                 <div class="row">
                     <button class="btn waves-effect waves-light right" type="submit" name="action">Save

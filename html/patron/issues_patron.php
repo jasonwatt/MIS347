@@ -4,18 +4,17 @@
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="../../css/register.css" />
-    <link type="text/css" rel="stylesheet" href="../../css/patron_home.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../../css/register.css"/>
+    <link type="text/css" rel="stylesheet" href="../../css/patron_home.css"/>
     <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body class="grey lighten-4">
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="../../js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="../../js/materialize.min.js"></script>
-
 
 
     <ul id="nav-mobile" class="side-nav fixed sideNav">
@@ -26,7 +25,6 @@
         <li class="bold"><a href="groups_patron.php" class="waves-effect waves-teal">Groups</a></li>
         <li class="bold"><a href="events_patron.php" class="waves-effect waves-teal">Events</a></li>
     </ul>
-
 
 
     <div class="mainContainer">
@@ -67,48 +65,47 @@
                         <?php
 
                         define('DB_USER', 'ske');
-						define('DB_PASSWORD', 'ske');
-						define('DB_HOST', 'localhost');
-						$conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,'skecomplaints');
-                        if(! $conn)
-                        {
+                        define('DB_PASSWORD', 'ske');
+                        define('DB_HOST', 'localhost');
+                        $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, 'skecomplaints');
+                        if (!$conn) {
                             die("Connection failed: " . $conn->connect_error);
                         }
 
-							session_start();
-							$User_ID= $_SESSION["sessionUserID"];
-							$_SESSION['check'] = 1;
-                            $sql = "SELECT * FROM issues WHERE ".$User_ID." = issues.Submitting_User";
-                            $result = $conn->query($sql);
-                            // output data of each row
-                            while($row = $result->fetch_assoc()){
-                                //Creates a loop to loop through results
-                                $Issue_ID = $row["Issues_ID"];
-                                $Last_Update_Timestamp = $row["Last_Update_Timestamp"];
-                                $Status = $row["Status"];
-                                $Summary = $row["Summary"];
-                                $Created_Timestamp = $row["Created_Timestamp"];
-                                $First_Response_Timestamp = $row["First_Response_Timestamp"];
-                                $Completed_Timestamp = $row["Completed_Timestamp"];
-                                $Assign_User = $row["Assign_User"];
-                                $Description = $row["Description"];
-                                $Location = $row["Location"];
-                                $Label = $row["Label"];
-                                $Comment_ID = $row["Comment_ID"];
-								$_SESSION['issueid'] = $Issue_ID;
+                        session_start();
+                        $User_ID = $_SESSION["sessionUserID"];
+                        $_SESSION['check'] = 1;
+                        $sql = "SELECT * FROM issues WHERE " . $User_ID . " = issues.Submitting_User";
+                        $result = $conn->query($sql);
+                        // output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                            //Creates a loop to loop through results
+                            $Issue_ID = $row["Issues_ID"];
+                            $Last_Update_Timestamp = $row["Last_Update_Timestamp"];
+                            $Status = $row["Status"];
+                            $Summary = $row["Summary"];
+                            $Created_Timestamp = $row["Created_Timestamp"];
+                            $First_Response_Timestamp = $row["First_Response_Timestamp"];
+                            $Completed_Timestamp = $row["Completed_Timestamp"];
+                            $Assign_User = $row["Assign_User"];
+                            $Description = $row["Description"];
+                            $Location = $row["Location"];
+                            $Label = $row["Label"];
+                            $Comment_ID = $row["Comment_ID"];
+                            $_SESSION['issueid'] = $Issue_ID;
 
-                                echo '
-								<tr id="E'.$Issue_ID.'">
+                            echo '
+								<tr id="E' . $Issue_ID . '">
 									<form  id="edit_issues" action = "../../php/edit_issues.php" method = "post">
-                                        <input name="Eissueid" type = "hidden" value = "'.$Issue_ID.'" />
+                                        <input name="Eissueid" type = "hidden" value = "' . $Issue_ID . '" />
                                     </form>
-                                <tr id="D'.$Issue_ID.'">
+                                <tr id="D' . $Issue_ID . '">
                                    <form  id="issueDelete" action = "../../php/issueDelete.php" method = "post">
-                                        <input name="Dissueid" type = "hidden" value = "'.$Issue_ID.'" />
+                                        <input name="Dissueid" type = "hidden" value = "' . $Issue_ID . '" />
                                     </form>
-                                    <td><a href="issueDescription_patron.php?id='.$Issue_ID.'">'.$Summary.'</a></td>
-                                    <td>'.$Last_Update_Timestamp.'</td>
-                                    <td>'.$Status.'</td>
+                                    <td><a href="issueDescription_patron.php?id=' . $Issue_ID . '">' . $Summary . '</a></td>
+                                    <td>' . $Last_Update_Timestamp . '</td>
+                                    <td>' . $Status . '</td>
                                     <td>
                                         <button class="btn-floating modal-trigger btn-small waves-effect waves-light blue btn_delete" href="#deleteIssueModal"><i class="material-icons">delete</i></button>
                                         <button class="btn-floating modal-trigger btn-small waves-effect waves-light red btn_edit" href="#editIssueModal"><i class="material-icons">mode_edit</i></a>
@@ -117,7 +114,7 @@
                                 </tr>
                                 '; // echo end
 
-                            }
+                        }
 
                         ?>
 

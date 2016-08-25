@@ -3,39 +3,37 @@ define('DB_USER', 'ske');
 define('DB_PASSWORD', 'ske');
 define('DB_HOST', '');
 define('DB_NAME', 'skecomplaints');
-    $conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);	// $config['username'], $config['password'],
+$conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);    // $config['username'], $config['password'],
 
-    if(! $conn)
-{
-	die('Could not connect');
+if (!$conn) {
+    die('Could not connect');
 }
 
 $db_selected = mysql_select_db(DB_NAME, $conn);
 
 
-	if(! $db_selected)
-	{
-		die('Cannot use ' . DB_NAME . ': ' . mysql_error());
-	}
+if (!$db_selected) {
+    die('Cannot use ' . DB_NAME . ': ' . mysql_error());
+}
 
-    session_start();
+session_start();
 
-	// Check connection
-    try {
-		$User_ID= $_SESSION["sessionUserID"];
-    }
-	catch (Exception $e) {
-      header('Location: ../html/Login.html');
-    }
+// Check connection
+try {
+    $User_ID = $_SESSION["sessionUserID"];
+}
+catch (Exception $e) {
+    header('Location: ../html/Login.html');
+}
 
-    $sql = "SELECT Username, Email, User_Name FROM user WHERE User_ID= ".$User_ID." ";
-    $result = mysql_query($sql,$conn);
-    while($row = mysql_fetch_assoc($result)) {
-    $Username= $row["Username"];
-    $User_Name= $row["User_Name"];
+$sql = "SELECT Username, Email, User_Name FROM user WHERE User_ID= " . $User_ID . " ";
+$result = mysql_query($sql, $conn);
+while ($row = mysql_fetch_assoc($result)) {
+    $Username = $row["Username"];
+    $User_Name = $row["User_Name"];
     break;
 
-  }
+}
 ?>
 
 <html>
@@ -44,10 +42,10 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="../../css/dashboard_admin.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../../css/dashboard_admin.css"/>
     <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body class="grey lighten-4">
@@ -56,17 +54,25 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
     <script type="text/javascript" src="../../js/materialize.min.js"></script>
 
 
-
     <ul id="nav-mobile" class="side-nav fixed sideNav">
         <br>
         <br>
-        <li class="bold"><a href="http://localhost/MIS347/html/opsteam/profile_opsteam.php" class="waves-effect waves-teal">Profile</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/opsteam/issueManagement_opsteam.php" class="waves-effect waves-teal">Issues</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/opsteam/userManagement_opsteam.php" class="waves-effect waves-teal">Users</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/opsteam/groupManagement_opsteam.php" class="waves-effect waves-teal">Groups</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/opsteam/eventManagement_opsteam.php" class="waves-effect waves-teal">Events</a></li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/opsteam/profile_opsteam.php" class="waves-effect waves-teal">Profile</a>
+        </li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/opsteam/issueManagement_opsteam.php" class="waves-effect waves-teal">Issues</a>
+        </li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/opsteam/userManagement_opsteam.php" class="waves-effect waves-teal">Users</a>
+        </li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/opsteam/groupManagement_opsteam.php" class="waves-effect waves-teal">Groups</a>
+        </li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/opsteam/eventManagement_opsteam.php" class="waves-effect waves-teal">Events</a>
+        </li>
     </ul>
-
 
 
     <div class="mainContainer">
@@ -80,9 +86,15 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li class="bold"><a href="profile_opsteam.php" class="waves-effect waves-teal">Profile</a></li>
-                    <li class="bold"><a href="http://localhost/MIS347/html/opsteam/issueManagement_opsteam.php" class="waves-effect waves-teal">Issues</a></li>
-                    <li class="bold"><a href="http://localhost/MIS347/html/opsteam/groupManagement_opsteam.php" class="waves-effect waves-teal">Groups</a></li>
-                    <li class="bold"><a href="http://localhost/MIS347/html/opsteam/eventManagement_opsteam.php" class="waves-effect waves-teal">Events</a></li>
+                    <li class="bold">
+                        <a href="http://localhost/MIS347/html/opsteam/issueManagement_opsteam.php" class="waves-effect waves-teal">Issues</a>
+                    </li>
+                    <li class="bold">
+                        <a href="http://localhost/MIS347/html/opsteam/groupManagement_opsteam.php" class="waves-effect waves-teal">Groups</a>
+                    </li>
+                    <li class="bold">
+                        <a href="http://localhost/MIS347/html/opsteam/eventManagement_opsteam.php" class="waves-effect waves-teal">Events</a>
+                    </li>
                     <li><a class="waves-effect waves-light btn">Logout</a></li>
                 </ul>
             </div>
@@ -95,8 +107,8 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
                 <div class="col l8 m8 s12">
                     <div class="card-panel teal lighten-2">
                         <span class="white-text">Choose the opsteamistrative duty you would like to fulfil next.
-                            opsteamistrative Duties Include - Event Management, Group Management, Issue Management and User Management.
-                            Any Changes made by you will be reflected in the database shared by everyone.
+                                                 opsteamistrative Duties Include - Event Management, Group Management, Issue Management and User Management.
+                                                 Any Changes made by you will be reflected in the database shared by everyone.
                         </span>
                     </div>
                 </div>
@@ -111,11 +123,11 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
                             </div>
                             <div class="col s10">
                                 <p>
-                                    <ul>
-                                        <li><?php echo "$User_Name"; ?></li>
-                                        <li><?php echo "$Username"; ?></li>
-                                        <li>opsteamistrator</li>
-                                    </ul>
+                                <ul>
+                                    <li><?php echo "$User_Name"; ?></li>
+                                    <li><?php echo "$Username"; ?></li>
+                                    <li>opsteamistrator</li>
+                                </ul>
                                 </p>
                             </div>
                         </div>
@@ -127,18 +139,18 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
         <div class="cards-container">
 
             <div class="row">
-<!--
-                <div class="col l3 m3 offset-l9 offset-m9 hide-on-low updatesCard">
-                    <div class="card-panel blue-grey lighten-3">
-                        <span class="card-title white-text" style="font-size: 1.2em;">Updates</span>
-                        <div class="collection">
-                            <a href="#!" class="collection-item active">Issues<span class="new badge teal">17</span></a>
-                            <a href="#!" class="collection-item">Events<span class="new badge teal">3</span></a>
-                            <a href="#!" class="collection-item">Users<span class="new badge teal">24</span></a>
-                            <a href="#!" class="collection-item">Groups<span class="new badge teal">11</span></a>
-                        </div>
-                    </div>
-                </div> -->
+                <!--
+                                <div class="col l3 m3 offset-l9 offset-m9 hide-on-low updatesCard">
+                                    <div class="card-panel blue-grey lighten-3">
+                                        <span class="card-title white-text" style="font-size: 1.2em;">Updates</span>
+                                        <div class="collection">
+                                            <a href="#!" class="collection-item active">Issues<span class="new badge teal">17</span></a>
+                                            <a href="#!" class="collection-item">Events<span class="new badge teal">3</span></a>
+                                            <a href="#!" class="collection-item">Users<span class="new badge teal">24</span></a>
+                                            <a href="#!" class="collection-item">Groups<span class="new badge teal">11</span></a>
+                                        </div>
+                                    </div>
+                                </div> -->
 
                 <div class="col s12 m8">
                     <div class="card">
@@ -196,10 +208,7 @@ $db_selected = mysql_select_db(DB_NAME, $conn);
             </div>
 
 
-
         </div>
-
-
 
 
         <!-- DELETE TILL HERE -->

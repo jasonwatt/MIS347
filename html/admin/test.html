@@ -4,10 +4,10 @@
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="../../css/opsteam/eventEdit_opsteam.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../../css/opsteam/eventEdit_opsteam.css"/>
     <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body class="grey lighten-4">
@@ -16,16 +16,22 @@
     <script type="text/javascript" src="../../js/materialize.min.js"></script>
 
 
-
     <ul id="nav-mobile" class="side-nav fixed sideNav">
         <br>
         <br>
-        <li class="bold"><a href="http://localhost/MIS347/html/opsteam/profile_opsteam.php" class="waves-effect waves-teal">Profile</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/opsteam/issueManagement_opsteam.php" class="waves-effect waves-teal">Issues</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/opsteam/groupManagement_opsteam.php" class="waves-effect waves-teal">Groups</a></li>
-        <li class="bold"><a href="http://localhost/MIS347/html/opsteam/eventManagement_opsteam.php" class="waves-effect waves-teal">Events</a></li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/opsteam/profile_opsteam.php" class="waves-effect waves-teal">Profile</a>
+        </li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/opsteam/issueManagement_opsteam.php" class="waves-effect waves-teal">Issues</a>
+        </li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/opsteam/groupManagement_opsteam.php" class="waves-effect waves-teal">Groups</a>
+        </li>
+        <li class="bold">
+            <a href="http://localhost/MIS347/html/opsteam/eventManagement_opsteam.php" class="waves-effect waves-teal">Events</a>
+        </li>
     </ul>
-
 
 
     <div class="mainContainer">
@@ -159,13 +165,13 @@
 
                 </div>
 
-                <input type = "hidden" name = "userToBeAdded">
+                <input type="hidden" name="userToBeAdded">
                 <input
                 <div class="row">
                     <div class="input-field col s6">
                         <input id="users" type="text" class="validate">
                         <label for="users">Users</label>
-                        <ul class = "collection userCollection" id = "userCollection" style = "display: none">
+                        <ul class="collection userCollection" id="userCollection" style="display: none">
                             <li class="collection-item">qwe</li>
                             <li class="collection-item">asd</li>
                             <li class="collection-item">zxc</li>
@@ -233,35 +239,35 @@
         });
     </script>
 
-     <!-- CUSTOM AUTOCOMPLETE SCRIPT -->
+    <!-- CUSTOM AUTOCOMPLETE SCRIPT -->
     <script>
-      $('#users').keyup(function(){
+        $('#users').keyup(function() {
 
-        if($('#users').val() != ''){
+            if ($('#users').val() != '') {
 
-          $("#userCollection").css('display', 'block');
+                $("#userCollection").css('display', 'block');
 
-          var autocompleteBoxValue = $('#users').val().toLowerCase();
+                var autocompleteBoxValue = $('#users').val().toLowerCase();
 
-          if(autocompleteBoxValue){
-            $('#userCollection').children("li:not(:contains("+ autocompleteBoxValue + "))").slideUp();
-            $('#userCollection').children("li:contains("+ autocompleteBoxValue + ")").slideDown();
-          }
+                if (autocompleteBoxValue) {
+                    $('#userCollection').children("li:not(:contains(" + autocompleteBoxValue + "))").slideUp();
+                    $('#userCollection').children("li:contains(" + autocompleteBoxValue + ")").slideDown();
+                }
 
-          else{
-            $('#userCollection').children("li").slideDown();
-          }
-        }
-        else{
-          $("#userCollection").css('display', 'none');
-        }
+                else {
+                    $('#userCollection').children("li").slideDown();
+                }
+            }
+            else {
+                $("#userCollection").css('display', 'none');
+            }
 
-      });
-      $.expr[":"].contains = $.expr.createPseudo(function(arg) {
-          return function( elem ) {
-              return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
-          };
-      });
+        });
+        $.expr[":"].contains = $.expr.createPseudo(function(arg) {
+            return function(elem) {
+                return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+            };
+        });
     </script>
 </body>
 
